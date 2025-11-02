@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef } from "react";
 import MagicBento from "@/components/ui/MagicBento";
 import { Filter } from "lucide-react";
+import "./About.css";
 
 const LAUNCH_TS = new Date("2026-01-10T09:00:00+05:30").getTime();
 
@@ -111,6 +112,7 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
 
   return (
     <div
+      className="launch-countdown-container"
       style={{
         display: "flex",
         flexDirection: "row",
@@ -129,60 +131,60 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
           }}
         >
           {/* <div style={chipStyle}>Launching in</div> */}
-          <div style={rowStyle}>
+          <div className="countdown-boxes" style={rowStyle}>
             <div style={boxStyle}>
-              <div style={numStyle}>
+              <div className="num-style" style={numStyle}>
                 {String(timeLeft.days).padStart(2, "0")}
               </div>
-              <div style={labelStyle}>Days</div>
+              <div className="label-style" style={labelStyle}>Days</div>
             </div>
-            <div style={sepStyle}>:</div>
+            <div className="sep-style" style={sepStyle}>:</div>
             <div style={boxStyle}>
-              <div style={numStyle}>
+              <div className="num-style" style={numStyle}>
                 {String(timeLeft.hours).padStart(2, "0")}
               </div>
-              <div style={labelStyle}>Hours</div>
+              <div className="label-style" style={labelStyle}>Hours</div>
             </div>
-            <div style={sepStyle}>:</div>
+            <div className="sep-style" style={sepStyle}>:</div>
             <div style={boxStyle}>
-              <div style={numStyle}>
+              <div className="num-style" style={numStyle}>
                 {String(timeLeft.minutes).padStart(2, "0")}
               </div>
-              <div style={labelStyle}>Minutes</div>
+              <div className="label-style" style={labelStyle}>Minutes</div>
             </div>
-            <div style={sepStyle}>:</div>
+            <div className="sep-style" style={sepStyle}>:</div>
             <div style={boxStyle}>
-              <div style={numStyle}>
+              <div className="num-style" style={numStyle}>
                 {String(timeLeft.seconds).padStart(2, "0")}
               </div>
-              <div style={labelStyle}>Seconds</div>
+              <div className="label-style" style={labelStyle}>Seconds</div>
             </div>
           </div>
         </div>
       </div>
-      <div
-        style={{
-          display: "inline-flex",
-          flexDirection: "row",
-          alignItems: "end",
-          justifyContent: "flex-end",
-          gap: 14,
-        }}
-      >
-        <h2
-          style={{
-            fontSize: "3rem",
-            fontWeight: "200",
-            fontFamily: "Poppins",
-            color: "rgba(245, 239, 230, 1)",
-            color: "transparent",
-            WebkitTextStroke: "2px white",
-            letterSpacing: "0.5rem",
-          }}
-        >
-          JAN 10, 2026
-        </h2>
-      </div>
+       <div
+         className="countdown-date"
+         style={{
+           display: "inline-flex",
+           flexDirection: "row",
+           alignItems: "end",
+           justifyContent: "flex-end",
+           gap: 14,
+         }}
+       >
+         <h2
+           style={{
+             fontSize: "3rem",
+             fontWeight: "200",
+             fontFamily: "Poppins",
+             color: "transparent",
+             WebkitTextStroke: "2px white",
+             letterSpacing: "0.5rem",
+           }}
+         >
+           JAN 10, 2026
+         </h2>
+       </div>
     </div>
   );
 }
@@ -407,8 +409,9 @@ function VenueSection() {
   };
 
   return (
-    <div style={{ marginTop: "11%", marginBottom: "10%" }}>
+    <div className="venue-section-wrapper" style={{ marginTop: "11%", marginBottom: "10%" }}>
       <div
+        className="venue-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
@@ -417,8 +420,8 @@ function VenueSection() {
         }}
       >
         {/* Left side - Text */}
-        <div style={containerStyle}>
-          <h2 style={headingStyle}>Venue</h2>
+        <div className="venue-text-container" style={containerStyle}>
+          <h2 className="venue-heading" style={headingStyle}>Venue</h2>
           {/* <p style={textStyle}>
             Join us at <strong>IIIT Kottayam, Valavoor</strong> for an
             incredible weekend of innovation and collaboration.
@@ -432,6 +435,7 @@ function VenueSection() {
             everything you need to build something amazing.
           </p> */}
           <div
+            className="venue-text-box"
             style={{
               marginTop: "1.5rem",
               padding: "12px 20px",
@@ -458,8 +462,8 @@ Indian Institute of Information Technology (IIIT) Kottayam</strong>
         </div>
 
         {/* Right side - Map */}
-        <div style={{ ...containerStyle, padding: 0, overflow: "hidden", display: "flex", height: "100%" }}>
-          <div style={{ ...mapContainerStyle, borderRadius: 20, flex: 1 }} ref={mapRef}>
+        <div className="venue-map-wrapper" style={{ ...containerStyle, padding: 0, overflow: "hidden", display: "flex", height: "100%" }}>
+          <div className="venue-map-container" style={{ ...mapContainerStyle, borderRadius: 20, flex: 1 }} ref={mapRef}>
             {!mapLoaded && (
               <div
                 style={{
@@ -530,12 +534,12 @@ export default function About() {
       >
         <div style={{ marginBottom: "1.25rem" }}>
           <LaunchCountdown />
-        </div>
+      </div>
         <VenueSection />
         <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
           <h1 style={{ fontSize: "2.25rem", lineHeight: 1.2, margin: 0 }}>
             {/* Code Kalari Hackathon */}
-          </h1>
+        </h1>
           <p style={{ opacity: 0.8, marginTop: "0.5rem" }}>
             {/* Presented by IIIT Kottayam and MLH */}
           </p>

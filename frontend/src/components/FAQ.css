@@ -46,6 +46,75 @@
   }
 }
 
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 48px 12px;
+  }
+
+  .faq-container {
+    padding: 0 8px;
+  }
+
+  .faq-header {
+    margin-bottom: 24px;
+  }
+
+  .faq-title {
+    font-size: clamp(20px, 5vw, 28px);
+  }
+
+  .faq-subtitle {
+    font-size: 0.9rem;
+    padding: 0 8px;
+  }
+
+  .faq-card {
+    padding: 14px 16px;
+  }
+
+  .faq-card__q {
+    font-size: 14px;
+  }
+
+  .faq-card__a p {
+    font-size: 0.9rem;
+  }
+
+  .faq-toggle {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+  }
+
+  .faq-toggle span {
+    width: 10px;
+    height: 1.5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .faq-section {
+    padding: 36px 8px;
+  }
+
+  .faq-title {
+    font-size: clamp(18px, 6vw, 24px);
+  }
+
+  .faq-card {
+    padding: 12px 14px;
+  }
+
+  .faq-card__q {
+    font-size: 13px;
+  }
+
+  .faq-card__a p {
+    font-size: 0.85rem;
+  }
+}
+
 .faq-card {
   background: linear-gradient(135deg, rgba(40, 20, 50, 0.35), rgba(0, 38, 128, 0.22), rgba(132, 0, 255, 0.22));
   border: 1px solid rgba(255, 255, 255, 0.12);

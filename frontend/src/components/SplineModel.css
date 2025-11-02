@@ -52,22 +52,103 @@
 
 /* Fixed sponsor logos (top-right) */
 .sponsor-logos {
-  position: fixed;
+  position: relative;
   top: 25px;
-  right: 30px;
   z-index: 20;
   display: flex;
-  align-items: center;
+  align-items: start;
   gap: 10px;
   pointer-events: none;
 }
 
+/* Mobile Responsive Styles */
 @media (max-width: 768px) {
+  .spline-model-container {
+    height: 110vh !important;
+    min-height: 110vh !important;
+  }
   .sponsor-logos {
     top: 12vh; /* ~10-14% from top on small screens */
   }
   /* MLH Trust Badge mobile offset */
   #mlh-trust-badge {
-    top: 10vh !important;
+    top: 0% !important;
+    right: 20px !important;
+    width: 12% !important;
+    max-width: 80px !important;
+  }
+
+  /* CODE KALARI text mobile */
+  #spline-code-kalari-text {
+    font-size: clamp(32px, 18vw, 120px) !important;
+    letter-spacing: 1.5rem !important;
+    -webkit-text-stroke: 1.5px white !important;
+  }
+
+  .spline-text-container {
+    top: -50% !important;
+    marginTop: 0 !important;
+  }
+
+  /* Apply button mobile */
+  .spline-apply-container {
+    top: 50% !important;
+  }
+
+  .spline-apply-container img {
+    height: 35px !important;
+  }
+
+  /* IIITK badge mobile - positioned to left */
+  #iiitk-badge {
+    width: 16% !important;
+    max-width: 100px !important;
+    position: fixed !important;
+    left: 20px !important;
+    right: auto !important;
+    top: 0% !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .spline-model-container {
+    height: 115vh !important;
+    min-height: 115vh !important;
+    margin-bottom: -10%;
+  }
+
+  #spline-code-kalari-text {
+    font-size: clamp(24px, 15vw, 80px) !important;
+    letter-spacing: 1rem !important;
+    -webkit-text-stroke: 1px white !important;
+  }
+
+  .spline-text-container {
+    top: -50% !important;
+  }
+
+  #mlh-trust-badge {
+    top: 0% !important;
+    right: 10px !important;
+    width: 15% !important;
+    max-width: 70px !important;
+  }
+
+  /* IIITK badge mobile - smaller screens */
+  #iiitk-badge {
+    left: -5% !important;
+    max-width: 120px !important;
+    width: 28% !important;
+    height: 20% !important;
+    top: 0% !important;
+  }
+
+  .spline-apply-container {
+    top: 30% !important;
+  }
+
+  .spline-apply-container img {
+    height: 30px !important;
   }
 }

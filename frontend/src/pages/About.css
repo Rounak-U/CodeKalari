@@ -1,0 +1,165 @@
+/* Mobile Responsive Styles for About Page */
+
+@media (max-width: 768px) {
+  /* Launch Countdown Container - smaller for mobile */
+  .launch-countdown-container {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    align-items: stretch !important;
+    padding: 0 0.5rem !important;
+  }
+
+  /* Countdown card container */
+  .launch-countdown-container > div:first-child {
+    padding: 10px 12px !important;
+  }
+
+  /* Countdown boxes */
+  .countdown-boxes {
+    flex-wrap: wrap !important;
+    gap: 4px !important;
+    justify-content: center !important;
+  }
+
+  .countdown-boxes > div {
+    min-width: 45px !important;
+    padding: 6px 8px !important;
+  }
+
+  .num-style {
+    font-size: 1.2rem !important;
+    letter-spacing: 0.15rem !important;
+    -webkit-text-stroke: 1px white !important;
+  }
+
+  .label-style {
+    font-size: 7px !important;
+    margin-top: 3px !important;
+  }
+
+  .sep-style {
+    font-size: 12px !important;
+    padding: 0 1px !important;
+  }
+
+  /* Date text */
+  .countdown-date {
+    justify-content: center !important;
+    align-items: center !important;
+  }
+
+  .countdown-date h2 {
+    font-size: 0.95rem !important;
+    letter-spacing: 0.15rem !important;
+    -webkit-text-stroke: 1px white !important;
+  }
+
+  /* Venue Section */
+  .venue-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .venue-heading {
+    font-size: 2rem !important;
+    letter-spacing: 0.3rem !important;
+    margin-top: 5% !important;
+    margin-bottom: 1rem !important;
+    -webkit-text-stroke: 1.5px white !important;
+  }
+
+  .venue-text-box {
+    font-size: 0.85rem !important;
+    padding: 10px 16px !important;
+    line-height: 1.5 !important;
+  }
+
+  .venue-map-container {
+    min-height: 300px !important;
+  }
+
+  /* Venue container spacing */
+  .venue-text-container,
+  .venue-map-wrapper {
+    padding: 24px !important;
+  }
+
+  /* About section padding */
+  section[style*="background-color: #000"] > div {
+    padding: 2rem 1rem !important;
+  }
+
+  /* Venue section wrapper */
+  .venue-section-wrapper {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .launch-countdown-container {
+    gap: 0.4rem !important;
+    padding: 0 0.4rem !important;
+  }
+
+  .launch-countdown-container > div:first-child {
+    padding: 8px 10px !important;
+  }
+
+  .countdown-boxes {
+    gap: 2px !important;
+  }
+
+  .countdown-boxes > div {
+    min-width: 38px !important;
+    padding: 5px 6px !important;
+  }
+
+  .num-style {
+    font-size: 1.6rem !important;
+    letter-spacing: 0.08rem !important;
+    -webkit-text-stroke: 0.8px white !important;
+  }
+
+  .label-style {
+    font-size: 6px !important;
+    margin-top: 2px !important;
+  }
+
+  .sep-style {
+    font-size: 26px !important;
+    padding: 0 1px !important;
+  }
+
+  .countdown-date h2 {
+    font-size: 2rem !important;
+    letter-spacing: 0.08rem !important;
+    -webkit-text-stroke: 0.8px white !important;
+  }
+
+  .venue-heading {
+    font-size: 1.5rem !important;
+    letter-spacing: 0.2rem !important;
+    -webkit-text-stroke: 1px white !important;
+  }
+
+  .venue-text-container,
+  .venue-map-wrapper {
+    padding: 16px !important;
+  }
+
+  .venue-map-container {
+    min-height: 250px !important;
+  }
+
+  section[style*="background-color: #000"] > div {
+    padding: 1.5rem 0.75rem !important;
+  }
+
+  /* Venue section wrapper */
+  .venue-section-wrapper {
+    margin-top: 2rem !important;
+    margin-bottom: 2rem !important;
+  }
+}
+
