@@ -149,7 +149,7 @@ const CardNav = ({
 
   return (
     <div className={`card-nav-container ${className}`}>
-      <nav 
+      {/* <nav 
         ref={navRef} 
         className={`card-nav ${isExpanded ? 'open' : ''}`} 
         style={{ 
@@ -200,7 +200,7 @@ const CardNav = ({
             </div>
           ))}
         </div>
-      </nav>
+      </nav> */}
     </div>
   );
 };

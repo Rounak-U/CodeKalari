@@ -7,7 +7,8 @@ import { ShimmerButton } from "@/components/ui/shimmer-button";
 import "./Sponsors.css";
 import { Alice } from "next/font/google";
 import SponsorIcon from "@/components/ui/SponsorIcon";
-
+import Devfolio from "../assets/Devfolio.png";
+import ETH from "../assets/ETH.png";
 
 const navItems = [
   {
@@ -68,197 +69,108 @@ export default function Sponsors() {
 
         <div className="wrapper-toright">
           <div className="item-right item1">
-            <div className="testimonial-card">
-              <SponsorIcon type="diamond" /> 
-              <p className="testimonial-text">
-                Wellnest’s coaching program helped me find balance in my busy
-                life. I feel more energetic and confident every day.
-              </p>
-              <div className="testimonial-author">
-                <img
-                  src={'./logo.png'}
-                  alt="Riya Sharma"
-                  className="author-img"
-                />
-                <div>
-                  <h4>Tanshiq</h4>
-                  <p>Bengaluru</p>
-                </div>
-              </div>
+            <div className="testimonial-card sponsor-image-card">
+              <img 
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
+                alt="Devfolio Sponsor" 
+                className="sponsor-image" 
+              />
             </div>
           </div>
 
           <div className="item-right item2">
-            <div className="testimonial-card">
-              <SponsorIcon type="platinum" /> 
-              <p className="testimonial-text">
-                The personalized wellness plan truly changed my lifestyle. My
-                stress levels have gone down drastically.
-              </p>
-              <div className="testimonial-author">
-                <img
-                  src="./logo.png"
-                  alt="Arjun Mehta"
-                  className="author-img"
-                />
-                <div>
-                  <h4>Sparx</h4>
-                  <p>Pune</p>
-                </div>
-              </div>
+            <div className="testimonial-card sponsor-image-card">
+              <img 
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
+                alt="Sponsor" 
+                className="sponsor-image" 
+              />
             </div>
           </div>
 
           <div className="item-right item3">
-            <div className="testimonial-card">
-              <SponsorIcon type="gold" /> 
-              <p className="testimonial-text">
-                The meditation and diet guidance from Wellnest made me more
-                focused and productive at work.
-              </p>
-              <div className="testimonial-author">
-                <img src="./logo.png" alt="Priya Nair" className="author-img" />
-                <div>
-                  <h4>Cipla</h4>
-                  <p>Kochi</p>
-                </div>
-              </div>
+            <div className="testimonial-card sponsor-image-card">
+              <img 
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
+                alt="Sponsor" 
+                className="sponsor-image" 
+              />
             </div>
           </div>
 
           <div className="item-right item4">
-            <div className="testimonial-card">
-              <SponsorIcon type="silver" /> 
-              <p className="testimonial-text">
-                I never thought wellness coaching could have such an impact. I
-                feel healthier and happier than ever before.
-              </p>
-              <div className="testimonial-author">
-                <img
-                  src="./logo.png"
-                  alt="Karan Patel"
-                  className="author-img"
-                />
-                <div>
-                  <h4>BBQ In</h4>
-                  <p>Ahmedabad</p>
-                </div>
-              </div>
+            <div className="testimonial-card sponsor-image-card">
+              <img 
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
+                alt="Sponsor" 
+                className="sponsor-image" 
+              />
             </div>
           </div>
 
           <div className="item-right item5">
-            <div className="testimonial-card">
-            <SponsorIcon type="silver" /> 
-              <p className="testimonial-text">
-                The yoga sessions and coaching at Wellnest gave me clarity and
-                inner peace I was searching for.
-              </p>
-              <div className="testimonial-author">
-                <img src="./logo.png" alt="Ananya Gupta" className="author-img" />
-                <div>
-                  <h4>Addidas</h4>
-                  <p>New Delhi</p>
-                </div>
-              </div>
+            <div className="testimonial-card sponsor-image-card">
+              <img 
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
+                alt="Sponsor" 
+                className="sponsor-image" 
+              />
             </div>
           </div>
 
           <div className="item-right item6">
-            <div className="testimonial-card">
-              <SponsorIcon type="diamond" /> 
-              <p className="testimonial-text">
-                The team is supportive and motivating. My sleep has improved and
-                I’ve built healthy routines.
-              </p>
-              <div className="testimonial-author">
-                <img src="./logo.png" alt="Rohit Verma" className="author-img" />
-                <div>
-                  <h4>Nike</h4>
-                  <p>Mumbai</p>
-                </div>
-              </div>
+            <div className="testimonial-card sponsor-image-card">
+              <img 
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
+                alt="Sponsor" 
+                className="sponsor-image" 
+              />
             </div>
           </div>
 
           <div className="item-right item7">
-            <div className="testimonial-card">
-          <SponsorIcon type="gold" /> 
-              <p className="testimonial-text">
-                The guidance helped me lose weight in a healthy way and gain
-                confidence in myself again.
-              </p>
-              <div className="testimonial-author">
-                <img
-                  src="./logo.png"
-                  alt=""
-                  className="author-img"
-                />
-                <div>
-                  <h4>Mimosa</h4>
-                  <p>IIIT Kottayam</p>
-                </div>
-              </div>
+            <div className="testimonial-card sponsor-image-card">
+              <img 
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
+                alt="Sponsor" 
+                className="sponsor-image" 
+              />
             </div>
           </div>
 
           <div className="item-right item8">
-            <div className="testimonial-card">
-             <SponsorIcon type="gold" /> 
-              <p className="testimonial-text">
-                Wellnest’s holistic approach towards mental and physical health
-                is exactly what I needed.
-              </p>
-              <div className="testimonial-author">
-                <img
-                  src="./logo.png"
-                  alt=""
-                  className="author-img"
-                />
-                <div>
-                  <h4>Amazon</h4>
-                  <p>Gurugram</p>
-                </div>
-              </div>
+            <div className="testimonial-card sponsor-image-card">
+              <img 
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
+                alt="Sponsor" 
+                className="sponsor-image" 
+              />
             </div>
           </div>
 
           <div className="item-right item9">
-            <div className="testimonial-card">
-              <SponsorIcon type="silver" /> 
-              <p className="testimonial-text">
-                My anxiety levels have reduced, and I feel more in control of my
-                daily life thanks to their sessions.
-              </p>
-              <div className="testimonial-author">
-                <img src="./logo.png" alt="" className="author-img" />
-                <div>
-                  <h4>US POLOS</h4>
-                  <p>Hyderabad</p>
-                </div>
-              </div>
+            <div className="testimonial-card sponsor-image-card">
+              <img 
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
+                alt="Sponsor" 
+                className="sponsor-image" 
+              />
             </div>
           </div>
 
           <div className="item-right item10">
-            <div className="testimonial-card">
-            <SponsorIcon type="platinum" /> 
-              <p className="testimonial-text">
-                This journey with this has been life-changing. I feel
-                healthier, calmer, and more positive.
-              </p>
-              <div className="testimonial-author">
-                <img src="./logo.png" alt="" className="author-img" />
-                <div>
-                  <h4>Peter Englands</h4>
-                  <p>Nagpur</p>
-                </div>
-              </div>
+            <div className="testimonial-card sponsor-image-card">
+              <img 
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
+                alt="Sponsor" 
+                className="sponsor-image" 
+              />
             </div>
           </div>
         </div>
+        
 
-        <div className="wrapper-toleft">
+        {/* <div className="wrapper-toleft">
           <div className="item-left item1">
             <div className="testimonial-card">
             <SponsorIcon type="gold" /> 
@@ -383,8 +295,8 @@ export default function Sponsors() {
             </div>
           </div>
           <div className="item-left item8">
-            <div className="testimonial-card">
-        <SponsorIcon type="diamond" /> 
+            <div className="testimonial-card"> */}
+        {/* <SponsorIcon type="diamond" /> 
               <p className="testimonial-text">
                 I’ve never felt more supported in my journey.
               </p>
@@ -426,12 +338,12 @@ export default function Sponsors() {
                 />
                 <div>
                   <h4>State Bank of India</h4>
-                  <p>Pune</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <p>Pune</p> */}
+                {/* </div> */}
+              {/* </div> */}
+            {/* </div> */}
+          {/* </div> */}
+        
       </section>
     </>
   );

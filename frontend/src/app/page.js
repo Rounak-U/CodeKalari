@@ -7,41 +7,41 @@ import Sponsors from "../pages/Sponsors";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
-const navItems = [
-  {
-    label: "Explore",
-    bgColor: "#1a1a1a",
-    textColor: "#fff",
-    links: [
-      { label: "About", href: "/about", ariaLabel: "Learn about Code Kalari" },
-      { label: "Events", href: "/events", ariaLabel: "View our events" },
-      { label: "Projects", href: "/projects", ariaLabel: "See our projects" }
-    ]
-  },
-  {
-    label: "Community",
-    bgColor: "#2a2a2a",
-    textColor: "#fff",
-    links: [
-      { label: "Join Us", href: "/join", ariaLabel: "Join the community" },
-      { label: "Teams", href: "/teams", ariaLabel: "Meet our teams" }
-    ]
-  },
-  {
-    label: "Resources",
-    bgColor: "#3a3a3a",
-    textColor: "#fff",
-    links: [
-      { label: "Blog", href: "/blog", ariaLabel: "Read our blog" },
-      { label: "Docs", href: "/docs", ariaLabel: "View documentation" }
-    ]
-  }
-];
+// const navItems = [
+//   {
+//     label: "Explore",
+//     bgColor: "#1a1a1a",
+//     textColor: "#fff",
+//     links: [
+//       { label: "About", href: "/about", ariaLabel: "Learn about Code Kalari" },
+//       { label: "Events", href: "/events", ariaLabel: "View our events" },
+//       { label: "Projects", href: "/projects", ariaLabel: "See our projects" }
+//     ]
+//   },
+//   {
+//     label: "Community",
+//     bgColor: "#2a2a2a",
+//     textColor: "#fff",
+//     links: [
+//       { label: "Join Us", href: "/join", ariaLabel: "Join the community" },
+//       { label: "Teams", href: "/teams", ariaLabel: "Meet our teams" }
+//     ]
+//   },
+//   {
+//     label: "Resources",
+//     bgColor: "#3a3a3a",
+//     textColor: "#fff",
+//     links: [
+//       { label: "Blog", href: "/blog", ariaLabel: "Read our blog" },
+//       { label: "Docs", href: "/docs", ariaLabel: "View documentation" }
+//     ]
+//   }
+// ];
 
 export default function Home() {
   return (
     <div>
-      <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000 }}>
+      {/* <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000 }}>
         <CardNav 
           logo="/globe.svg"
           logoAlt="Code Kalari"
@@ -51,11 +51,11 @@ export default function Home() {
           buttonBgColor="rgba(255, 255, 255, 0.2)"
           buttonTextColor="#ffffff"
         />
-      </div>
+      </div> */}
       <SplineIframe /> {/* The 3D scene */}
       <About /> {/* About section */}
       <Sponsors /> {/* Sponsors section */}
-      <FAQ /> {/* FAQ section */}
+      {/* <FAQ />  */}
       <Footer /> {/* Footer */}
     </div>
   );

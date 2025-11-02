@@ -9,36 +9,36 @@ import CardNav from "@/components/ui/CardNav";
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-const navItems = [
-  {
-    label: "Explore",
-    bgColor: "#1a1a1a",
-    textColor: "#fff",
-    links: [
-      { label: "About", href: "/about", ariaLabel: "Learn about Code Kalari" },
-      { label: "Events", href: "/events", ariaLabel: "View our events" },
-      { label: "Projects", href: "/projects", ariaLabel: "See our projects" }
-    ]
-  },
-  {
-    label: "Community",
-    bgColor: "#2a2a2a",
-    textColor: "#fff",
-    links: [
-      { label: "Join Us", href: "/join", ariaLabel: "Join the community" },
-      { label: "Teams", href: "/teams", ariaLabel: "Meet our teams" }
-    ]
-  },
-  {
-    label: "Resources",
-    bgColor: "#3a3a3a",
-    textColor: "#fff",
-    links: [
-      { label: "Blog", href: "/blog", ariaLabel: "Read our blog" },
-      { label: "Docs", href: "/docs", ariaLabel: "View documentation" }
-    ]
-  }
-];
+// const navItems = [
+//   {
+//     label: "Explore",
+//     bgColor: "#1a1a1a",
+//     textColor: "#fff",
+//     links: [
+//       { label: "About", href: "/about", ariaLabel: "Learn about Code Kalari" },
+//       { label: "Events", href: "/events", ariaLabel: "View our events" },
+//       { label: "Projects", href: "/projects", ariaLabel: "See our projects" }
+//     ]
+//   },
+//   {
+//     label: "Community",
+//     bgColor: "#2a2a2a",
+//     textColor: "#fff",
+//     links: [
+//       { label: "Join Us", href: "/join", ariaLabel: "Join the community" },
+//       { label: "Teams", href: "/teams", ariaLabel: "Meet our teams" }
+//     ]
+//   },
+//   {
+//     label: "Resources",
+//     bgColor: "#3a3a3a",
+//     textColor: "#fff",
+//     links: [
+//       { label: "Blog", href: "/blog", ariaLabel: "Read our blog" },
+//       { label: "Docs", href: "/docs", ariaLabel: "View documentation" }
+//     ]
+//   }
+// ];
 
 export default function Home() {
   const smoothWrapperRef = useRef(null);
@@ -79,7 +79,7 @@ export default function Home() {
       </div>
 
       {/* Fixed Navbar */}
-      <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000 }}>
+      {/* <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000 }}>
         <CardNav 
           logo="/globe.svg"
           logoAlt="Code Kalari"
@@ -89,7 +89,7 @@ export default function Home() {
           buttonBgColor="rgba(255, 255, 255, 0.2)"
           buttonTextColor="#ffffff"
         />
-      </div>
+      </div> */}
 
       {/* Smooth Scroll Wrapper */}
       <div id="smooth-wrapper" ref={smoothWrapperRef}>
