@@ -83,7 +83,7 @@ export default function FAQ() {
                     <span />
                   </div>
                 </div>
-                <div className="faq-card__a" style={{ maxHeight: isOpen ? 200 : 0 }}>
+                <div className="faq-card__a" style={{ maxHeight: isOpen ? '500px' : '0' }}>
                   <p>{item.a}</p>
                 </div>
               </div>

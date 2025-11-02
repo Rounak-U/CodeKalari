@@ -54,6 +54,7 @@
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .faq-card--open {
@@ -78,13 +79,27 @@
 
 .faq-card__a {
   overflow: hidden;
-  transition: max-height 250ms ease;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.faq-card--open .faq-card__a {
+  opacity: 1;
+  margin-top: 8px;
+  padding-top: 4px;
 }
 
 .faq-card__a p {
   margin: 10px 0 0;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.6;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: top;
 }
 
 .faq-toggle {
@@ -110,9 +125,12 @@
   border-radius: 2px;
 }
 
+.faq-toggle span {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .faq-toggle span:last-child {
   transform: translate(-50%, -50%) rotate(90deg);
-  transition: transform 200ms ease;
 }
 
 .faq-toggle.open span:last-child {

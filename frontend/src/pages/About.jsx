@@ -22,63 +22,97 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
     return () => clearInterval(id);
   }, [targetTs]);
 
-  const boxStyle = {
-    minWidth: 72,
-    padding: "10px 12px",
-    borderRadius: 12,
-    background: "rgba(255,255,255,0.06)",
+  // Modern glassmorphism styles (no hover effects)
+  const cardStyle = {
+    position: "relative",
+    padding: 18,
+    borderRadius: 16,
+    background: "linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02))",
     border: "1px solid rgba(255,255,255,0.12)",
-    textAlign: "center"
+    boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
+    backdropFilter: "blur(10px)",
+  };
+
+  const chipStyle = {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: 8,
+    padding: "6px 12px",
+    borderRadius: 9999,
+    background: "linear-gradient(135deg, rgba(168,85,247,0.25), rgba(59,130,246,0.15))",
+    border: "1px solid rgba(168,85,247,0.45)",
+    color: "#fff",
+    fontSize: 13,
+    letterSpacing: 1,
+    textTransform: "uppercase",
+  };
+
+  const rowStyle = {
+    display: "flex",
+    alignItems: "stretch",
+    gap: 12,
+  };
+
+  const boxStyle = {
+    minWidth: 84,
+    padding: "12px 14px",
+    borderRadius: 14,
+    background: "linear-gradient(180deg, rgba(17,17,17,0.6), rgba(17,17,17,0.3))",
+    border: "1px solid rgba(255,255,255,0.14)",
+    boxShadow: "inset 0 1px 0 rgba(255,255,255,0.06)",
+    textAlign: "center",
   };
 
   const numStyle = {
-    fontSize: 28,
+    fontSize: 30,
     fontWeight: 800,
     letterSpacing: 1,
     color: "#fff",
+    fontVariantNumeric: "tabular-nums",
   };
 
   const labelStyle = {
-    fontSize: 12,
+    fontSize: 11,
     color: "rgba(255,255,255,0.7)",
-    marginTop: 4
+    marginTop: 6,
+    letterSpacing: 0.5,
+    textTransform: "uppercase",
+  };
+
+  const sepStyle = {
+    alignSelf: "center",
+    color: "rgba(255,255,255,0.5)",
+    fontSize: 22,
+    fontWeight: 700,
+    padding: "0 2px",
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12 }}>
-      <div
-        style={{
-          display: "inline-flex",
-          alignItems: "center",
-          gap: 8,
-          padding: "6px 12px",
-          borderRadius: 9999,
-          background: "linear-gradient(135deg, rgba(132,0,255,0.2), rgba(0,0,0,0.6))",
-          border: "1px solid rgba(132,0,255,0.35)",
-          color: "#fff",
-          fontSize: 13,
-          letterSpacing: 1,
-          textTransform: "uppercase"
-        }}
-      >
-        Launching in
-      </div>
-      <div style={{ display: "flex", alignItems: "stretch", gap: 10 }}>
-        <div style={boxStyle}>
-          <div style={numStyle}>{String(timeLeft.days).padStart(2, "0")}</div>
-          <div style={labelStyle}>Days</div>
-        </div>
-        <div style={boxStyle}>
-          <div style={numStyle}>{String(timeLeft.hours).padStart(2, "0")}</div>
-          <div style={labelStyle}>Hours</div>
-        </div>
-        <div style={boxStyle}>
-          <div style={numStyle}>{String(timeLeft.minutes).padStart(2, "0")}</div>
-          <div style={labelStyle}>Minutes</div>
-        </div>
-        <div style={boxStyle}>
-          <div style={numStyle}>{String(timeLeft.seconds).padStart(2, "0")}</div>
-          <div style={labelStyle}>Seconds</div>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <div style={cardStyle}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14 }}>
+          <div style={chipStyle}>Launching in</div>
+          <div style={rowStyle}>
+            <div style={boxStyle}>
+              <div style={numStyle}>{String(timeLeft.days).padStart(2, "0")}</div>
+              <div style={labelStyle}>Days</div>
+            </div>
+            <div style={sepStyle}>:</div>
+            <div style={boxStyle}>
+              <div style={numStyle}>{String(timeLeft.hours).padStart(2, "0")}</div>
+              <div style={labelStyle}>Hours</div>
+            </div>
+            <div style={sepStyle}>:</div>
+            <div style={boxStyle}>
+              <div style={numStyle}>{String(timeLeft.minutes).padStart(2, "0")}</div>
+              <div style={labelStyle}>Minutes</div>
+            </div>
+            <div style={sepStyle}>:</div>
+            <div style={boxStyle}>
+              <div style={numStyle}>{String(timeLeft.seconds).padStart(2, "0")}</div>
+              <div style={labelStyle}>Seconds</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
