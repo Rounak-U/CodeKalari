@@ -28,7 +28,7 @@ export default function SplineIframe() {
   return (
     <div className="spline-model-container" style={{ width: "100%", height: "100vh", position: "relative", backgroundColor: "#000000ff" }}>
       {/* Dark Veil - lowest layer */}
-      <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", opacity: 0.14 }}>
+      <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none", opacity: 0.8}}>
         <DarkVeil hueShift={0} noiseIntensity={0.04} scanlineIntensity={0.06} scanlineFrequency={7.0} warpAmount={0.01} speed={0.45} />
       </div>
       {/* Code Kalari text - behind Spline modal but above DarkVeil */}
