@@ -1,7 +1,9 @@
 "use client";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import MagicBento from "@/components/ui/MagicBento";
 import { Filter } from "lucide-react";
+import Image from "next/image";
+import IIITMapImage from "@/assets/IIITMap.png";
 import "./About.css";
 
 const LAUNCH_TS = new Date("2026-01-17T09:00:00+05:30").getTime();
@@ -190,181 +192,6 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
 }
 
 function VenueSection() {
-  const mapRef = useRef(null);
-  const [mapLoaded, setMapLoaded] = useState(false);
-  const mapInstanceRef = useRef(null);
-
-  useEffect(() => {
-    // Load Google Maps script
-    if (typeof window === 'undefined') return;
-    
-    const checkGoogleMaps = () => {
-      return window.google && window.google.maps && window.google.maps.Map;
-    };
-
-    if (checkGoogleMaps()) {
-      setMapLoaded(true);
-      return;
-    }
-
-    // Check if script is already being loaded
-    const existingScript = document.querySelector('script[src*="maps.googleapis.com"]');
-    if (existingScript) {
-      existingScript.addEventListener('load', () => {
-        // Wait a bit for maps API to be fully initialized
-        const checkInterval = setInterval(() => {
-          if (checkGoogleMaps()) {
-            clearInterval(checkInterval);
-            setMapLoaded(true);
-          }
-        }, 100);
-        // Timeout after 5 seconds
-        setTimeout(() => clearInterval(checkInterval), 5000);
-      });
-      return;
-    }
-
-    const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyCu2qCp9XaAUe8m0lsbjpJJ7byk21NQloY&loading=async&libraries=places`;
-    script.async = true;
-    script.defer = true;
-    script.onload = () => {
-      // Wait a bit for maps API to be fully initialized
-      const checkInterval = setInterval(() => {
-        if (checkGoogleMaps()) {
-          clearInterval(checkInterval);
-          setMapLoaded(true);
-        }
-      }, 100);
-      // Timeout after 5 seconds
-      setTimeout(() => clearInterval(checkInterval), 5000);
-    };
-    document.head.appendChild(script);
-  }, []);
-
-  useEffect(() => {
-    if (!mapLoaded || !mapRef.current || mapInstanceRef.current) return;
-    if (typeof window === 'undefined') return;
-    
-    const google = window.google;
-    if (!google || !google.maps || !google.maps.Map) {
-      return;
-    }
-
-    // IIIT Kottayam coordinates
-    const venueLocation = { lat: 9.754833, lng: 76.650099 };
-
-    // Dark theme map styles
-    const darkTheme = [
-      { elementType: "geometry", stylers: [{ color: "#242424" }] },
-      { elementType: "labels.text.stroke", stylers: [{ color: "#242424" }] },
-      { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
-      {
-        featureType: "administrative.locality",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#d59563" }],
-      },
-      {
-        featureType: "poi",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#d59563" }],
-      },
-      {
-        featureType: "poi.park",
-        elementType: "geometry",
-        stylers: [{ color: "#263c3f" }],
-      },
-      {
-        featureType: "poi.park",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#6b9a76" }],
-      },
-      {
-        featureType: "road",
-        elementType: "geometry",
-        stylers: [{ color: "#38414e" }],
-      },
-      {
-        featureType: "road",
-        elementType: "geometry.stroke",
-        stylers: [{ color: "#212a37" }],
-      },
-      {
-        featureType: "road",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#9ca5b3" }],
-      },
-      {
-        featureType: "road.highway",
-        elementType: "geometry",
-        stylers: [{ color: "#746855" }],
-      },
-      {
-        featureType: "road.highway",
-        elementType: "geometry.stroke",
-        stylers: [{ color: "#1f2835" }],
-      },
-      {
-        featureType: "road.highway",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#f3d19c" }],
-      },
-      {
-        featureType: "transit",
-        elementType: "geometry",
-        stylers: [{ color: "#2f3948" }],
-      },
-      {
-        featureType: "transit.station",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#d59563" }],
-      },
-      {
-        featureType: "water",
-        elementType: "geometry",
-        stylers: [{ color: "#17263c" }],
-      },
-      {
-        featureType: "water",
-        elementType: "labels.text.fill",
-        stylers: [{ color: "#515c6d" }],
-      },
-      {
-        featureType: "water",
-        elementType: "labels.text.stroke",
-        stylers: [{ color: "#17263c" }],
-      },
-    ];
-
-    const map = new google.maps.Map(mapRef.current, {
-      center: venueLocation,
-      zoom: 15,
-      styles: darkTheme,
-      disableDefaultUI: false,
-      zoomControl: true,
-      mapTypeControl: false,
-      streetViewControl: false,
-      fullscreenControl: true,
-    });
-
-    // Add marker
-    new google.maps.Marker({
-      position: venueLocation,
-      map: map,
-      title: "IIIT Kottayam - Code Kalari Hackathon",
-      icon: {
-        path: google.maps.SymbolPath.CIRCLE,
-        scale: 8,
-        fillColor: "#8400ff",
-        fillOpacity: 1,
-        strokeColor: "#ffffff",
-        strokeWeight: 2,
-      },
-    });
-
-    mapInstanceRef.current = map;
-  }, [mapLoaded]);
-
   const containerStyle = {
     position: "relative",
     padding: "32px",
@@ -399,12 +226,13 @@ function VenueSection() {
     Filter: 'drop-shadow(0px 8px 12px rgba(255, 255, 255, 0.3))',
   };
 
-  const mapContainerStyle = {
+  const imageContainerStyle = {
     width: "100%",
     height: "100%",
     minHeight: "400px",
-    border: "2px solid rgba(193, 126, 255, 0.25)",
+    borderRadius: 20,
     overflow: "hidden",
+    position: "relative",
     border: "none",
   };
 
@@ -463,23 +291,15 @@ Indian Institute of Information Technology (IIIT) Kottayam</strong>
 
         {/* Right side - Map */}
         <div className="venue-map-wrapper" style={{ ...containerStyle, padding: 0, overflow: "hidden", display: "flex", height: "100%" }}>
-          <div className="venue-map-container" style={{ ...mapContainerStyle, borderRadius: 20, flex: 1 }} ref={mapRef}>
-            {!mapLoaded && (
-              <div
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: "rgba(0, 0, 0, 1)",
-                  color: "rgba(255, 255, 255, 0.6)",
-                  fontSize: "0.95rem",
-                }}
-              >
-                Loading map...
-              </div>
-            )}
+          <div className="venue-map-container" style={imageContainerStyle}>
+            <Image
+              src={IIITMapImage}
+              alt="Illustrative map showing the IIIT Kottayam campus location"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: "cover" }}
+              priority
+            />
           </div>
         </div>
       </div>
