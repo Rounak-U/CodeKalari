@@ -4,7 +4,7 @@ import MagicBento from "@/components/ui/MagicBento";
 import { Filter } from "lucide-react";
 import "./About.css";
 
-const LAUNCH_TS = new Date("2026-01-10T09:00:00+05:30").getTime();
+const LAUNCH_TS = new Date("2026-01-17T09:00:00+05:30").getTime();
 
 function LaunchCountdown({ targetTs = LAUNCH_TS }) {
   const [timeLeft, setTimeLeft] = useState({
@@ -182,7 +182,7 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
              letterSpacing: "0.5rem",
            }}
          >
-           JAN 10, 2026
+           JAN 17, 2026
          </h2>
        </div>
     </div>
