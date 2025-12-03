@@ -2,20 +2,20 @@
 import { useEffect, useState, useRef } from "react";
 import "./LoadingAnimation.css";
 
-const fonts = [
-  "'Courier New', monospace",
-  "'Times New Roman', serif",
-  "'Impact', sans-serif",
-  "'Georgia', serif",
-  "'Trebuchet MS', sans-serif",
-  "'Lucida Console', monospace",
-  "'Palatino Linotype', serif",
-  "'Arial Black', sans-serif",
-  "'Verdana', sans-serif",
-  "'Garamond', serif",
-  "'Six Caps', sans-serif",
-  "'Arial', sans-serif",
-  "'Helvetica', sans-serif",
+// "CODE KALARI" in different Indian languages
+const texts = [
+  { text: "CODE KALARI", lang: "English" },
+  { text: "कोड कलारी", lang: "Hindi" },
+  { text: "കോഡ് കളരി", lang: "Malayalam" },
+  { text: "కోడ్ కళారి", lang: "Telugu" },
+  { text: "கோட் களரி", lang: "Tamil" },
+  { text: "ಕೋಡ್ ಕಳರಿ", lang: "Kannada" },
+  { text: "কোড কালারি", lang: "Bengali" },
+  { text: "કોડ કલારી", lang: "Gujarati" },
+  { text: "ਕੋਡ ਕਲਾਰੀ", lang: "Punjabi" },
+  { text: "कोड कलारी", lang: "Marathi" },
+  { text: "କୋଡ୍ କଳାରୀ", lang: "Odia" },
+  { text: "কোড কালাৰী", lang: "Assamese" },
 ];
 
 const particleData = [
@@ -42,21 +42,20 @@ const particleData = [
 ];
 
 export default function LoadingAnimation({ onComplete }) {
-  const [currentFontIndex, setCurrentFontIndex] = useState(0);
-  const [scale, setScale] = useState(0.95);
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const [scale, setScale] = useState(0.85);
   const [opacity, setOpacity] = useState(1);
   const [isExiting, setIsExiting] = useState(false);
   const containerRef = useRef(null);
 
-  const text = "CODE KALARI";
-
   useEffect(() => {
-    let fontInterval;
+    let textInterval;
     let scaleInterval;
 
-    fontInterval = setInterval(() => {
-      setCurrentFontIndex((prev) => (prev + 1) % fonts.length);
-    }, 150);
+    // Cycle through Indian languages
+    textInterval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % texts.length);
+    }, 300);
 
     const startTime = Date.now();
     const duration = 2800;
@@ -65,8 +64,9 @@ export default function LoadingAnimation({ onComplete }) {
       const elapsed = Date.now() - startTime;
       const progress = Math.min(elapsed / duration, 1);
       
+      // More prominent scale from 0.85 to 1.05
       const easeOutExpo = 1 - Math.pow(2, -10 * progress);
-      const newScale = 0.95 + (0.05 * easeOutExpo);
+      const newScale = 0.85 + (0.20 * easeOutExpo);
       setScale(newScale);
 
       if (progress >= 1) {
@@ -74,9 +74,10 @@ export default function LoadingAnimation({ onComplete }) {
       }
     }, 16);
 
+    // Exit animation after 3 seconds
     const exitTimeout = setTimeout(() => {
       setIsExiting(true);
-      clearInterval(fontInterval);
+      clearInterval(textInterval);
 
       let exitProgress = 0;
       const exitInterval = setInterval(() => {
@@ -91,7 +92,7 @@ export default function LoadingAnimation({ onComplete }) {
     }, 3000);
 
     return () => {
-      clearInterval(fontInterval);
+      clearInterval(textInterval);
       clearInterval(scaleInterval);
       clearTimeout(exitTimeout);
     };
@@ -130,13 +131,8 @@ export default function LoadingAnimation({ onComplete }) {
           transform: `scale(${scale})`,
         }}
       >
-        <h1 
-          className="loading-text loading-text-main"
-          style={{
-            fontFamily: fonts[currentFontIndex],
-          }}
-        >
-          {text}
+        <h1 className="loading-text loading-text-main">
+          {texts[currentTextIndex].text}
         </h1>
       </div>
 
