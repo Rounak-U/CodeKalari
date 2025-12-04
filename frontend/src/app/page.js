@@ -1,11 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import CardNav from "../components/ui/CardNav";
 import SplineIframe from "../components/SplineModel"; // your Spline iframe component
 import About from "../pages/About";
 import Sponsors from "../pages/Sponsors";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
+import LoadingAnimation from "@/components/LoadingAnimation";
 
 // const navItems = [
 //   {
@@ -39,8 +41,13 @@ import Footer from "@/components/Footer";
 // ];
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <div>
+      {isLoading && (
+        <LoadingAnimation onComplete={() => setIsLoading(false)} />
+      )}
       {/* <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000 }}>
         <CardNav 
           logo="/globe.svg"
