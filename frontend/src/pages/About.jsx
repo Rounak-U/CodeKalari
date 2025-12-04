@@ -1,7 +1,20 @@
 "use client";
 import { useEffect, useState } from "react";
-import MagicBento from "@/components/ui/MagicBento";
-import { Filter } from "lucide-react";
+import {
+  Brain,
+  Clock3,
+  Cpu,
+  Globe2,
+  Lightbulb,
+  MapPin,
+  Rocket,
+  ShieldCheck,
+  Sparkles,
+  Trophy,
+  Users,
+  Wifi,
+  Zap,
+} from "lucide-react";
 import Image from "next/image";
 import IIITMapImage from "@/assets/IIITMap.png";
 import "./About.css";
@@ -31,108 +44,86 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
     return () => clearInterval(id);
   }, [targetTs]);
 
-  // Modern glassmorphism styles matching theme (no hover effects)
   const cardStyle = {
     position: "relative",
-    padding: "20px 24px",
-    borderRadius: 20,
+    width: "100%",
+    flex: "1 1 420px",
+    padding: "22px 28px",
+    borderRadius: 24,
     background:
-      "linear-gradient(135deg, rgba(40, 20, 50, 0.4), rgba(0, 38, 128, 0.25), rgba(132, 0, 255, 0.25))",
-    border: "1px solid rgba(132, 0, 255, 0.25)",
+      "linear-gradient(160deg, rgba(10, 10, 24, 0.92), rgba(20, 0, 42, 0.82))",
+    border: "1px solid rgba(132, 0, 255, 0.38)",
     boxShadow:
-      "0 10px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(132, 0, 255, 0.08) inset",
-    backdropFilter: "blur(12px)",
-    WebkitBackdropFilter: "blur(12px)",
-  };
-
-  const chipStyle = {
-    display: "inline-flex",
-    alignItems: "center",
-    gap: 8,
-    padding: "8px 16px",
-    borderRadius: 9999,
-    background:
-      "linear-gradient(135deg, rgba(132, 0, 255, 0.2), rgba(0, 0, 0, 0.6))",
-    border: "1px solid rgba(132, 0, 255, 0.35)",
-    color: "#fff",
-    fontSize: 12,
-    fontWeight: 600,
-    letterSpacing: 1.2,
-    textTransform: "uppercase",
-    boxShadow: "0 4px 12px rgba(132, 0, 255, 0.15)",
+      "0 24px 60px rgba(0, 0, 0, 0.55), 0 0 1px rgba(132, 0, 255, 0.1) inset",
+    backdropFilter: "blur(14px)",
+    WebkitBackdropFilter: "blur(14px)",
   };
 
   const rowStyle = {
     display: "flex",
     alignItems: "stretch",
-    gap: 14,
+    justifyContent: "space-between",
+    gap: 12,
+    width: "100%",
+    flexWrap: "wrap",
   };
 
   const boxStyle = {
-    minWidth: 90,
-    padding: "16px 18px",
-    borderRadius: 16,
+    flex: "1 1 110px",
+    minWidth: 100,
+    padding: "18px 16px",
+    borderRadius: 18,
     background:
-      "linear-gradient(135deg, rgba(6, 0, 16, 0.8), rgba(40, 20, 50, 0.5))",
-    border: "1px solid rgba(132, 0, 255, 0.2)",
-    boxShadow:
-      "inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 4px 12px rgba(0, 0, 0, 0.3)",
+      "linear-gradient(180deg, rgba(12, 12, 28, 0.95), rgba(28, 8, 48, 0.75))",
+    border: "1px solid rgba(132, 0, 255, 0.34)",
+    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 15px 32px rgba(0, 0, 0, 0.45)",
     textAlign: "center",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
   };
 
   const numStyle = {
-    fontSize: "3rem",
-    fontWeight: "200",
+    fontSize: "2.9rem",
+    fontWeight: 600,
+    letterSpacing: "0.08rem",
     fontFamily: "Poppins",
-    color: "rgba(245, 239, 230, 1)",
-    color: "transparent",
-    WebkitTextStroke: "2px white",
-    letterSpacing: "0.5rem",
-    // background:
-    //   "linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.8) 100%)",
-    // WebkitBackgroundClip: "text",
-    // WebkitTextFillColor: "transparent",
+    background: "linear-gradient(140deg, #ffffff 0%, rgba(166, 110, 255, 0.92) 100%)",
+    WebkitBackgroundClip: "text",
     backgroundClip: "text",
+    color: "transparent",
+    textShadow: "0 10px 24px rgba(132, 0, 255, 0.25)",
   };
 
   const labelStyle = {
-    fontSize: 11,
-    color: "rgba(255, 255, 255, 0.7)",
-    marginTop: 8,
-    letterSpacing: 0.8,
+    fontSize: 12,
+    color: "rgba(255, 255, 255, 0.68)",
+    marginTop: 10,
+    letterSpacing: 1.6,
     textTransform: "uppercase",
     fontWeight: 500,
   };
 
   const sepStyle = {
     alignSelf: "center",
-    color: "rgba(132, 0, 255, 0.6)",
-    fontSize: 24,
-    fontWeight: 700,
-    padding: "0 4px",
+    color: "rgba(132, 0, 255, 0.65)",
+    fontSize: 26,
+    fontWeight: 600,
+    padding: "0 6px",
   };
 
   return (
-    <div
-      className="launch-countdown-container"
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "space-between",
-        width: "100%",
-      }}
-    >
+    <div className="launch-countdown-shell">
       <div style={cardStyle}>
         <div
           style={{
             display: "flex",
             flexDirection: "column",
             alignItems: "start",
-            gap: 14,
+            gap: 16,
+            width: "100%",
           }}
         >
-          {/* <div style={chipStyle}>Launching in</div> */}
           <div className="countdown-boxes" style={rowStyle}>
             <div style={boxStyle}>
               <div className="num-style" style={numStyle}>
@@ -164,29 +155,10 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
           </div>
         </div>
       </div>
-       <div
-         className="countdown-date"
-         style={{
-           display: "inline-flex",
-           flexDirection: "row",
-           alignItems: "end",
-           justifyContent: "flex-end",
-           gap: 14,
-         }}
-       >
-         <h2
-           style={{
-             fontSize: "3rem",
-             fontWeight: "200",
-             fontFamily: "Poppins",
-             color: "transparent",
-             WebkitTextStroke: "2px white",
-             letterSpacing: "0.5rem",
-           }}
-         >
-           JAN 17, 2026
-         </h2>
-       </div>
+      <div className="countdown-date">
+        <h2>Jan 17 · 2026</h2>
+        <span>IIIT Kottayam · Kerala</span>
+      </div>
     </div>
   );
 }
@@ -237,7 +209,7 @@ function VenueSection() {
   };
 
   return (
-    <div className="venue-section-wrapper" style={{ marginTop: "11%", marginBottom: "10%" }}>
+    <section id="venue" className="venue-section-wrapper" style={{ marginTop: "11%", marginBottom: "10%" }}>
       <div
         className="venue-grid"
         style={{
@@ -303,68 +275,210 @@ Indian Institute of Information Technology (IIIT) Kottayam</strong>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
 export default function About() {
-  const cards = [
+  const heroHighlights = [
     {
-      color: "#060010",
-      label: "Event",
-      title: "Code Kalari",
-      description: "A weekend of creation and community.",
+      icon: Sparkles,
+      title: "Studio-grade production",
+      description: "Immersive staging, lighting, and visuals built to keep energy high all 36 hours.",
     },
     {
-      color: "#060010",
-      label: "Type",
-      title: "Hackathon",
-      description: "Build, learn, and ship fast.",
+      icon: Wifi,
+      title: "Always-on labs",
+      description: "High-bandwidth work zones, and recharge pods when you need a break.",
     },
     {
-      color: "#060010",
-      label: "Presented by",
-      title: "IIIT Kottayam",
-      description: "In collaboration with MLH.",
+      icon: MapPin,
+      title: "Kerala innovation hub",
+      description: "Explore the IIIT Kottayam campus nestled between lush hills and vibrant local culture.",
+    },
+  ];
+
+  const stats = [
+    {
+      icon: Users,
+      value: "TBD",
+      label: "Builders on campus",
+      caption: "Students, founders, and community technologists from across India.",
     },
     {
-      color: "#060010",
-      label: "Partner",
-      title: "MLH",
-      description: "Major League Hacking.",
+      icon: Trophy,
+      value: "₹TBD",
+      label: "Prize pool & grants",
+      caption: "Cash prizes, partner credits, and post-hackathon incubation support.",
     },
     {
-      color: "#060010",
-      label: "When",
-      title: "Coming soon",
-      description: "Dates announced on our socials.",
+      icon: Clock3,
+      value: "TBD",
+      label: "Of focused hacking",
+      caption: "Ideation jams, mentorship clinics, and late-night lightning talks.",
     },
     {
-      color: "#060010",
-      label: "Where",
-      title: "On-campus",
-      description: "Details TBA.",
+      icon: Globe2,
+      value: "TBD",
+      label: "Mentor partners",
+      caption: "Startup operators and industry experts on call.",
+    },
+  ];
+
+  const tracks = [
+    {
+      icon: Cpu,
+      title: "TBD-1",
+      description: "Build AI-first products, autonomous agents, or creative coding experiences.",
+    },
+    {
+      icon: ShieldCheck,
+      title: "TBD-2",
+      description: "Design resilient solutions for energy, agri-tech, mobility, and circular economies.",
+    },
+    {
+      icon: Zap,
+      title: "TBD-3",
+      description: "Prototype next-gen interfaces across AR/VR, gaming, and multisensory storytelling.",
+    },
+  ];
+
+  const experiences = [
+    {
+      icon: Rocket,
+      stage: "Launch & kickoff",
+      time: "Day 1 · TBD",
+      detail: "High-energy opening ceremony, partner reveals, and community-led team formation rituals.",
+    },
+    {
+      icon: Lightbulb,
+      stage: "Deep work sprints",
+      time: "Day 1 · TBD",
+      detail: "Mentor pop-ups, midnight debugging clinics, wellness recharge zones, and creative showcases.",
+    },
+    {
+      icon: Brain,
+      stage: "Demo finale",
+      time: "Day 2 · TBD",
+      detail: "Live pitches, partner judging, community choice awards, and a celebratory closing jam.",
     },
   ];
 
   return (
-    <section style={{ backgroundColor: "#000", color: "#fff" }}>
-      <div
-        style={{ maxWidth: "1200px", margin: "0 auto", padding: "3rem 1rem" }}
-      >
-        <div style={{ marginBottom: "1.25rem" }}>
-          <LaunchCountdown />
-      </div>
-        <VenueSection />
-        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-          <h1 style={{ fontSize: "2.25rem", lineHeight: 1.2, margin: 0 }}>
-            {/* Code Kalari Hackathon */}
-        </h1>
-          <p style={{ opacity: 0.8, marginTop: "0.5rem" }}>
-            {/* Presented by IIIT Kottayam and MLH */}
-          </p>
+    <section className="about-page">
+      <div className="about-container">
+        <div className="hero-section">
+          <div className="hero-grid">
+            <div className="hero-content">
+              <span className="hero-tag">About Code Kalari 2026</span>
+              <h1 className="hero-heading">
+                Where builders craft future-ready experiences from Kerala&apos;s creative campus.
+              </h1>
+              <p className="hero-description">
+                Code Kalari is an in-person hackathon hosted by IIIT Kottayam with Major League Hacking. Expect
+                36 hours of deliberate making, curated mentors, cultural spotlights, and a community-driven
+                showcase that celebrates experimentation.
+              </p>
+            </div>
+
+            <div className="hero-highlight-panel">
+              <div className="panel-glow" />
+              <h2>Inside the experience</h2>
+              <div className="hero-highlight-grid">
+                {heroHighlights.map(({ icon: Icon, title, description }) => (
+                  <div key={title} className="hero-highlight-item">
+                    <div className="hero-highlight-icon">
+                      <Icon size={20} />
+                    </div>
+                    <div>
+                      <h3>{title}</h3>
+                      <p>{description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="hero-countdown hero-countdown--full">
+            <LaunchCountdown />
+            <p className="countdown-caption">We go live on campus January 17, 2026 · Valavoor, Kerala</p>
+          </div>
         </div>
-        {/* <MagicBento cards={cards} /> */}
+
+        <div className="stats-section">
+          <div className="section-header">
+            <span className="section-tag">Why join</span>
+            <h2>Build with a community obsessed with craft.</h2>
+            <p>
+              Bring your ideas, stay for the mentorship, and leave with a battle-tested prototype ready for the
+              world. We blend focused creation with intentional community moments.
+            </p>
+          </div>
+          <div className="stats-grid">
+            {stats.map(({ icon: Icon, value, label, caption }) => (
+              <div key={label} className="stats-card">
+                <div className="stats-icon">
+                  <Icon size={22} />
+                </div>
+                <div>
+                  <p className="stats-value">{value}</p>
+                  <p className="stats-label">{label}</p>
+                  <p className="stats-caption">{caption}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div id="tracks" className="info-section tracks-section">
+          <div className="section-header">
+            <span className="section-tag">Tracks & Prompts</span>
+            <h2>Choose a focus area that matches your curiosity.</h2>
+            <p>
+              Themes are intentionally wide, with mentors and technical resources to help you refine your MVP.
+              Surprise wildcard challenges drop on day two for teams wanting an extra twist.
+            </p>
+          </div>
+          <div className="card-grid">
+            {tracks.map(({ icon: Icon, title, description }) => (
+              <div key={title} className="info-card">
+                <div className="info-icon">
+                  <Icon size={20} />
+                </div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <VenueSection />
+
+        <div className="experience-section">
+          <div className="section-header">
+            <span className="section-tag">Weekend Flow</span>
+            <h2>Design-forward programming that keeps momentum high.</h2>
+            <p>
+              Expect structured touchpoints balanced with room for serendipity. Our schedule is designed to help
+              teams go from zero to demo with support at every stage.
+            </p>
+          </div>
+          <div className="timeline-grid">
+            {experiences.map(({ icon: Icon, stage, time, detail }) => (
+              <div key={stage} className="timeline-card">
+                <div className="timeline-icon">
+                  <Icon size={20} />
+                </div>
+                <div>
+                  <h3>{stage}</h3>
+                  <p className="timeline-time">{time}</p>
+                  <p>{detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
