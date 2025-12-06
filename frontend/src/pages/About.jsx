@@ -254,26 +254,8 @@ function VenueSection() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   const containerStyle = isMobile
-    ? {
-        position: "relative",
-        padding: "20px",
-        borderRadius: 16,
-        background: "black",
-        boxShadow:
-          "0 6px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(132, 0, 255, 0.08) inset",
-        backdropFilter: "blur(10px)",
-        WebkitBackdropFilter: "blur(10px)",
-      }
-    : {
-        position: "relative",
-        padding: "32px",
-        borderRadius: 20,
-        background: "black",
-        boxShadow:
-          "0 10px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(132, 0, 255, 0.08) inset",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-      };
+    ? { padding: "18px" }
+    : { padding: "28px" };
 
   const textStyle = {
     fontSize: "1.1rem",
@@ -283,63 +265,25 @@ function VenueSection() {
   };
 
   const headingStyle = isMobile
-    ? {
-        fontSize: "2rem",
-        fontWeight: 700,
-        color: "transparent",
-        WebkitTextStroke: "1.5px white",
-        fontFamily: 'Poppins',
-        marginTop: "5%",
-        marginBottom: "1rem",
-        letterSpacing: "0.4rem",
-        Filter: 'drop-shadow(0px 4px 8px rgba(255, 255, 255, 0.3))',
-      }
-    : {
-        fontSize: "4rem",
-        fontWeight: 700,
-        color: "transparent",
-        WebkitTextStroke: "2px white",
-        fontFamily: 'Poppins',
-        marginTop: "10%",
-        marginBottom: "1.5rem",
-        letterSpacing: "1rem",
-        Filter: 'drop-shadow(0px 8px 12px rgba(255, 255, 255, 0.3))',
-      };
+    ? { fontSize: "2rem" }
+    : { fontSize: "2.6rem" };
 
   const imageContainerStyle = isMobile
-    ? {
-        width: "100%",
-        height: "100%",
-        minHeight: "280px",
-        borderRadius: 16,
-        overflow: "hidden",
-        position: "relative",
-        border: "none",
-      }
-    : {
-        width: "100%",
-        height: "100%",
-        minHeight: "400px",
-        borderRadius: 20,
-        overflow: "hidden",
-        position: "relative",
-        border: "none",
-      };
+    ? { minHeight: "280px" }
+    : { minHeight: "380px" };
 
   return (
     <section id="venue" className="venue-section-wrapper" style={{ marginTop: isMobile ? "18%" : "11%", marginBottom: isMobile ? "16%" : "10%" }}>
       <div
         className="venue-grid"
         style={{
-          display: "grid",
           gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(300px, 1fr))",
           gap: isMobile ? "1.2rem" : "2rem",
-          alignItems: "stretch",
         }}
       >
         {/* Left side - Text */}
         <div className="venue-text-container" style={containerStyle}>
-          <h2 className="venue-heading" style={headingStyle}>Venue</h2>
+          <h2 className="venue-heading">Venue</h2>
           {/* <p style={textStyle}>
             Join us at <strong>IIIT Kottayam, Valavoor</strong> for an
             incredible weekend of innovation and collaboration.
@@ -381,7 +325,7 @@ Indian Institute of Information Technology (IIIT) Kottayam</strong>
         </div>
 
         {/* Right side - Map (Google Maps Embed) */}
-        <div className="venue-map-wrapper" style={{ ...containerStyle, padding: 0, overflow: "hidden", display: "flex", height: isMobile ? "280px" : "100%" }}>
+        <div className="venue-map-wrapper" style={{ height: isMobile ? "280px" : "100%" }}>
           <div className="venue-map-container" style={imageContainerStyle}>
             <iframe
               title="IIIT Kottayam Location Map"
@@ -401,6 +345,38 @@ Indian Institute of Information Technology (IIIT) Kottayam</strong>
 }
 
 export default function About() {
+  // Create star particles effect
+  useEffect(() => {
+    const starsContainer = document.createElement('div');
+    starsContainer.className = 'stars-container';
+    document.querySelector('.about-page')?.appendChild(starsContainer);
+
+    // Generate 150 stars with random positions, sizes, and animation durations
+    for (let i = 0; i < 150; i++) {
+      const star = document.createElement('div');
+      star.className = 'star';
+      
+      const size = Math.random() * 3 + 1; // 1-4px
+      const x = Math.random() * 100; // 0-100%
+      const y = Math.random() * 100; // 0-100%
+      const duration = Math.random() * 3 + 2; // 2-5s
+      const delay = Math.random() * 5; // 0-5s
+      
+      star.style.width = `${size}px`;
+      star.style.height = `${size}px`;
+      star.style.left = `${x}%`;
+      star.style.top = `${y}%`;
+      star.style.animationDuration = `${duration}s`;
+      star.style.animationDelay = `${delay}s`;
+      
+      starsContainer.appendChild(star);
+    }
+
+    return () => {
+      starsContainer.remove();
+    };
+  }, []);
+
   const heroHighlights = [
     {
       icon: Sparkles,
