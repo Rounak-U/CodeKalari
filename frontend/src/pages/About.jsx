@@ -22,6 +22,16 @@ import "./About.css";
 const LAUNCH_TS = new Date("2026-01-17T09:00:00+05:30").getTime();
 
 function LaunchCountdown({ targetTs = LAUNCH_TS }) {
+  // Responsive for mobile
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 700);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -44,73 +54,142 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
     return () => clearInterval(id);
   }, [targetTs]);
 
-  const cardStyle = {
-    position: "relative",
-    width: "100%",
-    flex: "1 1 420px",
-    padding: "22px 28px",
-    borderRadius: 24,
-    background:
-      "linear-gradient(160deg, rgba(10, 10, 24, 0.92), rgba(20, 0, 42, 0.82))",
-    border: "1px solid rgba(132, 0, 255, 0.38)",
-    boxShadow:
-      "0 24px 60px rgba(0, 0, 0, 0.55), 0 0 1px rgba(132, 0, 255, 0.1) inset",
-    backdropFilter: "blur(14px)",
-    WebkitBackdropFilter: "blur(14px)",
-  };
+  const cardStyle = isMobile
+    ? {
+        position: "relative",
+        width: "100%",
+        flex: "1 1 auto",
+        padding: "12px 16px",
+        borderRadius: 18,
+        background:
+          "linear-gradient(160deg, rgba(10, 10, 24, 0.92), rgba(20, 0, 42, 0.82))",
+        border: "1px solid rgba(132, 0, 255, 0.38)",
+        boxShadow:
+          "0 12px 30px rgba(0, 0, 0, 0.45), 0 0 1px rgba(132, 0, 255, 0.1) inset",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
+      }
+    : {
+        position: "relative",
+        width: "100%",
+        flex: "1 1 420px",
+        padding: "22px 28px",
+        borderRadius: 24,
+        background:
+          "linear-gradient(160deg, rgba(10, 10, 24, 0.92), rgba(20, 0, 42, 0.82))",
+        border: "1px solid rgba(132, 0, 255, 0.38)",
+        boxShadow:
+          "0 24px 60px rgba(0, 0, 0, 0.55), 0 0 1px rgba(132, 0, 255, 0.1) inset",
+        backdropFilter: "blur(14px)",
+        WebkitBackdropFilter: "blur(14px)",
+      };
 
-  const rowStyle = {
-    display: "flex",
-    alignItems: "stretch",
-    justifyContent: "space-between",
-    gap: 12,
-    width: "100%",
-    flexWrap: "wrap",
-  };
+  const rowStyle = isMobile
+    ? {
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 3,
+        width: "100%",
+        flexWrap: "wrap",
+      }
+    : {
+        display: "flex",
+        alignItems: "stretch",
+        justifyContent: "space-between",
+        gap: 12,
+        width: "100%",
+        flexWrap: "wrap",
+      };
 
-  const boxStyle = {
-    flex: "1 1 110px",
-    minWidth: 100,
-    padding: "18px 16px",
-    borderRadius: 18,
-    background:
-      "linear-gradient(180deg, rgba(12, 12, 28, 0.95), rgba(28, 8, 48, 0.75))",
-    border: "1px solid rgba(132, 0, 255, 0.34)",
-    boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 15px 32px rgba(0, 0, 0, 0.45)",
-    textAlign: "center",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-  };
+  const boxStyle = isMobile
+    ? {
+        flex: "0 1 auto",
+        minWidth: 40,
+        padding: "8px 6px",
+        borderRadius: 12,
+        background:
+          "linear-gradient(180deg, rgba(12, 12, 28, 0.95), rgba(28, 8, 48, 0.75))",
+        border: "1px solid rgba(132, 0, 255, 0.34)",
+        boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 18px rgba(0, 0, 0, 0.35)",
+        textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }
+    : {
+        flex: "1 1 110px",
+        minWidth: 100,
+        padding: "18px 16px",
+        borderRadius: 18,
+        background:
+          "linear-gradient(180deg, rgba(12, 12, 28, 0.95), rgba(28, 8, 48, 0.75))",
+        border: "1px solid rgba(132, 0, 255, 0.34)",
+        boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 15px 32px rgba(0, 0, 0, 0.45)",
+        textAlign: "center",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      };
 
-  const numStyle = {
-    fontSize: "2.9rem",
-    fontWeight: 600,
-    letterSpacing: "0.08rem",
-    fontFamily: "Poppins",
-    background: "linear-gradient(140deg, #ffffff 0%, rgba(166, 110, 255, 0.92) 100%)",
-    WebkitBackgroundClip: "text",
-    backgroundClip: "text",
-    color: "transparent",
-    textShadow: "0 10px 24px rgba(132, 0, 255, 0.25)",
-  };
+  const numStyle = isMobile
+    ? {
+        fontSize: "1.6rem",
+        fontWeight: 600,
+        letterSpacing: "0.04rem",
+        fontFamily: "Poppins",
+        background: "linear-gradient(140deg, #ffffff 0%, rgba(166, 110, 255, 0.92) 100%)",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        color: "transparent",
+        textShadow: "0 4px 10px rgba(132, 0, 255, 0.15)",
+      }
+    : {
+        fontSize: "2.9rem",
+        fontWeight: 600,
+        letterSpacing: "0.08rem",
+        fontFamily: "Poppins",
+        background: "linear-gradient(140deg, #ffffff 0%, rgba(166, 110, 255, 0.92) 100%)",
+        WebkitBackgroundClip: "text",
+        backgroundClip: "text",
+        color: "transparent",
+        textShadow: "0 10px 24px rgba(132, 0, 255, 0.25)",
+      };
 
-  const labelStyle = {
-    fontSize: 12,
-    color: "rgba(255, 255, 255, 0.68)",
-    marginTop: 10,
-    letterSpacing: 1.6,
-    textTransform: "uppercase",
-    fontWeight: 500,
-  };
+  const labelStyle = isMobile
+    ? {
+        fontSize: 7,
+        color: "rgba(255, 255, 255, 0.68)",
+        marginTop: 4,
+        letterSpacing: 0.8,
+        textTransform: "uppercase",
+        fontWeight: 500,
+      }
+    : {
+        fontSize: 12,
+        color: "rgba(255, 255, 255, 0.68)",
+        marginTop: 10,
+        letterSpacing: 1.6,
+        textTransform: "uppercase",
+        fontWeight: 500,
+      };
 
-  const sepStyle = {
-    alignSelf: "center",
-    color: "rgba(132, 0, 255, 0.65)",
-    fontSize: 26,
-    fontWeight: 600,
-    padding: "0 6px",
-  };
+  const sepStyle = isMobile
+    ? {
+        alignSelf: "center",
+        color: "rgba(132, 0, 255, 0.65)",
+        fontSize: 22,
+        fontWeight: 600,
+        padding: "0 2px",
+      }
+    : {
+        alignSelf: "center",
+        color: "rgba(132, 0, 255, 0.65)",
+        fontSize: 26,
+        fontWeight: 600,
+        padding: "0 6px",
+      };
 
   return (
     <div className="launch-countdown-shell">
@@ -164,19 +243,37 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
 }
 
 function VenueSection() {
-  const containerStyle = {
-    position: "relative",
-    padding: "32px",
-    borderRadius: 20,
-    // background:
-    //   "linear-gradient(135deg, rgba(40, 20, 50, 0.4), rgba(0, 38, 128, 0.25), rgba(132, 0, 255, 0.25))",
-    background: "black",
-    // border: "1px solid rgba(132, 0, 255, 0.25)",
-    boxShadow:
-      "0 10px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(132, 0, 255, 0.08) inset",
-    backdropFilter: "blur(12px)",
-    WebkitBackdropFilter: "blur(12px)",
-  };
+  // Responsive grid and map for mobile
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 700);
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  const containerStyle = isMobile
+    ? {
+        position: "relative",
+        padding: "20px",
+        borderRadius: 16,
+        background: "black",
+        boxShadow:
+          "0 6px 20px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(132, 0, 255, 0.08) inset",
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
+      }
+    : {
+        position: "relative",
+        padding: "32px",
+        borderRadius: 20,
+        background: "black",
+        boxShadow:
+          "0 10px 32px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(132, 0, 255, 0.08) inset",
+        backdropFilter: "blur(12px)",
+        WebkitBackdropFilter: "blur(12px)",
+      };
 
   const textStyle = {
     fontSize: "1.1rem",
@@ -185,37 +282,58 @@ function VenueSection() {
     marginBottom: "1rem",
   };
 
-  const headingStyle = {
-    fontSize: "4rem",
-    fontWeight: 700,
-    color: "rgba(245, 239, 230, 1)",
-    color: "transparent",
-    WebkitTextStroke: "2px white",
-    fontFamily: 'Poppins',
-    marginTop: "10%",
-    marginBottom: "1.5rem",
-    letterSpacing: "1rem",
-    Filter: 'drop-shadow(0px 8px 12px rgba(255, 255, 255, 0.3))',
-  };
+  const headingStyle = isMobile
+    ? {
+        fontSize: "2rem",
+        fontWeight: 700,
+        color: "transparent",
+        WebkitTextStroke: "1.5px white",
+        fontFamily: 'Poppins',
+        marginTop: "5%",
+        marginBottom: "1rem",
+        letterSpacing: "0.4rem",
+        Filter: 'drop-shadow(0px 4px 8px rgba(255, 255, 255, 0.3))',
+      }
+    : {
+        fontSize: "4rem",
+        fontWeight: 700,
+        color: "transparent",
+        WebkitTextStroke: "2px white",
+        fontFamily: 'Poppins',
+        marginTop: "10%",
+        marginBottom: "1.5rem",
+        letterSpacing: "1rem",
+        Filter: 'drop-shadow(0px 8px 12px rgba(255, 255, 255, 0.3))',
+      };
 
-  const imageContainerStyle = {
-    width: "100%",
-    height: "100%",
-    minHeight: "400px",
-    borderRadius: 20,
-    overflow: "hidden",
-    position: "relative",
-    border: "none",
-  };
+  const imageContainerStyle = isMobile
+    ? {
+        width: "100%",
+        height: "100%",
+        minHeight: "280px",
+        borderRadius: 16,
+        overflow: "hidden",
+        position: "relative",
+        border: "none",
+      }
+    : {
+        width: "100%",
+        height: "100%",
+        minHeight: "400px",
+        borderRadius: 20,
+        overflow: "hidden",
+        position: "relative",
+        border: "none",
+      };
 
   return (
-    <section id="venue" className="venue-section-wrapper" style={{ marginTop: "11%", marginBottom: "10%" }}>
+    <section id="venue" className="venue-section-wrapper" style={{ marginTop: isMobile ? "18%" : "11%", marginBottom: isMobile ? "16%" : "10%" }}>
       <div
         className="venue-grid"
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "2rem",
+          gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: isMobile ? "1.2rem" : "2rem",
           alignItems: "stretch",
         }}
       >
@@ -237,8 +355,8 @@ function VenueSection() {
           <div
             className="venue-text-box"
             style={{
-              marginTop: "1.5rem",
-              padding: "12px 20px",
+              marginTop: isMobile ? "1rem" : "1.5rem",
+              padding: isMobile ? "10px 14px" : "12px 20px",
               borderRadius: 12,
               background: "rgba(0, 0, 0, 0.15)",
               border: "1px solid rgba(132, 0, 255, 0.3)",
@@ -247,9 +365,10 @@ function VenueSection() {
             <p
               style={{
                 margin: 0,
-                fontSize: "0.95rem",
+                fontSize: isMobile ? "0.85rem" : "0.95rem",
                 color: "rgba(255, 255, 255, 0.85)",
                 fontWeight: 500,
+                lineHeight: isMobile ? 1.6 : 1.8,
               }}
             >
               📍 <strong>
@@ -261,17 +380,19 @@ Indian Institute of Information Technology (IIIT) Kottayam</strong>
           </div>
         </div>
 
-        {/* Right side - Map */}
-        <div className="venue-map-wrapper" style={{ ...containerStyle, padding: 0, overflow: "hidden", display: "flex", height: "100%" }}>
+        {/* Right side - Map (Google Maps Embed) */}
+        <div className="venue-map-wrapper" style={{ ...containerStyle, padding: 0, overflow: "hidden", display: "flex", height: isMobile ? "280px" : "100%" }}>
           <div className="venue-map-container" style={imageContainerStyle}>
-            <Image
-              src={IIITMapImage}
-              alt="Illustrative map showing the IIIT Kottayam campus location"
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              style={{ objectFit: "cover" }}
-              priority
-            />
+            <iframe
+              title="IIIT Kottayam Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.128109491185!2d76.6500519!3d9.7552146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07ce23bc170053%3A0x8757971e61eb21dd!2sIndian%20Institute%20of%20Information%20Technology%20(IIIT)%20Kottayam!5e0!3m2!1sen!2sin!4v1765008343875!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style={{ border: 0, minHeight: isMobile ? "280px" : "400px", width: "100%", height: "100%" }}
+              allowFullScreen={true}
+              loading="eager"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>
@@ -419,7 +540,7 @@ export default function About() {
             {stats.map(({ icon: Icon, value, label, caption }) => (
               <div key={label} className="stats-card">
                 <div className="stats-icon">
-                  <Icon size={22} />
+                  <Icon size={28} strokeWidth={1.5} />
                 </div>
                 <div>
                   <p className="stats-value">{value}</p>

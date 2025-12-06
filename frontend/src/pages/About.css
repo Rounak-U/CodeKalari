@@ -286,14 +286,19 @@
   border: 1px solid rgba(132, 0, 255, 0.28);
   box-shadow: 0 24px 40px rgba(0, 0, 0, 0.45);
   display: flex;
-  gap: 1rem;
+  gap: 1.2rem;
   align-items: flex-start;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border 0.25s ease;
 }
 
+.stats-card > div:last-child {
+  flex: 1;
+  min-width: 0;
+}
+
 .stats-icon {
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -301,6 +306,7 @@
   background: rgba(132, 0, 255, 0.18);
   border: 1px solid rgba(132, 0, 255, 0.25);
   color: #fff;
+  flex-shrink: 0;
 }
 
 .stats-value {
@@ -520,20 +526,43 @@
   }
 
   .hero-heading {
-    font-size: 2.4rem;
-    letter-spacing: 0.02em;
+    font-size: 2.2rem !important;
+    letter-spacing: 0.02em !important;
+    line-height: 1.2 !important;
   }
 
   .hero-description {
-    font-size: 0.95rem;
+    font-size: 0.95rem !important;
+    line-height: 1.65 !important;
+  }
+
+  .hero-tag {
+    font-size: 0.65rem !important;
+    letter-spacing: 0.2rem !important;
+    padding: 0.4rem 0.8rem !important;
   }
 
   .hero-highlight-panel {
-    padding: 1.9rem;
+    padding: 1.6rem !important;
+    border-radius: 18px !important;
+  }
+  
+  .hero-highlight-panel h2 {
+    font-size: 1.4rem !important;
+    margin-bottom: 1rem !important;
   }
 
   .hero-highlight-item h3 {
-    font-size: 1rem;
+    font-size: 0.95rem !important;
+  }
+  
+  .hero-highlight-item p {
+    font-size: 0.88rem !important;
+  }
+  
+  .hero-highlight-icon {
+    width: 36px !important;
+    height: 36px !important;
   }
 
   .stats-grid,
@@ -545,74 +574,124 @@
   .stats-card,
   .info-card,
   .timeline-card {
-    padding: 1.6rem !important;
+    padding: 1.4rem !important;
+    border-radius: 16px !important;
+  }
+  
+  .section-header h2 {
+    font-size: 1.8rem !important;
+  }
+  
+  .section-header p {
+    font-size: 0.92rem !important;
+  }
+  
+  .stats-value {
+    font-size: 1.6rem !important;
+  }
+  
+  .stats-label {
+    font-size: 0.85rem !important;
+  }
+  
+  .stats-caption {
+    font-size: 0.82rem !important;
+  }
+  
+  .info-card h3,
+  .timeline-card h3 {
+    font-size: 1.1rem !important;
+  }
+  
+  .info-card p,
+  .timeline-card p {
+    font-size: 0.88rem !important;
   }
 
   /* Launch Countdown Container - smaller for mobile */
   .launch-countdown-container {
     flex-direction: column !important;
-    gap: 0.5rem !important;
+    gap: 0.6rem !important;
     align-items: stretch !important;
-    padding: 0 0.5rem !important;
+    padding: 0 !important;
+  }
+
+  /* Hero countdown wrapper */
+  .hero-countdown {
+    padding: 1.2rem 1rem !important;
+    gap: 0.8rem !important;
   }
 
   /* Countdown card container */
   .launch-countdown-container > div:first-child {
-    padding: 10px 12px !important;
+    padding: 12px 10px !important;
+    border-radius: 16px !important;
   }
 
   /* Countdown boxes */
   .countdown-boxes {
     flex-wrap: wrap !important;
-    gap: 4px !important;
+    gap: 3px !important;
     justify-content: center !important;
   }
 
   .countdown-boxes > div {
-    min-width: 45px !important;
-    padding: 6px 8px !important;
+    min-width: 42px !important;
+    max-width: 48px !important;
+    padding: 8px 6px !important;
+    border-radius: 10px !important;
   }
 
   .num-style {
-    font-size: 1.2rem !important;
-    letter-spacing: 0.15rem !important;
-    -webkit-text-stroke: 1px white !important;
+    font-size: 1.6rem !important;
+    letter-spacing: 0.04rem !important;
   }
 
   .label-style {
     font-size: 7px !important;
-    margin-top: 3px !important;
+    margin-top: 4px !important;
+    letter-spacing: 0.05rem !important;
   }
 
   .sep-style {
-    font-size: 12px !important;
-    padding: 0 1px !important;
+    font-size: 22px !important;
+    padding: 0 2px !important;
   }
 
   /* Date text */
   .countdown-date {
     justify-content: center !important;
     align-items: center !important;
+    padding: 1rem 1.2rem !important;
+    min-width: auto !important;
   }
 
   .countdown-date h2 {
-    font-size: 1rem !important;
-    letter-spacing: 0.18rem !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 0.2rem !important;
   }
 
   .countdown-date span {
+    font-size: 0.75rem !important;
     letter-spacing: 0.12rem !important;
+  }
+  
+  /* Countdown caption */
+  .countdown-caption {
+    font-size: 0.75rem !important;
+    letter-spacing: 0.08rem !important;
+    padding: 0 0.5rem !important;
   }
 
   /* Venue Section */
   .venue-grid {
     grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
+    gap: 1.2rem !important;
   }
 
   .venue-heading {
     font-size: 2rem !important;
-    letter-spacing: 0.3rem !important;
+    letter-spacing: 0.4rem !important;
     margin-top: 5% !important;
     margin-bottom: 1rem !important;
     -webkit-text-stroke: 1.5px white !important;
@@ -620,18 +699,23 @@
 
   .venue-text-box {
     font-size: 0.85rem !important;
-    padding: 10px 16px !important;
-    line-height: 1.5 !important;
+    padding: 10px 14px !important;
+    line-height: 1.6 !important;
+  }
+  
+  .venue-text-box p {
+    font-size: 0.85rem !important;
   }
 
   .venue-map-container {
-    min-height: 300px !important;
+    min-height: 280px !important;
   }
 
   /* Venue container spacing */
   .venue-text-container,
   .venue-map-wrapper {
-    padding: 24px !important;
+    padding: 20px !important;
+    border-radius: 16px !important;
   }
 
   /* About section padding */
@@ -648,32 +732,54 @@
 
 @media (max-width: 480px) {
   .about-container {
-    padding: 2.5rem 0.9rem 3rem !important;
+    padding: 2rem 1rem 2.5rem !important;
   }
 
   .hero-tag {
-    letter-spacing: 0.18rem !important;
+    font-size: 0.6rem !important;
+    letter-spacing: 0.15rem !important;
+    padding: 0.35rem 0.7rem !important;
   }
 
   .hero-heading {
-    font-size: 2rem !important;
+    font-size: 1.8rem !important;
+    line-height: 1.15 !important;
   }
 
   .hero-description {
-    font-size: 0.9rem !important;
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
   }
 
   .hero-highlight-panel {
-    padding: 1.5rem !important;
+    padding: 1.3rem !important;
+    border-radius: 16px !important;
+  }
+  
+  .hero-highlight-panel h2 {
+    font-size: 1.2rem !important;
+  }
+  
+  .hero-highlight-item h3 {
+    font-size: 0.9rem !important;
+  }
+  
+  .hero-highlight-item p {
+    font-size: 0.82rem !important;
+  }
+
+  .hero-countdown {
+    padding: 1rem 0.8rem !important;
   }
 
   .launch-countdown-container {
-    gap: 0.4rem !important;
-    padding: 0 0.4rem !important;
+    gap: 0.5rem !important;
+    padding: 0 !important;
   }
 
   .launch-countdown-container > div:first-child {
-    padding: 8px 10px !important;
+    padding: 10px 8px !important;
+    border-radius: 14px !important;
   }
 
   .countdown-boxes {
@@ -682,47 +788,83 @@
 
   .countdown-boxes > div {
     min-width: 38px !important;
-    padding: 5px 6px !important;
+    max-width: 44px !important;
+    padding: 6px 5px !important;
+    border-radius: 9px !important;
   }
 
   .num-style {
-    font-size: 1.6rem !important;
-    letter-spacing: 0.08rem !important;
-    -webkit-text-stroke: 0.8px white !important;
+    font-size: 1.4rem !important;
+    letter-spacing: 0.03rem !important;
   }
 
   .label-style {
-    font-size: 6px !important;
-    margin-top: 2px !important;
+    font-size: 6.5px !important;
+    margin-top: 3px !important;
+    letter-spacing: 0.04rem !important;
   }
 
   .sep-style {
-    font-size: 26px !important;
+    font-size: 20px !important;
     padding: 0 1px !important;
   }
 
+  .countdown-date {
+    padding: 0.9rem 1rem !important;
+  }
+
   .countdown-date h2 {
-    font-size: 1.2rem !important;
-    letter-spacing: 0.12rem !important;
+    font-size: 0.95rem !important;
+    letter-spacing: 0.15rem !important;
   }
 
   .countdown-date span {
-    letter-spacing: 0.08rem !important;
+    font-size: 0.7rem !important;
+    letter-spacing: 0.1rem !important;
+  }
+  
+  .countdown-caption {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.06rem !important;
+  }
+  
+  .section-header h2 {
+    font-size: 1.6rem !important;
+  }
+  
+  .section-header p {
+    font-size: 0.88rem !important;
+  }
+  
+  .stats-card,
+  .info-card,
+  .timeline-card {
+    padding: 1.2rem !important;
   }
 
   .venue-heading {
-    font-size: 1.5rem !important;
-    letter-spacing: 0.2rem !important;
-    -webkit-text-stroke: 1px white !important;
+    font-size: 1.6rem !important;
+    letter-spacing: 0.3rem !important;
+    -webkit-text-stroke: 1.2px white !important;
   }
 
   .venue-text-container,
   .venue-map-wrapper {
     padding: 16px !important;
+    border-radius: 14px !important;
+  }
+  
+  .venue-text-box {
+    padding: 8px 12px !important;
+    font-size: 0.8rem !important;
+  }
+  
+  .venue-text-box p {
+    font-size: 0.8rem !important;
   }
 
   .venue-map-container {
-    min-height: 250px !important;
+    min-height: 240px !important;
   }
 
   section[style*="background-color: #000"] > div {
