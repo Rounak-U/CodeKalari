@@ -62,7 +62,7 @@ export default function Home() {
       <SplineIframe /> {/* The 3D scene */}
       <About /> {/* About section */}
       <Sponsors /> {/* Sponsors section */}
-      {/* <FAQ />  */}
+      <FAQ /> {/* FAQ section */}
       <Footer /> {/* Footer */}
     </div>
   );
