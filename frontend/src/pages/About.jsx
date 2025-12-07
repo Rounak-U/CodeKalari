@@ -253,92 +253,80 @@ function VenueSection() {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  const containerStyle = isMobile
-    ? { padding: "18px" }
-    : { padding: "28px" };
 
-  const textStyle = {
-    fontSize: "1.1rem",
-    lineHeight: 1.8,
-    color: "rgba(255, 255, 255, 0.9)",
-    marginBottom: "1rem",
-  };
-
-  const headingStyle = isMobile
-    ? { fontSize: "2rem" }
-    : { fontSize: "2.6rem" };
-
-  const imageContainerStyle = isMobile
-    ? { minHeight: "280px" }
-    : { minHeight: "380px" };
+  const transportOptions = [
+    {
+      icon: "✈️",
+      title: "Nearest Airport",
+      name: "Cochin International Airport",
+      distance: "~85 km",
+      code: "COK"
+    },
+    {
+      icon: "🚂",
+      title: "Nearest Railway Station", 
+      name: "Kottayam Railway Station",
+      distance: "~25 km",
+      code: "KTYM"
+    },
+    {
+      icon: "🚌",
+      title: "Nearest Bus Station",
+      name: "Kottayam KSRTC Bus Stand",
+      distance: "~25 km",
+      code: "KSRTC"
+    }
+  ];
 
   return (
     <section id="venue" className="venue-section-wrapper" style={{ marginTop: isMobile ? "18%" : "11%", marginBottom: isMobile ? "16%" : "10%" }}>
-      <div
-        className="venue-grid"
-        style={{
-          gridTemplateColumns: isMobile ? "1fr" : "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: isMobile ? "1.2rem" : "2rem",
-        }}
-      >
-        {/* Left side - Text */}
-        <div className="venue-text-container" style={containerStyle}>
-          <h2 className="venue-heading">Venue</h2>
-          {/* <p style={textStyle}>
-            Join us at <strong>IIIT Kottayam, Valavoor</strong> for an
-            incredible weekend of innovation and collaboration.
-          </p> */}
-          {/* <p style={textStyle}>
-            Our campus provides state-of-the-art facilities, comfortable working
-            spaces, and all the resources you need to bring your ideas to life.
-          </p> */}
-          {/* <p style={textStyle}>
-            Whether you're a seasoned hacker or just starting out, you'll find
-            everything you need to build something amazing.
-          </p> */}
-          <div
-            className="venue-text-box"
-            style={{
-              marginTop: isMobile ? "1rem" : "1.5rem",
-              padding: isMobile ? "10px 14px" : "12px 20px",
-              borderRadius: 12,
-              background: "rgba(0, 0, 0, 0.15)",
-              border: "1px solid rgba(132, 0, 255, 0.3)",
-            }}
-          >
-            <p
-              style={{
-                margin: 0,
-                fontSize: isMobile ? "0.85rem" : "0.95rem",
-                color: "rgba(255, 255, 255, 0.85)",
-                fontWeight: 500,
-                lineHeight: isMobile ? 1.6 : 1.8,
-              }}
-            >
-              📍 <strong>
-Indian Institute of Information Technology (IIIT) Kottayam</strong>
-              <br />
-              <br/>
-              Valavoor - Chakkampuzha Rd, Valavoor, Nechipuzhoor, Kerala 686635
-            </p>
-          </div>
-        </div>
+      {/* Section Header */}
+      <div className="venue-header">
+        <span className="venue-eyebrow">Location</span>
+        <h2 className="venue-main-title">Venue & How to Reach</h2>
+      </div>
 
-        {/* Right side - Map (Google Maps Embed) */}
-        <div className="venue-map-wrapper" style={{ height: isMobile ? "280px" : "100%" }}>
-          <div className="venue-map-container" style={imageContainerStyle}>
-            <iframe
-              title="IIIT Kottayam Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.128109491185!2d76.6500519!3d9.7552146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07ce23bc170053%3A0x8757971e61eb21dd!2sIndian%20Institute%20of%20Information%20Technology%20(IIIT)%20Kottayam!5e0!3m2!1sen!2sin!4v1765008343875!5m2!1sen!2sin"
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: isMobile ? "280px" : "400px", width: "100%", height: "100%" }}
-              allowFullScreen={true}
-              loading="eager"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+      {/* Main Venue Card */}
+      <div className="venue-main-card">
+        <div className="venue-info-side">
+          <div className="venue-location-box">
+            <span className="venue-pin">📍</span>
+            <div>
+              <h3 className="venue-name">Indian Institute of Information Technology (IIIT) Kottayam</h3>
+              <p className="venue-address">Valavoor - Chakkampuzha Rd, Valavoor, Nechipuzhoor, Kerala 686635</p>
+            </div>
           </div>
         </div>
+        
+        <div className="venue-map-side">
+          <iframe
+            title="IIIT Kottayam Location Map"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3932.128109491185!2d76.6500519!3d9.7552146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07ce23bc170053%3A0x8757971e61eb21dd!2sIndian%20Institute%20of%20Information%20Technology%20(IIIT)%20Kottayam!5e0!3m2!1sen!2sin!4v1765008343875!5m2!1sen!2sin"
+            width="100%"
+            height="100%"
+            style={{ border: 0, minHeight: isMobile ? "250px" : "300px" }}
+            allowFullScreen={true}
+            loading="eager"
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+        </div>
+      </div>
+
+      {/* Transport Options Grid */}
+      <div className="transport-grid">
+        {transportOptions.map((option, index) => (
+          <div key={index} className="transport-card">
+            <span className="transport-icon">{option.icon}</span>
+            <div className="transport-info">
+              <span className="transport-label">{option.title}</span>
+              <h4 className="transport-name">{option.name}</h4>
+              <div className="transport-meta">
+                <span className="transport-distance">{option.distance}</span>
+                <span className="transport-code">{option.code}</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
