@@ -99,7 +99,7 @@
 
 .about-page {
   position: relative;
-  background: #000000;
+  background: transparent;
   color: #fff;
   overflow: hidden;
 }

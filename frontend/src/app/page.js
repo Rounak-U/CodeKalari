@@ -5,6 +5,7 @@ import CardNav from "../components/ui/CardNav";
 import SplineIframe from "../components/SplineModel"; // your Spline iframe component
 import About from "../pages/About";
 import Sponsors from "../pages/Sponsors";
+import Timeline from "../components/Timeline";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import LoadingAnimation from "@/components/LoadingAnimation";
@@ -61,6 +62,7 @@ export default function Home() {
       </div> */}
       <SplineIframe /> {/* The 3D scene */}
       <About /> {/* About section */}
+      <Timeline /> {/* Timeline section */}
       <Sponsors /> {/* Sponsors section */}
       <FAQ /> {/* FAQ section */}
       <Footer /> {/* Footer */}

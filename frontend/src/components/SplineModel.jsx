@@ -97,7 +97,7 @@ export default function SplineIframe() {
         </h1>
       </div>
       {/* Spline 3D Model - on top of text */}
-      <div style={{ position: "absolute", inset: 0, zIndex: 3, opacity: 0.85 }}>
+      <div style={{ position: "absolute", inset: 0, zIndex: 3 }}>
         <Spline scene="https://prod.spline.design/kjVjvsRXVMk-LaVx/scene.splinecode" />
       </div>
       
