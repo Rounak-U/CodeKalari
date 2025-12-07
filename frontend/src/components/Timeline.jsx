@@ -51,10 +51,10 @@ export default function Timeline() {
   return (
     <section className="timeline-section">
       <div className="timeline-header">
-        <div className="timeline-badge">
+        {/* <div className="timeline-badge">
           <span className="timeline-icon">📅</span>
           <p>Event Timeline</p>
-        </div>
+        </div> */}
         <h2 className="timeline-title">Code Kalari Important Dates</h2>
       </div>
 

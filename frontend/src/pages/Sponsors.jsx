@@ -57,16 +57,18 @@ export default function Sponsors() {
       </div>
       {/* Hero Section with Silk Background */}
     
-      {/* Sponsors Section */}
-
-      <section className="rating-section">
-        <div className="rating-badge">
-          <span className="star">★</span>
-          <p>Meet Our Sponsors</p>
+      {/* Sponsors Hero Section */}
+      <section className="sponsors-hero">
+        <div className="sponsors-hero-content">
+          <h1 className="sponsors-title">Meet Our Sponsors</h1>
+          {/* <p className="sponsors-subtitle">
+            Powered by visionary organizations committed to fostering innovation and excellence.
+          </p> */}
         </div>
       </section>
-      <section className="testimonials-section">
 
+      {/* Sponsors Section */}
+      <section className="testimonials-section">
         <div className="wrapper-toright">
           <div className="item-right item1">
             <div className="testimonial-card sponsor-image-card">
