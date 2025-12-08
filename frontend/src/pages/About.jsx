@@ -548,7 +548,7 @@ export default function About() {
           </div>
         </div>
 
-        <div className="stats-section">
+        {/* <div className="stats-section">
           <div className="section-header">
             <span className="section-tag">Why join</span>
             <h2>Build with a community obsessed with craft.</h2>
@@ -571,7 +571,7 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <div className="prizes-section">
           <div className="section-header">
@@ -600,7 +600,7 @@ export default function About() {
           </div>
         </div>
 
-        <div id="tracks" className="info-section tracks-section">
+        {/* <div id="tracks" className="info-section tracks-section">
           <div className="section-header">
             <span className="section-tag">Tracks & Prompts</span>
             <h2>Choose a focus area that matches your curiosity.</h2>
@@ -620,11 +620,11 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         <VenueSection />
 
-        <div className="experience-section">
+        {/* <div className="experience-section">
           <div className="section-header">
             <span className="section-tag">Weekend Flow</span>
             <h2>Design-forward programming that keeps momentum high.</h2>
@@ -647,7 +647,7 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
