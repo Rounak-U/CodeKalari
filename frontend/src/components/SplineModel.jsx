@@ -93,7 +93,9 @@ export default function SplineIframe() {
             opacity: 0.95,
           }}
         >
-          CODE KALARI
+          <span className="code-text">CODE</span>
+          <span className="space-separator"> </span>
+          <span className="kalari-text">KALARI</span>
         </h1>
       </div>
       {/* Spline 3D Model - on top of text */}
