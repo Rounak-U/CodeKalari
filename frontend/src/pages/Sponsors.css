@@ -1,46 +1,66 @@
-.rating-section {
-  padding: -1rem 0;
-  background: #000000;
+/* Sponsors Hero Section */
+.sponsors-hero {
+  padding: 8rem 2rem 4rem;
+  background: transparent;
   text-align: center;
-  margin-bottom: -7%;
-  margin-top: -0%;
+  position: relative;
 }
 
-.rating-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: #1e1d1d;
-  color: #fff;
-  padding: 10px 16px;
-  border-radius: 999px;
-  font-family: "Inter", sans-serif;
-  font-size: 0.95rem;
-  font-weight: 500;
-  box-shadow: 2px 14px 28px rgba(152, 0, 247, 0.3);
-}
-
-.rating-badge .star {
+.sponsors-hero-content {
+  max-width: 700px;
+  margin: 0 auto;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: rgb(165, 21, 255); /* blue circle */
+  gap: 1rem;
+}
+
+.sponsors-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: "Inter", sans-serif;
+}
+
+.sponsors-title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 600;
   color: #fff;
-  font-size: 0.9rem;
-  font-weight: bold;
-  border-radius: 50%;
-  width: 22px;
-  height: 22px;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+
+.sponsors-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.55);
+  max-width: 500px;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
 }
 
 /* Testimonials Section */
 .testimonials-section {
-  background-color: #000000;
+  background-color: transparent;
   padding: 60px 0;
-  padding-top: 7%;
+  padding-top: 3%;
   height: 100%;
   text-align: center;
   padding-bottom: 8%;
+}
+
+.rating-section {
+  display: none;
+}
+
+.rating-badge {
+  display: none;
 }
 
 

@@ -54,7 +54,7 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [open, setOpen] = useState(0);
+  const [open, setOpen] = useState(-1);
 
   return (
     <section className="faq-section">
@@ -65,7 +65,7 @@ export default function FAQ() {
           <p className="faq-subtitle">Quick answers about the event, eligibility, and registrations.</p>
         </div>
 
-        <div className="faq-grid">
+        <div className="faq-list">
           {faqs.map((item, idx) => {
             const isOpen = open === idx;
             return (
