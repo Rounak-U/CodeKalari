@@ -624,7 +624,7 @@ export default function About() {
 
         <VenueSection />
 
-        <div className="experience-section">
+        {/* <div className="experience-section">
           <div className="section-header">
             <span className="section-tag">Weekend Flow</span>
             <h2>Design-forward programming that keeps momentum high.</h2>
@@ -647,7 +647,7 @@ export default function About() {
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
