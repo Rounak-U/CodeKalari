@@ -116,10 +116,34 @@
     max-width: 80px !important;
   }
 
-  /* CODE KALARI text mobile */
+  /* CODE KALARI text mobile - split into two lines */
   #spline-code-kalari-text {
-    font-size: clamp(32px, 18vw, 120px) !important;
-    letter-spacing: 1.5rem !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 0.9 !important;
+    gap: 8px !important;
+  }
+
+  .code-text {
+    font-size: clamp(42px, 22vw, 140px) !important;
+    letter-spacing: 1.8rem !important;
+    display: block !important;
+    text-align: center !important;
+    margin-left: 1.8rem !important;
+  }
+
+  .kalari-text {
+    font-size: clamp(32px, 18vw, 110px) !important;
+    letter-spacing: 2.2rem !important;
+    display: block !important;
+    text-align: center !important;
+    margin-left: 2.2rem !important;
+  }
+
+  .space-separator {
+    display: none !important;
   }
 
   .spline-text-container {
@@ -156,9 +180,25 @@
   }
 
   #spline-code-kalari-text {
-    font-size: clamp(24px, 15vw, 80px) !important;
-    letter-spacing: 1rem !important;
+    gap: 12px !important;
+  }
+
+  .code-text {
+    font-size: clamp(80px, 54vw, 210px) !important;
+    letter-spacing: 1.4rem !important;
     -webkit-text-stroke: 1px white !important;
+    display: block !important;
+    text-align: center !important;
+    margin-left: 1.4rem !important;
+  }
+
+  .kalari-text {
+    font-size: clamp(70px, 34vw, 150px) !important;
+    letter-spacing: 1.1rem !important;
+    -webkit-text-stroke: 1px white !important;
+    display: block !important;
+    text-align: center !important;
+    margin-left: 1.1rem !important;
   }
 
   .spline-text-container {
