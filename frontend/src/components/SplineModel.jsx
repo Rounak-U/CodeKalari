@@ -25,44 +25,44 @@ export default function SplineIframe() {
     return () => clearTimeout(timer);
   }, []);
   // Create star particles effect for space theme
-  useEffect(() => {
-    const container = document.querySelector('.spline-model-container');
-    if (!container) return;
+  // useEffect(() => {
+  //   const container = document.querySelector('.spline-model-container');
+  //   if (!container) return;
     
-    let starsContainer = container.querySelector('.stars-container-spline');
-    if (starsContainer) return; // Already created
+  //   let starsContainer = container.querySelector('.stars-container-spline');
+  //   if (starsContainer) return; // Already created
     
-    starsContainer = document.createElement('div');
-    starsContainer.className = 'stars-container-spline';
-    starsContainer.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;';
+  //   starsContainer = document.createElement('div');
+  //   starsContainer.className = 'stars-container-spline';
+  //   starsContainer.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;';
     
-    // Generate 100 stars with random positions, sizes, and animation durations
-    for (let i = 0; i < 100; i++) {
-      const star = document.createElement('div');
-      star.className = 'star-spline';
+  //   // Generate 100 stars with random positions, sizes, and animation durations
+  //   for (let i = 0; i < 100; i++) {
+  //     const star = document.createElement('div');
+  //     star.className = 'star-spline';
       
-      const size = Math.random() * 2.5 + 0.8; // 0.8-3.3px
-      const x = Math.random() * 100; // 0-100%
-      const y = Math.random() * 100; // 0-100%
-      const duration = Math.random() * 3 + 2; // 2-5s
-      const delay = Math.random() * 5; // 0-5s
+  //     const size = Math.random() * 2.5 + 0.8; // 0.8-3.3px
+  //     const x = Math.random() * 100; // 0-100%
+  //     const y = Math.random() * 100; // 0-100%
+  //     const duration = Math.random() * 3 + 2; // 2-5s
+  //     const delay = Math.random() * 5; // 0-5s
       
-      star.style.cssText = `
-        position: absolute;
-        background: white;
-        border-radius: 50%;
-        width: ${size}px;
-        height: ${size}px;
-        left: ${x}%;
-        top: ${y}%;
-        animation: twinkle-spline ${duration}s linear ${delay}s infinite;
-      `;
+  //     star.style.cssText = `
+  //       position: absolute;
+  //       background: white;
+  //       border-radius: 50%;
+  //       width: ${size}px;
+  //       height: ${size}px;
+  //       left: ${x}%;
+  //       top: ${y}%;
+  //       animation: twinkle-spline ${duration}s linear ${delay}s infinite;
+  //     `;
       
-      starsContainer.appendChild(star);
-    }
+  //     starsContainer.appendChild(star);
+  //   }
     
-    container.insertBefore(starsContainer, container.firstChild);
-  }, []);
+  //   container.insertBefore(starsContainer, container.firstChild);
+  // }, []);
 
   return (
     <div className="spline-model-container" style={{ width: "100%", height: "100vh", position: "relative", backgroundColor: "#000000" }}>
