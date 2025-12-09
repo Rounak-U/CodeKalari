@@ -108,13 +108,6 @@
   .sponsor-logos {
     top: 12vh; /* ~10-14% from top on small screens */
   }
-  /* MLH Trust Badge mobile offset */
-  #mlh-trust-badge {
-    top: 0% !important;
-    right: 20px !important;
-    width: 12% !important;
-    max-width: 80px !important;
-  }
 
   /* CODE KALARI text mobile - split into two lines */
   #spline-code-kalari-text {
@@ -203,13 +196,6 @@
 
   .spline-text-container {
     top: -50% !important;
-  }
-
-  #mlh-trust-badge {
-    top: 0% !important;
-    right: 10px !important;
-    width: 15% !important;
-    max-width: 70px !important;
   }
 
   /* IIITK badge mobile - smaller screens */

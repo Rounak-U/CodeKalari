@@ -240,7 +240,7 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
         </div>
       </div>
       <div className="countdown-date">
-        <h2>Jan 17 · 2026</h2>
+        <h2>Jan 17-18 · 2026</h2>
         <span>IIIT Kottayam · Kerala</span>
       </div>
     </div>
@@ -402,7 +402,7 @@ export default function About() {
     {
       icon: Sparkles,
       title: "Studio-grade production",
-      description: "Immersive staging, lighting, and visuals built to keep energy high all 36 hours.",
+      description: "Immersive staging, lighting, and visuals built to keep energy high all 24 hours.",
     },
     {
       icon: Wifi,
@@ -517,8 +517,8 @@ export default function About() {
                 Where builders craft future-ready experiences from Kerala&apos;s creative campus.
               </h1>
               <p className="hero-description">
-                Code Kalari is an in-person hackathon hosted by IIIT Kottayam with Major League Hacking. Expect
-                36 hours of deliberate making, curated mentors, cultural spotlights, and a community-driven
+                Code Kalari is an in-person hackathon hosted by IIIT Kottayam. Expect
+                24 hours of deliberate making, curated mentors, cultural spotlights, and a community-driven
                 showcase that celebrates experimentation.
               </p>
             </div>
@@ -544,7 +544,7 @@ export default function About() {
 
           <div className="hero-countdown hero-countdown--full">
             <LaunchCountdown />
-            <p className="countdown-caption">We go live on campus January 17, 2026 · Valavoor, Kerala</p>
+            <p className="countdown-caption">We go live on campus January 17-18, 2026 · Valavoor, Kerala</p>
           </div>
         </div>
 
