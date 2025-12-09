@@ -8,14 +8,6 @@
     margin-top: -10% !important;
   }
 
-  /* MLH Trust Badge mobile */
-  #mlh-trust-badge {
-    right: 20px !important;
-    width: 12% !important;
-    margin-top: -10%;
-    max-width: 80px !important;
-  }
-
   /* IIITK badge mobile */
   .spline-model-container > a:first-of-type {
     width: 16% !important;
@@ -71,12 +63,6 @@
   #spline-code-kalari-text {
     font-size: clamp(24px, 15vw, 80px) !important;
     letter-spacing: 0.4rem !important;
-  }
-
-  #mlh-trust-badge {
-    right: 10px !important;
-    width: 15% !important;
-    max-width: 70px !important;
   }
 
   .countdown-date {

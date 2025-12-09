@@ -100,7 +100,7 @@ export default function SplineIframe() {
       </div>
       {/* Spline 3D Model - on top of text */}
       <div style={{ position: "absolute", inset: 0, zIndex: 3 }}>
-        <Spline scene="https://prod.spline.design/kjVjvsRXVMk-LaVx/scene.splinecode" />
+        <Spline scene="https://prod.spline.design/kjVjvsRXVMk-LaVx/scene.splinecode"  />
       </div>
       
       {/* Overlay to hide Spline watermark at bottom-right */}
