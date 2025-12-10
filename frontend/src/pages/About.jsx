@@ -282,7 +282,7 @@ function VenueSection() {
       name: "Pala Bus Stand",
       distance: "7.5 km away",
       code: "Pala ",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125845.51208799866!2d76.53330041640626!3d9.708988299999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07cd397a01708b%3A0x5835c896e385614b!2sKottaramattom%20Private%20Bus%20Stand!5e0!3m2!1sen!2sin!4v1765088191992!5m2!1sen!2sin"
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26455.777582018072!2d76.67062048352307!3d9.708765713915785!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07cc32df333675%3A0x1bd460714f5fe1e6!2sKSRTC%20Bus%20Station%20%7C%20Pala!5e0!3m2!1sen!2sin!4v1765357866481!5m2!1sen!2sin"
     }
   ];
 
