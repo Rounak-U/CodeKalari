@@ -465,24 +465,30 @@ export default function About() {
     {
       icon: Trophy,
       rank: "1st Prize",
-      amount: "Cash prizes worth upto ₹70,000",
-      description: "Grand prize for the winning team with the most innovative solution.",
+      amount: "₹70,000",
+      description: "worth of prizes",
       highlight: true,
     },
     {
       icon: Award,
       rank: "2nd Prize",
-      amount: "Cash prizes worth upto ₹50,000",
-      description: "Runner-up prize for exceptional execution and creativity.",
+      amount: "₹50,000",
+      description: "worth of prizes",
       highlight: false,
     },
     {
       icon: Medal,
       rank: "3rd Prize",
-      amount: "Cash prizes worth upto ₹30,000",
-      description: "Recognition for outstanding effort and technical excellence.",
+      amount: "₹30,000",
+      description: "worth of prizes",
       highlight: false,
     },
+  ];
+
+  const prizeTiers = [
+    { className: "prize-first", iconColor: "#FFD700" },
+    { className: "prize-second", iconColor: "#C0C0C0" },
+    { className: "prize-third", iconColor: "#CD7F32" },
   ];
 
   const experiences = [
@@ -522,7 +528,6 @@ export default function About() {
                 showcase that celebrates experimentation.
               </p>
             </div>
-
             <div className="hero-highlight-panel">
               <div className="panel-glow" />
               <h2>Inside the experience</h2>
@@ -541,7 +546,6 @@ export default function About() {
               </div>
             </div>
           </div>
-
           <div className="hero-countdown hero-countdown--full">
             <LaunchCountdown />
             <p className="countdown-caption">We go live on campus January 17-18, 2026 · Valavoor, Kerala</p>
@@ -577,26 +581,25 @@ export default function About() {
           <div className="section-header">
             <span className="section-tag">Prizes & Recognition</span>
             <h2>Win big and showcase your innovation.</h2>
-            <p>
-              Compete for cash prizes, recognition, and opportunities to take your project further. 
-              Top teams receive mentorship, resources, and potential incubation support.
-            </p>
           </div>
           <div className="prizes-grid">
-            {prizes.map(({ icon: Icon, rank, amount, description, highlight }) => (
-              <div key={rank} className={`prize-card ${highlight ? 'prize-card--highlight' : ''}`}>
-                <div className="prize-icon-container">
-                  <div className="prize-icon">
-                    <Icon size={32} strokeWidth={1.5} />
+            {prizes.map(({ icon: Icon, rank, amount, description, highlight }, idx) => {
+              const tier = prizeTiers[idx] ?? prizeTiers[prizeTiers.length - 1];
+              const rankClass = tier.className;
+              const iconColor = tier.iconColor;
+              return (
+                <div key={rank} className={`prize-card ${highlight ? 'prize-card--highlight' : ''} ${rankClass}`}>
+                  <div className="prize-icon-wrapper">
+                    <Icon size={42} strokeWidth={1.5} color={iconColor} />
+                  </div>
+                  <div className="prize-content">
+                    <span className="prize-rank">{rank}</span>
+                    <h3 className="prize-amount">{amount}</h3>
+                    <p className="prize-description">{description}</p>
                   </div>
                 </div>
-                <div className="prize-content">
-                  <span className="prize-rank">{rank}</span>
-                  <h3 className="prize-amount">{amount}</h3>
-                  <p className="prize-description">{description}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 

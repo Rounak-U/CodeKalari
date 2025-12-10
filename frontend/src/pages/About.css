@@ -673,18 +673,20 @@
 
 .prizes-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 2rem;
   width: 100%;
 }
 
 .prize-card {
+  --accent-color: rgba(255, 255, 255, 0.5);
+  --accent-glow: rgba(255, 255, 255, 0.1);
   position: relative;
   padding: 2.5rem 2rem;
-  border-radius: 16px;
+  border-radius: 24px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -697,69 +699,45 @@
 .prize-card::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, var(--accent-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .prize-card:hover::before {
-  transform: translateX(100%);
+  opacity: 1;
 }
 
 .prize-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 20px 50px rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-color);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 30px var(--accent-glow);
 }
 
 .prize-card--highlight {
   background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  transform: scale(1.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.prize-card--highlight:hover {
-  transform: translateY(-8px) scale(1.05);
-}
-
-.prize-card--highlight .prize-icon-container {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.prize-icon-container {
-  position: relative;
+.prize-icon-wrapper {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
-.prize-icon-container::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
-  padding: 2px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-}
-
-.prize-icon {
-  color: rgba(255, 255, 255, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+.prize-card:hover .prize-icon-wrapper {
+  transform: scale(1.1);
+  border-color: var(--accent-color);
+  box-shadow: 0 0 20px var(--accent-glow);
 }
 
 .prize-content {
@@ -767,14 +745,16 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+  z-index: 1;
 }
 
 .prize-rank {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.15rem;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.25rem;
 }
 
 .prize-amount {
@@ -782,13 +762,12 @@
   font-weight: 700;
   margin: 0;
   color: #ffffff;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   letter-spacing: -0.02em;
 }
 
 .prize-card--highlight .prize-amount {
   font-size: 3rem;
-  text-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
 }
 
 .prize-description {
@@ -796,6 +775,22 @@
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
   margin: 0.5rem 0 0 0;
+}
+
+/* Prize rank specific styles */
+.prize-first {
+  --accent-color: #ffd700;
+  --accent-glow: rgba(255, 215, 0, 0.25);
+}
+
+.prize-second {
+  --accent-color: #c0c0c0;
+  --accent-glow: rgba(192, 192, 192, 0.2);
+}
+
+.prize-third {
+  --accent-color: #cd7f32;
+  --accent-glow: rgba(205, 127, 50, 0.2);
 }
 
 /* Venue base styles - match space theme */
@@ -1233,20 +1228,12 @@
   }
 
   .prize-card {
-    padding: 2rem 1.5rem !important;
+    padding: 1.9rem 1.4rem !important;
   }
 
-  .prize-card--highlight {
-    transform: scale(1) !important;
-  }
-
-  .prize-card--highlight:hover {
-    transform: translateY(-8px) scale(1) !important;
-  }
-
-  .prize-icon-container {
-    width: 70px !important;
-    height: 70px !important;
+  .prize-icon-wrapper {
+    width: 64px !important;
+    height: 64px !important;
   }
 
   .prize-amount {
@@ -1587,18 +1574,14 @@
     padding: 1.8rem 1.2rem !important;
   }
 
-  .prize-icon-container {
-    width: 60px !important;
-    height: 60px !important;
+  .prize-icon-wrapper {
+    width: 56px !important;
+    height: 56px !important;
   }
 
   .prize-icon svg {
-    width: 28px !important;
-    height: 28px !important;
-  }
-
-  .prize-rank {
-    font-size: 0.7rem !important;
+    width: 26px !important;
+    height: 26px !important;
   }
 
   .prize-amount {
