@@ -1,11 +1,21 @@
 "use client"; // ensures this runs only on the client side
-import { useEffect, useState } from 'react';
-import Spline from '@splinetool/react-spline';
+import { useEffect, useRef, useState } from 'react';
+import dynamic from 'next/dynamic';
+// Dynamically import Spline so we don't include it in the initial bundle and can control when it loads
+const DynamicSpline = dynamic(() => import('@splinetool/react-spline').then(m => m.default), {
+  ssr: false,
+  loading: () => <div className="spline-loading-placeholder" aria-hidden />,
+});
 import Apply from "../assets/Apply1.png";
 import IIITK from "../assets/IIITK2.png"; 
+import RobotImage from "../assets/Robot follow cursor for landing page@1-1528x714.png";
 import './SplineModel.css';
 export default function SplineIframe() {
   const [showDevfolioFallback, setShowDevfolioFallback] = useState(false);
+  const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
+  const [lowEndFallback, setLowEndFallback] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(false);
+  const containerRef = useRef(null);
   useEffect(() => {
     const existing = document.getElementById('devfolio-sdk');
     if (!existing) {
@@ -23,6 +33,68 @@ export default function SplineIframe() {
       }
     }, 1500);
     return () => clearTimeout(timer);
+  }, []);
+
+  // decide whether to load Spline based on device capability & viewport exposure
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const isLowEnd = () => {
+      try {
+        // navigator.deviceMemory is an approximation of RAM in GB (may be undefined)
+  const mem = navigator.deviceMemory || 4;
+  const cores = navigator.hardwareConcurrency || 4;
+  const connection = navigator.connection || {};
+  const saveData = connection.saveData;
+  const effectiveType = (connection.effectiveType || '').toLowerCase();
+
+  // Heuristic: low memory (<2GB), low cores (<=2), or saveData enabled or very slow connection -> low-end
+  // Also respect prefers-reduced-motion to avoid expensive renders
+  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Add explicit mobile check as low-end: narrow widths should show the image fallback
+  const mobileMatch = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+  if (mobileMatch) return true;
+  if (mem < 2 || cores <= 2 || saveData || /2g|slow-2g/.test(effectiveType) || prefersReducedMotion) return true;
+      } catch (err) {
+        return false;
+      }
+      return false;
+    };
+
+    // IntersectionObserver to only load Spline when in viewport
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          // if it's a low-end device, render fallback placeholder
+          if (isLowEnd()) {
+            setLowEndFallback(true);
+            setShouldLoadSpline(false);
+          } else {
+            // Defer loading to idle moment
+            if (window.requestIdleCallback) {
+              window.requestIdleCallback(() => setShouldLoadSpline(true));
+            } else {
+              setTimeout(() => setShouldLoadSpline(true), 300);
+            }
+          }
+          observer.disconnect();
+          break;
+        }
+      }
+    }, { rootMargin: '200px' });
+
+    if (containerRef.current) observer.observe(containerRef.current);
+
+    return () => observer.disconnect();
+  }, []);
+
+  // track mobile viewport state for dynamic updates
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const handler = () => setIsMobileView(window.matchMedia('(max-width: 768px)').matches);
+    handler();
+    window.addEventListener('resize', handler);
+    return () => window.removeEventListener('resize', handler);
   }, []);
   // Create star particles effect for space theme
   // useEffect(() => {
@@ -99,8 +171,35 @@ export default function SplineIframe() {
         </h1>
       </div>
       {/* Spline 3D Model - on top of text */}
-      <div style={{ position: "absolute", inset: 0, zIndex: 3 }}>
-        <Spline scene="https://prod.spline.design/kjVjvsRXVMk-LaVx/scene.splinecode"  />
+      <div ref={containerRef} style={{ position: "absolute", inset: 0, zIndex: 3 }}>
+        {(isMobileView || lowEndFallback) ? (
+          // On mobile / low-end devices show a static image that occupies the same space as the model
+          <img
+            className="spline-mobile-image"
+            src={typeof RobotImage === 'string' ? RobotImage : RobotImage.src || RobotImage.default || RobotImage}
+            alt="Code Kalari robot"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        ) : shouldLoadSpline ? (
+          <div className="spline-scene-wrapper" style={{ width: '100%', height: '100%' }}>
+            <DynamicSpline scene="https://prod.spline.design/kjVjvsRXVMk-LaVx/scene.splinecode" />
+          </div>
+        ) : (
+          // lightweight fallback for low-end devices / when Spline isn't loaded yet
+          <div
+            aria-hidden
+            className="spline-static-fallback"
+            style={{
+              width: '100%',
+              height: '100%',
+              background:
+                'linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(24,0,36,1) 50%, rgba(60,10,40,1) 100%)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          />
+        )}
       </div>
       
       {/* Overlay to hide Spline watermark at bottom-right */}
@@ -124,19 +223,18 @@ export default function SplineIframe() {
       </a> */}
       {/* Devfolio Apply Button (replaces Register Now) */}
       <div
-        className="spline-apply-container"
+        className={`spline-apply-container ${isMobileView ? 'spline-apply-mobile' : 'spline-apply-desktop'}`}
         style={{
           position: 'absolute',
           inset: 0,
           display: 'flex',
-          top: '35%',
           alignItems: 'center',
           justifyContent: 'center',
           zIndex: 10,
           pointerEvents: 'none',
         }}
       >
-        <div style={{ pointerEvents: 'auto', display: 'block', marginLeft: '2%', marginTop: '21%'}}>
+  <div className="spline-apply-inner" style={{ pointerEvents: 'auto', display: 'block' }}>
           <a href="https://code-kalari.devfolio.co/overview" target="_blank" rel="noreferrer">
           <img src={typeof Apply === 'string' ? Apply : Apply.src || Apply.default || Apply} alt="Apply" style={{borderRadius: '8px', height: '40px', maxWidth: '100%'}} />
           </a>

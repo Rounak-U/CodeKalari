@@ -343,6 +343,7 @@
   background: linear-gradient(135deg, rgba(14, 165, 233, 0.2), rgba(6, 182, 212, 0.15));
   width: fit-content;
   box-shadow: 0 0 20px rgba(14, 165, 233, 0.3);
+  margin-top: 1.5rem;
 }
 
 .section-tag::before {
@@ -667,71 +668,78 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
+  margin-top: 5rem; /* increased spacing to separate header from prize cards */
   align-items: flex-start;
   width: 100%;
 }
 
 .prizes-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: flex;
   gap: 2rem;
   width: 100%;
+  margin-top: 5rem;
+  align-items: flex-end;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .prize-card {
   position: relative;
+  margin-top: 3rem;
   padding: 2.5rem 2rem;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  background: rgba(10, 15, 30, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   gap: 1.5rem;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  overflow: hidden;
+  transition: all 0.3s ease;
+  flex: 0 1 260px;
+  min-height: 280px;
 }
 
-.prize-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-  transform: translateX(-100%);
-  transition: transform 0.6s ease;
+.prize-card--left {
+  border-color: rgba(192, 192, 192, 0.8);
+  transform: translateY(30px);
+  order: 1;
 }
 
-.prize-card:hover::before {
-  transform: translateX(100%);
+.prize-card--center {
+  border-color: rgba(255, 215, 0, 0.9);
+  transform: translateY(-20px);
+  order: 2;
+}
+
+.prize-card--right {
+  border-color: rgba(205, 127, 50, 0.8);
+  transform: translateY(30px);
+  order: 3;
 }
 
 .prize-card:hover {
   transform: translateY(-8px);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 0 20px 50px rgba(255, 255, 255, 0.1);
+}
+
+.prize-card--left:hover {
+  transform: translateY(52px);
+}
+
+.prize-card--center:hover {
+  transform: translateY(-8px);
+}
+
+.prize-card--right:hover {
+  transform: translateY(52px);
 }
 
 .prize-card--highlight {
-  background: rgba(255, 255, 255, 0.05);
-  border: 2px solid rgba(255, 255, 255, 0.25);
-  transform: scale(1.05);
+  background: rgba(10, 15, 30, 0.6);
 }
 
-.prize-card--highlight:hover {
-  transform: translateY(-8px) scale(1.05);
-}
-
-.prize-card--highlight .prize-icon-container {
-  background: rgba(255, 255, 255, 0.08);
-}
-
-.prize-icon-container {
-  position: relative;
+.prize-icon-wrapper {
   width: 80px;
   height: 80px;
   border-radius: 50%;
@@ -739,27 +747,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
-.prize-icon-container::before {
-  content: "";
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
-  padding: 2px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1));
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  mask-composite: exclude;
-}
-
-.prize-icon {
-  color: rgba(255, 255, 255, 0.95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+.prize-card:hover .prize-icon-wrapper {
+  transform: scale(1.05);
 }
 
 .prize-content {
@@ -767,28 +759,24 @@
   flex-direction: column;
   gap: 0.5rem;
   width: 100%;
+  z-index: 1;
 }
 
 .prize-rank {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.15rem;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 0.25rem;
 }
 
 .prize-amount {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   font-weight: 700;
   margin: 0;
   color: #ffffff;
-  text-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
   letter-spacing: -0.02em;
-}
-
-.prize-card--highlight .prize-amount {
-  font-size: 3rem;
-  text-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
 }
 
 .prize-description {
@@ -796,6 +784,22 @@
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.7);
   margin: 0.5rem 0 0 0;
+}
+
+/* Prize rank specific styles */
+.prize-first {
+  --accent-color: #ffd700;
+  --accent-glow: rgba(255, 215, 0, 0.25);
+}
+
+.prize-second {
+  --accent-color: #c0c0c0;
+  --accent-glow: rgba(192, 192, 192, 0.2);
+}
+
+.prize-third {
+  --accent-color: #cd7f32;
+  --accent-glow: rgba(205, 127, 50, 0.2);
 }
 
 /* Venue base styles - match space theme */
@@ -854,6 +858,8 @@
   position: relative;
 }
 
+
+/* (awarded numeric badges removed) */
 .venue-icon-wrapper::after {
   content: "";
   position: absolute;
@@ -1112,7 +1118,7 @@
   }
 
   .hero-highlight-panel {
-    order: -1;
+    order: 1;
     padding: 2.2rem;
   }
 
@@ -1228,29 +1234,58 @@
 
   /* Prizes Section Mobile */
   .prizes-grid {
-    grid-template-columns: 1fr !important;
+    flex-direction: column !important;
     gap: 1.5rem !important;
+    align-items: center !important;
+    margin-top: 2rem !important;
   }
 
   .prize-card {
     padding: 2rem 1.5rem !important;
+    flex: none !important;
+    width: 100% !important;
+    max-width: 320px !important;
+    min-height: auto !important;
+    margin-top: 0 !important;
+  }
+  
+  .prize-card--left,
+  .prize-card--right,
+  .prize-card--center {
+    transform: none !important;
+    order: unset !important;
+  }
+  
+  /* Put center first on mobile */
+  .prize-card--center {
+    order: -1 !important;
+  }
+  
+  .prize-card:hover,
+  .prize-card--left:hover,
+  .prize-card--center:hover,
+  .prize-card--right:hover {
+    transform: translateY(-8px) !important;
+  }
+  
+  .prize-amount {
+    font-size: 2.2rem !important;
   }
 
-  .prize-card--highlight {
-    transform: scale(1) !important;
+  .prize-icon-wrapper {
+    width: 64px !important;
+    height: 64px !important;
   }
 
-  .prize-card--highlight:hover {
-    transform: translateY(-8px) scale(1) !important;
-  }
-
-  .prize-icon-container {
-    width: 70px !important;
-    height: 70px !important;
-  }
+  /* Mobile badge sizing removed (no numeric badges) */
 
   .prize-amount {
     font-size: 2rem !important;
+  }
+
+  /* Reduce the margin above the prizes on mobile for a more compact layout */
+  .prizes-section {
+    margin-top: 2rem !important;
   }
 
   .prize-card--highlight .prize-amount {
@@ -1486,6 +1521,34 @@
     line-height: 1.15 !important;
   }
 
+  /* Mobile (small) - make prizes section compact and keep 1st prize first and readable */
+  .prizes-section {
+    margin-top: 1.5rem !important;
+  }
+
+  .prizes-grid {
+    gap: 1rem !important;
+  }
+
+  .prize-card {
+    padding: 1.5rem 1.2rem !important;
+    max-width: 300px !important;
+  }
+
+  .prize-amount {
+    font-size: 1.8rem !important;
+  }
+
+  .prize-icon-wrapper {
+    width: 60px !important;
+    height: 60px !important;
+  }
+
+  .prize-description {
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+  }
+
   .hero-description {
     font-size: 0.88rem !important;
     line-height: 1.6 !important;
@@ -1587,18 +1650,14 @@
     padding: 1.8rem 1.2rem !important;
   }
 
-  .prize-icon-container {
-    width: 60px !important;
-    height: 60px !important;
+  .prize-icon-wrapper {
+    width: 56px !important;
+    height: 56px !important;
   }
 
   .prize-icon svg {
-    width: 28px !important;
-    height: 28px !important;
-  }
-
-  .prize-rank {
-    font-size: 0.7rem !important;
+    width: 26px !important;
+    height: 26px !important;
   }
 
   .prize-amount {

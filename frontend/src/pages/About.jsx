@@ -18,7 +18,6 @@ import {
   Train,
   Bus,
   Award,
-  Medal,
 } from "lucide-react";
 import Image from "next/image";
 import IIITMapImage from "@/assets/IIITMap.png";
@@ -279,10 +278,10 @@ function VenueSection() {
     {
       icon: Bus,
       title: "Nearest Bus Station",
-      name: "Kottaramattom Bus Stand",
+      name: "Pala Bus Stand",
       distance: "7.5 km away",
       code: "Pala ",
-      mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125845.51208799866!2d76.53330041640626!3d9.708988299999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07cd397a01708b%3A0x5835c896e385614b!2sKottaramattom%20Private%20Bus%20Stand!5e0!3m2!1sen!2sin!4v1765088191992!5m2!1sen!2sin"
+      mapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d26455.777582018072!2d76.67062048352307!3d9.708765713915785!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07cc32df333675%3A0x1bd460714f5fe1e6!2sKSRTC%20Bus%20Station%20%7C%20Pala!5e0!3m2!1sen!2sin!4v1765357866481!5m2!1sen!2sin"
     }
   ];
 
@@ -463,27 +462,45 @@ export default function About() {
 
   const prizes = [
     {
+      icon: Award,
+      rank: "2nd Prize",
+      amount: "₹50,000",
+      description: "worth of prizes",
+      highlight: false,
+      position: "left",
+      order: 1,
+    },
+    {
       icon: Trophy,
       rank: "1st Prize",
-      amount: "Cash prizes worth upto ₹70,000",
-      description: "Grand prize for the winning team with the most innovative solution.",
+      amount: "₹70,000",
+      description: "worth of prizes",
       highlight: true,
+      position: "center",
+      order: 2,
     },
     {
       icon: Award,
-      rank: "2nd Prize",
-      amount: "Cash prizes worth upto ₹50,000",
-      description: "Runner-up prize for exceptional execution and creativity.",
-      highlight: false,
-    },
-    {
-      icon: Medal,
       rank: "3rd Prize",
-      amount: "Cash prizes worth upto ₹30,000",
-      description: "Recognition for outstanding effort and technical excellence.",
+      amount: "₹30,000",
+      description: "worth of prizes",
       highlight: false,
+      position: "right",
+      order: 3,
     },
   ];
+
+  const prizeTiers = [
+    { className: "prize-first", iconColor: "#FFD700" },
+    { className: "prize-second", iconColor: "#C0C0C0" },
+    { className: "prize-third", iconColor: "#CD7F32" },
+  ];
+
+  const positionMap = {
+    left: { className: 'prize-second', iconColor: '#C0C0C0' },
+    center: { className: 'prize-first', iconColor: '#FFD700' },
+    right: { className: 'prize-third', iconColor: '#CD7F32' },
+  };
 
   const experiences = [
     {
@@ -522,7 +539,6 @@ export default function About() {
                 showcase that celebrates experimentation.
               </p>
             </div>
-
             <div className="hero-highlight-panel">
               <div className="panel-glow" />
               <h2>Inside the experience</h2>
@@ -541,7 +557,6 @@ export default function About() {
               </div>
             </div>
           </div>
-
           <div className="hero-countdown hero-countdown--full">
             <LaunchCountdown />
             <p className="countdown-caption">We go live on campus January 17-18, 2026 · Valavoor, Kerala</p>
@@ -577,26 +592,29 @@ export default function About() {
           <div className="section-header">
             <span className="section-tag">Prizes & Recognition</span>
             <h2>Win big and showcase your innovation.</h2>
-            <p>
-              Compete for cash prizes, recognition, and opportunities to take your project further. 
-              Top teams receive mentorship, resources, and potential incubation support.
-            </p>
           </div>
           <div className="prizes-grid">
-            {prizes.map(({ icon: Icon, rank, amount, description, highlight }) => (
-              <div key={rank} className={`prize-card ${highlight ? 'prize-card--highlight' : ''}`}>
-                <div className="prize-icon-container">
-                  <div className="prize-icon">
-                    <Icon size={32} strokeWidth={1.5} />
+            {prizes.map(({ icon: Icon, rank, amount, description, highlight, position, order }, idx) => {
+              const tier = positionMap[position] ?? prizeTiers[idx] ?? prizeTiers[prizeTiers.length - 1];
+              const rankClass = tier.className;
+              const iconColor = tier.iconColor;
+              return (
+                <div 
+                  key={rank} 
+                  className={`prize-card prize-card--${position} ${highlight ? 'prize-card--highlight' : ''} ${rankClass}`}
+                  style={{ order: order }}
+                >
+                  <div className="prize-icon-wrapper">
+                    <Icon size={42} strokeWidth={1.5} color={iconColor} />
+                  </div>
+                  <div className="prize-content">
+                    <span className="prize-rank">{rank}</span>
+                    <h3 className="prize-amount">{amount}</h3>
+                    <p className="prize-description">{description}</p>
                   </div>
                 </div>
-                <div className="prize-content">
-                  <span className="prize-rank">{rank}</span>
-                  <h3 className="prize-amount">{amount}</h3>
-                  <p className="prize-description">{description}</p>
-                </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
