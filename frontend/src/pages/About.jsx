@@ -18,7 +18,6 @@ import {
   Train,
   Bus,
   Award,
-  Medal,
 } from "lucide-react";
 import Image from "next/image";
 import IIITMapImage from "@/assets/IIITMap.png";
@@ -463,25 +462,31 @@ export default function About() {
 
   const prizes = [
     {
-      icon: Trophy,
-      rank: "1st Prize",
-      amount: "₹70,000",
-      description: "worth of prizes",
-      highlight: true,
-    },
-    {
       icon: Award,
       rank: "2nd Prize",
       amount: "₹50,000",
       description: "worth of prizes",
       highlight: false,
+      position: "left",
+      order: 1,
     },
     {
-      icon: Medal,
+      icon: Trophy,
+      rank: "1st Prize",
+      amount: "₹70,000",
+      description: "worth of prizes",
+      highlight: true,
+      position: "center",
+      order: 2,
+    },
+    {
+      icon: Award,
       rank: "3rd Prize",
       amount: "₹30,000",
       description: "worth of prizes",
       highlight: false,
+      position: "right",
+      order: 3,
     },
   ];
 
@@ -490,6 +495,12 @@ export default function About() {
     { className: "prize-second", iconColor: "#C0C0C0" },
     { className: "prize-third", iconColor: "#CD7F32" },
   ];
+
+  const positionMap = {
+    left: { className: 'prize-second', iconColor: '#C0C0C0' },
+    center: { className: 'prize-first', iconColor: '#FFD700' },
+    right: { className: 'prize-third', iconColor: '#CD7F32' },
+  };
 
   const experiences = [
     {
@@ -583,12 +594,16 @@ export default function About() {
             <h2>Win big and showcase your innovation.</h2>
           </div>
           <div className="prizes-grid">
-            {prizes.map(({ icon: Icon, rank, amount, description, highlight }, idx) => {
-              const tier = prizeTiers[idx] ?? prizeTiers[prizeTiers.length - 1];
+            {prizes.map(({ icon: Icon, rank, amount, description, highlight, position, order }, idx) => {
+              const tier = positionMap[position] ?? prizeTiers[idx] ?? prizeTiers[prizeTiers.length - 1];
               const rankClass = tier.className;
               const iconColor = tier.iconColor;
               return (
-                <div key={rank} className={`prize-card ${highlight ? 'prize-card--highlight' : ''} ${rankClass}`}>
+                <div 
+                  key={rank} 
+                  className={`prize-card prize-card--${position} ${highlight ? 'prize-card--highlight' : ''} ${rankClass}`}
+                  style={{ order: order }}
+                >
                   <div className="prize-icon-wrapper">
                     <Icon size={42} strokeWidth={1.5} color={iconColor} />
                   </div>
