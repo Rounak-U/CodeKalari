@@ -8,7 +8,7 @@ const DynamicSpline = dynamic(() => import('@splinetool/react-spline').then(m =>
 });
 import Apply from "../assets/Apply1.png";
 import IIITK from "../assets/IIITK2.png"; 
-import RobotImage from "../assets/Robot follow cursor for landing page@1-1528x714.png";
+import RobotImage from "../assets/Rob.png";
 import './SplineModel.css';
 export default function SplineIframe() {
   const [showDevfolioFallback, setShowDevfolioFallback] = useState(false);
