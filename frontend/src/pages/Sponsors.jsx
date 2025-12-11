@@ -9,6 +9,7 @@ import { Alice } from "next/font/google";
 import SponsorIcon from "@/components/ui/SponsorIcon";
 import Devfolio from "../assets/Devfolio.png";
 import ETH from "../assets/ETH.png";
+import XYZ from "../assets/xyz.png";
 
 const navItems = [
   {
@@ -93,8 +94,8 @@ export default function Sponsors() {
           <div className="item-right item3">
             <div className="testimonial-card sponsor-image-card">
               <img 
-                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
-                alt="Sponsor" 
+                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ} 
+                alt="XYZ Sponsor" 
                 className="sponsor-image" 
               />
             </div>
@@ -103,8 +104,8 @@ export default function Sponsors() {
           <div className="item-right item4">
             <div className="testimonial-card sponsor-image-card">
               <img 
-                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
-                alt="Sponsor" 
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
+                alt="Devfolio Sponsor" 
                 className="sponsor-image" 
               />
             </div>
@@ -113,8 +114,8 @@ export default function Sponsors() {
           <div className="item-right item5">
             <div className="testimonial-card sponsor-image-card">
               <img 
-                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
-                alt="Sponsor" 
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
+                alt="ETH Sponsor" 
                 className="sponsor-image" 
               />
             </div>
@@ -123,8 +124,8 @@ export default function Sponsors() {
           <div className="item-right item6">
             <div className="testimonial-card sponsor-image-card">
               <img 
-                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
-                alt="Sponsor" 
+                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ} 
+                alt="XYZ Sponsor" 
                 className="sponsor-image" 
               />
             </div>
@@ -134,7 +135,7 @@ export default function Sponsors() {
             <div className="testimonial-card sponsor-image-card">
               <img 
                 src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
-                alt="Sponsor" 
+                alt="Devfolio Sponsor" 
                 className="sponsor-image" 
               />
             </div>
@@ -144,7 +145,7 @@ export default function Sponsors() {
             <div className="testimonial-card sponsor-image-card">
               <img 
                 src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
-                alt="Sponsor" 
+                alt="ETH Sponsor" 
                 className="sponsor-image" 
               />
             </div>
@@ -153,8 +154,8 @@ export default function Sponsors() {
           <div className="item-right item9">
             <div className="testimonial-card sponsor-image-card">
               <img 
-                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
-                alt="Sponsor" 
+                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ} 
+                alt="XYZ Sponsor" 
                 className="sponsor-image" 
               />
             </div>
@@ -163,8 +164,18 @@ export default function Sponsors() {
           <div className="item-right item10">
             <div className="testimonial-card sponsor-image-card">
               <img 
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
+                alt="Devfolio Sponsor" 
+                className="sponsor-image" 
+              />
+            </div>
+          </div>
+
+          <div className="item-right item11">
+            <div className="testimonial-card sponsor-image-card">
+              <img 
                 src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
-                alt="Sponsor" 
+                alt="ETH Sponsor" 
                 className="sponsor-image" 
               />
             </div>
