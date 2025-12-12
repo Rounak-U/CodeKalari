@@ -15,7 +15,10 @@ export default function SplineIframe() {
   const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
   const [lowEndFallback, setLowEndFallback] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
+  // track whether the spline is in the viewport (visible) so we can unmount/halt when it isn't
+  const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
+  const hideTimer = useRef(null);
   useEffect(() => {
     const existing = document.getElementById('devfolio-sdk');
     if (!existing) {
@@ -65,27 +68,45 @@ export default function SplineIframe() {
     const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.isIntersecting) {
+          // visible: clear any pending hide timer
+          if (hideTimer.current) {
+            clearTimeout(hideTimer.current);
+            hideTimer.current = null;
+          }
+          setIsVisible(true);
           // if it's a low-end device, render fallback placeholder
           if (isLowEnd()) {
             setLowEndFallback(true);
             setShouldLoadSpline(false);
           } else {
-            // Defer loading to idle moment
-            if (window.requestIdleCallback) {
-              window.requestIdleCallback(() => setShouldLoadSpline(true));
-            } else {
-              setTimeout(() => setShouldLoadSpline(true), 300);
+            // Defer loading to idle moment - only need to set once
+            if (!shouldLoadSpline) {
+              if (window.requestIdleCallback) {
+                window.requestIdleCallback(() => setShouldLoadSpline(true));
+              } else {
+                setTimeout(() => setShouldLoadSpline(true), 300);
+              }
             }
           }
-          observer.disconnect();
-          break;
+        } else {
+          // Not visible: schedule a small delay before hiding to avoid rapid mount/unmounts
+          if (hideTimer.current) clearTimeout(hideTimer.current);
+          hideTimer.current = setTimeout(() => {
+            setIsVisible(false);
+          }, 500);
         }
       }
     }, { rootMargin: '200px' });
 
     if (containerRef.current) observer.observe(containerRef.current);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      if (hideTimer.current) {
+        clearTimeout(hideTimer.current);
+        hideTimer.current = null;
+      }
+    };
   }, []);
 
   // track mobile viewport state for dynamic updates
@@ -180,7 +201,7 @@ export default function SplineIframe() {
             alt="Code Kalari robot"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
-        ) : shouldLoadSpline ? (
+        ) : (shouldLoadSpline && isVisible) ? (
           <div className="spline-scene-wrapper" style={{ width: '100%', height: '100%' }}>
             <DynamicSpline scene="https://prod.spline.design/kjVjvsRXVMk-LaVx/scene.splinecode" />
           </div>
