@@ -60,9 +60,11 @@ export default function FAQ() {
     <section className="faq-section">
       <div className="faq-container">
         <div className="faq-header">
-          <div className="faq-kicker">Got questions?</div>
+          {/* <div className="faq-kicker">Got questions?</div> */}
           <h2 className="faq-title">Frequently Asked Questions</h2>
-          <p className="faq-subtitle">Quick answers about the event, eligibility, and registrations.</p>
+          <p className="faq-subtitle"></p>
+
+          {/* <p className="faq-subtitle">Quick answers about the event, eligibility, and registrations.</p> */}
         </div>
 
         <div className="faq-list">

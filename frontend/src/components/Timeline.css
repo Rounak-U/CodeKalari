@@ -129,6 +129,7 @@
   position: relative;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
+  text-align: center;
 }
 
 .timeline-content:hover {
@@ -253,7 +254,14 @@
 
   .timeline-item.left .timeline-content::after,
   .timeline-item.right .timeline-content::after {
-    display: none;
+    /* Show pointer arrow on mobile, all pointing left */
+    display: block;
+    left: -15px;
+    right: auto;
+    border-left: none;
+    border-right: 15px solid rgba(132, 0, 255, 0.3);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
   }
 
   .timeline-content {
@@ -272,7 +280,7 @@
 
   .timeline-item {
     margin-bottom: 50px;
-    padding-left: 60px;
+    padding-left: 45px;
   }
 
   .timeline-content {
@@ -288,12 +296,12 @@
   }
 
   .timeline-line {
-    left: 20px;
+    left: 18px;
   }
 
   .timeline-dot {
-    left: 20px;
-    width: 20px;
-    height: 20px;
+    left: 18px;
+    width: 18px;
+    height: 18px;
   }
 }

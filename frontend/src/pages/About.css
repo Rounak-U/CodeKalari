@@ -122,10 +122,13 @@
 }
 
 @keyframes twinkle {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.2;
     transform: scale(1);
   }
+
   50% {
     opacity: 1;
     transform: scale(1.2);
@@ -413,7 +416,7 @@
   transform: translateX(100%);
 }
 
-.stats-card > div:last-child {
+.stats-card>div:last-child {
   flex: 1;
   min-width: 0;
 }
@@ -511,8 +514,10 @@
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
   /* Hide scrollbar */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
   padding: 0.5rem 0;
 }
 
@@ -521,14 +526,74 @@
   display: none;
 }
 
-.tracks-scroll > .info-card {
-  /* Cards take fixed width for scrolling */
-  flex: 0 0 380px;
+.tracks-scroll>.track-card {
+  /* Portrait cards - taller than wide */
+  flex: 0 0 260px;
   scroll-snap-align: center;
 }
 
+/* New Portrait Track Card Styles */
+.track-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2.5rem 1.5rem;
+  border-radius: 16px;
+  background: rgba(139, 92, 246, 0.03);
+  border: 1px solid rgba(139, 92, 246, 0.15);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+  transition: all 0.28s cubic-bezier(0.2, 0, 0.15, 1);
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  gap: 1.5rem;
+}
+
+.track-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.45), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+
+.track-card:hover::before {
+  transform: translateX(100%);
+}
+
+.track-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(139, 92, 246, 0.4);
+  box-shadow: 0 28px 60px rgba(139, 92, 246, 0.12);
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.05), rgba(17, 24, 39, 0.76));
+}
+
+.track-card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(167, 139, 250, 0.9);
+  margin-bottom: 0.5rem;
+}
+
+.track-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.4;
+  color: rgba(255, 255, 255, 0.95);
+  max-width: 180px;
+}
+
 .track-btn {
-  display: inline-flex; /* Show arrows on desktop */
+  display: inline-flex;
+  /* Show arrows on desktop */
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(59, 130, 246, 0.05));
   border: 1px solid rgba(139, 92, 246, 0.3);
   color: rgba(255, 255, 255, 0.85);
@@ -554,8 +619,38 @@
   box-shadow: 0 6px 20px rgba(139, 92, 246, 0.25);
 }
 
-.track-btn:active { 
-  transform: translateY(0); 
+.track-btn:active {
+  transform: translateY(0);
+}
+
+/* Dot indicators - hidden on desktop, shown on mobile */
+.tracks-dots {
+  display: none;
+  justify-content: center;
+  gap: 8px;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+}
+
+.tracks-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(139, 92, 246, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.tracks-dot:hover {
+  background: rgba(139, 92, 246, 0.5);
+}
+
+.tracks-dot.active {
+  background: rgba(139, 92, 246, 1);
+  transform: scale(1.3);
+  box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
 }
 
 .info-card {
@@ -571,7 +666,8 @@
   transition: all 0.28s cubic-bezier(0.2, 0, 0.15, 1);
   position: relative;
   overflow: hidden;
-  min-height: 260px; /* make card a bit longer */
+  min-height: 260px;
+  /* make card a bit longer */
 }
 
 .info-card::before {
@@ -739,7 +835,8 @@
   display: flex;
   flex-direction: column;
   gap: 2.5rem;
-  margin-top: 5rem; /* increased spacing to separate header from prize cards */
+  margin-top: 5rem;
+  /* increased spacing to separate header from prize cards */
   align-items: flex-start;
   width: 100%;
 }
@@ -837,11 +934,11 @@
 }
 
 .prize-rank {
-  font-size: 0.8rem;
-  font-weight: 600;
-  letter-spacing: 0.15rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 0.1rem;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.95);
   margin-bottom: 0.25rem;
 }
 
@@ -854,9 +951,9 @@
 }
 
 .prize-description {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.45);
   margin: 0.5rem 0 0 0;
 }
 
@@ -1127,7 +1224,7 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 16px;
   padding: 2rem;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -1136,20 +1233,20 @@
   font-size: 2.5rem;
   font-weight: 700;
   color: #fff;
-  text-shadow: 0 0 30px rgba(255,255,255,0.12);
+  text-shadow: 0 0 30px rgba(255, 255, 255, 0.12);
   margin: 0 0 1rem 0;
 }
 
 .venue-text-box {
-  background: rgba(0,0,0,0.25);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.06);
   padding: 12px 16px;
   border-radius: 10px;
 }
 
 .venue-text-box p {
   margin: 0;
-  color: rgba(255,255,255,0.9);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
 }
 
@@ -1159,7 +1256,7 @@
   min-height: 320px;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: inset 0 0 40px rgba(0,0,0,0.6);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.6);
 }
 
 .venue-map-container iframe {
@@ -1171,7 +1268,8 @@
 }
 
 .venue-map-wrapper {
-  padding: 0; /* map container handles its own padding */
+  padding: 0;
+  /* map container handles its own padding */
 }
 
 
@@ -1266,7 +1364,7 @@
     padding: 1.6rem !important;
     border-radius: 18px !important;
   }
-  
+
   .hero-highlight-panel h2 {
     font-size: 1.4rem !important;
     margin-bottom: 1rem !important;
@@ -1275,11 +1373,11 @@
   .hero-highlight-item h3 {
     font-size: 0.95rem !important;
   }
-  
+
   .hero-highlight-item p {
     font-size: 0.88rem !important;
   }
-  
+
   .hero-highlight-icon {
     width: 36px !important;
     height: 36px !important;
@@ -1303,7 +1401,12 @@
     width: 100% !important;
   }
 
-  .tracks-scroll > .info-card {
+  /* Show dot indicators on mobile */
+  .tracks-dots {
+    display: flex !important;
+  }
+
+  .tracks-scroll>.info-card {
     /* Show more of the next card to clearly indicate scrollability */
     flex: 0 0 75vw !important;
     scroll-snap-align: center !important;
@@ -1314,19 +1417,27 @@
     box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(139, 92, 246, 0.2) inset !important;
   }
 
-  .tracks-scroll > .info-card h3 {
+  .tracks-scroll>.info-card h3 {
     font-size: 1.5rem !important;
     line-height: 1.35 !important;
     margin-bottom: 0.75rem !important;
   }
 
-  .tracks-scroll > .info-card p {
+  .tracks-scroll>.info-card p {
     font-size: 1.05rem !important;
     line-height: 1.75 !important;
   }
 
   .track-btn {
-    display: none !important;
+    display: inline-flex !important;
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 1.2rem !important;
+    flex-shrink: 0 !important;
+    pointer-events: auto !important;
+    touch-action: manipulation !important;
+    z-index: 10 !important;
+    position: relative !important;
   }
 
   .stats-card,
@@ -1340,7 +1451,7 @@
   .section-header h2 {
     font-size: 1.8rem !important;
   }
-  
+
   .section-header p {
     font-size: 0.92rem !important;
   }
@@ -1361,26 +1472,26 @@
     min-height: auto !important;
     margin-top: 0 !important;
   }
-  
+
   .prize-card--left,
   .prize-card--right,
   .prize-card--center {
     transform: none !important;
     order: unset !important;
   }
-  
+
   /* Put center first on mobile */
   .prize-card--center {
     order: -1 !important;
   }
-  
+
   .prize-card:hover,
   .prize-card--left:hover,
   .prize-card--center:hover,
   .prize-card--right:hover {
     transform: translateY(-8px) !important;
   }
-  
+
   .prize-amount {
     font-size: 2.2rem !important;
   }
@@ -1408,24 +1519,24 @@
   .prize-description {
     font-size: 0.9rem !important;
   }
-  
+
   .stats-value {
     font-size: 1.6rem !important;
   }
-  
+
   .stats-label {
     font-size: 0.85rem !important;
   }
-  
+
   .stats-caption {
     font-size: 0.82rem !important;
   }
-  
+
   .info-card h3,
   .timeline-card h3 {
     font-size: 1.1rem !important;
   }
-  
+
   .info-card p,
   .timeline-card p {
     font-size: 0.88rem !important;
@@ -1446,7 +1557,7 @@
   }
 
   /* Countdown card container */
-  .launch-countdown-container > div:first-child {
+  .launch-countdown-container>div:first-child {
     padding: 12px 10px !important;
     border-radius: 16px !important;
   }
@@ -1458,7 +1569,7 @@
     justify-content: center !important;
   }
 
-  .countdown-boxes > div {
+  .countdown-boxes>div {
     min-width: 42px !important;
     max-width: 48px !important;
     padding: 8px 6px !important;
@@ -1498,7 +1609,7 @@
     font-size: 0.75rem !important;
     letter-spacing: 0.12rem !important;
   }
-  
+
   /* Countdown caption */
   .countdown-caption {
     font-size: 0.75rem !important;
@@ -1590,7 +1701,7 @@
     padding: 10px 14px !important;
     line-height: 1.6 !important;
   }
-  
+
   .venue-text-box p {
     font-size: 0.85rem !important;
   }
@@ -1607,7 +1718,7 @@
   }
 
   /* About section padding */
-  section[style*="background-color: #000"] > div {
+  section[style*="background-color: #000"]>div {
     padding: 2rem 1rem !important;
   }
 
@@ -1671,15 +1782,15 @@
     padding: 1.3rem !important;
     border-radius: 16px !important;
   }
-  
+
   .hero-highlight-panel h2 {
     font-size: 1.2rem !important;
   }
-  
+
   .hero-highlight-item h3 {
     font-size: 0.9rem !important;
   }
-  
+
   .hero-highlight-item p {
     font-size: 0.82rem !important;
   }
@@ -1693,7 +1804,7 @@
     padding: 0 !important;
   }
 
-  .launch-countdown-container > div:first-child {
+  .launch-countdown-container>div:first-child {
     padding: 10px 8px !important;
     border-radius: 14px !important;
   }
@@ -1702,7 +1813,7 @@
     gap: 2px !important;
   }
 
-  .countdown-boxes > div {
+  .countdown-boxes>div {
     min-width: 38px !important;
     max-width: 44px !important;
     padding: 6px 5px !important;
@@ -1738,20 +1849,20 @@
     font-size: 0.7rem !important;
     letter-spacing: 0.1rem !important;
   }
-  
+
   .countdown-caption {
     font-size: 0.7rem !important;
     letter-spacing: 0.06rem !important;
   }
-  
+
   .section-header h2 {
     font-size: 1.6rem !important;
   }
-  
+
   .section-header p {
     font-size: 0.88rem !important;
   }
-  
+
   .stats-card,
   .info-card,
   .timeline-card {
@@ -1854,4 +1965,3 @@
     margin-bottom: 2rem !important;
   }
 }
-

@@ -18,6 +18,14 @@ import {
   Train,
   Bus,
   Award,
+  Blocks,
+  GraduationCap,
+  Leaf,
+  Wallet,
+  HeartPulse,
+  Code,
+  Cog,
+  Atom,
 } from "lucide-react";
 import Image from "next/image";
 import IIITMapImage from "@/assets/IIITMap.png";
@@ -291,13 +299,12 @@ function VenueSection() {
       <div className="section-header">
         <span className="section-tag">Location</span>
         <h2>Venue & How to Reach</h2>
-<<<<<<< HEAD
-        <p>
+
+        {/* <p>
           Located in the heart of Kerala, IIIT Kottayam offers a perfect blend of academic excellence and
           natural beauty. Multiple transportation options ensure easy access from anywhere in India.
-        </p>
-=======
->>>>>>> e5153ef4b980dc2c4e312f630a77090395ec963e
+        </p> */}
+
       </div>
 
       {/* Main Venue Card */}
@@ -446,47 +453,47 @@ export default function About() {
   ];
 
   const tracks = [
-  {
-    icon: Cpu,
-    title: "Blockchain, Web3 & Decentralized Systems",
-    description: "Create decentralized applications, smart contracts, and token-powered ecosystems that rethink trust and ownership.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Future of Education & Learning Innovation",
-    description: "Reinvent education through edtech platforms, adaptive learning models, and community-driven knowledge systems.",
-  },
-  {
-    icon: Globe2,
-    title: "Climate Action & Sustainable Futures",
-    description: "Build solutions for climate resilience, circular economies, and sustainable infrastructure at scale.",
-  },
-  {
-    icon: Trophy,
-    title: "FinTech & Financial Inclusion",
-    description: "Design payments, lending, and financial tools that expand access and empower underserved communities.",
-  },
-  {
-    icon: Users,
-    title: "HealthTech, Sports & Human Performance",
-    description: "Innovate in digital health, sports analytics, and wellness technologies that enhance human potential.",
-  },
-  {
-    icon: Rocket,
-    title: "Open Innovation & Community Labs",
-    description: "Collaborate on open-source projects, civic tech, and shared datasets to solve real societal challenges.",
-  },
-  {
-    icon: Zap,
-    title: "Robotics, IoT & Intelligent Automation",
-    description: "Develop autonomous systems, smart machines, and automation solutions for real-world impact.",
-  },
-  {
-    icon: Brain,
-    title: "Quantum Computing & Emerging Technologies",
-    description: "Explore quantum algorithms, simulators, and breakthrough computing paradigms shaping the future.",
-  },
-];
+    {
+      icon: Blocks,
+      title: "Blockchain, Web3 & Decentralized Systems",
+      description: "Create decentralized applications, smart contracts, and token-powered ecosystems that rethink trust and ownership.",
+    },
+    {
+      icon: GraduationCap,
+      title: "Future of Education & Learning Innovation",
+      description: "Reinvent education through edtech platforms, adaptive learning models, and community-driven knowledge systems.",
+    },
+    {
+      icon: Leaf,
+      title: "Climate Action & Sustainable Futures",
+      description: "Build solutions for climate resilience, circular economies, and sustainable infrastructure at scale.",
+    },
+    {
+      icon: Wallet,
+      title: "FinTech & Financial Inclusion",
+      description: "Design payments, lending, and financial tools that expand access and empower underserved communities.",
+    },
+    {
+      icon: HeartPulse,
+      title: "HealthTech, Sports & Human Performance",
+      description: "Innovate in digital health, sports analytics, and wellness technologies that enhance human potential.",
+    },
+    {
+      icon: Code,
+      title: "Open Innovation & Community Labs",
+      description: "Collaborate on open-source projects, civic tech, and shared datasets to solve real societal challenges.",
+    },
+    {
+      icon: Cog,
+      title: "Robotics, IoT & Intelligent Automation",
+      description: "Develop autonomous systems, smart machines, and automation solutions for real-world impact.",
+    },
+    {
+      icon: Atom,
+      title: "Quantum Computing & Emerging Technologies",
+      description: "Explore quantum algorithms, simulators, and breakthrough computing paradigms shaping the future.",
+    },
+  ];
 
 
   const prizes = [
@@ -554,6 +561,7 @@ export default function About() {
 
   // Tracks carousel ref for mobile scrolling
   const tracksRef = useRef(null);
+  const [activeTrackIndex, setActiveTrackIndex] = useState(0);
 
   // Add horizontal scroll with mouse wheel for desktop
   useEffect(() => {
@@ -626,6 +634,21 @@ export default function About() {
     };
   }, []);
 
+  // Update active track index on scroll for dot indicators
+  useEffect(() => {
+    const scrollContainer = tracksRef.current;
+    if (!scrollContainer) return;
+
+    const handleScroll = () => {
+      const cardWidth = scrollContainer.scrollWidth / tracks.length;
+      const newIndex = Math.round(scrollContainer.scrollLeft / cardWidth);
+      setActiveTrackIndex(Math.min(newIndex, tracks.length - 1));
+    };
+
+    scrollContainer.addEventListener('scroll', handleScroll, { passive: true });
+    return () => scrollContainer.removeEventListener('scroll', handleScroll);
+  }, [tracks.length]);
+
   return (
     <section className="about-page">
       <div className="about-container">
@@ -662,11 +685,8 @@ export default function About() {
           </div>
           <div className="hero-countdown hero-countdown--full">
             <LaunchCountdown />
-<<<<<<< HEAD
             <p className="countdown-caption">Gear up with code, creativity, and caffeine — the countdown begins!</p>
-=======
-            <p className="countdown-caption"> Arm yourselves with code, creativity, and caffeine.</p>
->>>>>>> e5153ef4b980dc2c4e312f630a77090395ec963e
+
           </div>
         </div>
 
@@ -736,19 +756,27 @@ export default function About() {
               className="track-btn track-btn--left"
               type="button"
               aria-label="Scroll tracks left"
-              onClick={() => tracksRef.current?.scrollBy({ left: -Math.round(tracksRef.current.clientWidth * 0.8), behavior: 'smooth' })}
+              onClick={() => {
+                const el = tracksRef.current;
+                if (!el) return;
+                // If at the start, loop to end
+                if (el.scrollLeft <= 10) {
+                  el.scrollTo({ left: el.scrollWidth, behavior: 'smooth' });
+                } else {
+                  el.scrollBy({ left: -Math.round(el.clientWidth * 0.8), behavior: 'smooth' });
+                }
+              }}
             >
               ‹
             </button>
 
             <div className="card-grid tracks-scroll" ref={tracksRef} tabIndex={0}>
-              {tracks.map(({ icon: Icon, title, description }) => (
-                <div key={title} className="info-card">
-                  <div className="info-icon">
-                    <Icon size={20} />
+              {tracks.map(({ icon: Icon, title }) => (
+                <div key={title} className="track-card">
+                  <div className="track-card-icon">
+                    <Icon size={64} strokeWidth={1.2} />
                   </div>
-                  <h3>{title}</h3>
-                  <p>{description}</p>
+                  <h3 className="track-card-title">{title}</h3>
                 </div>
               ))}
             </div>
@@ -757,10 +785,36 @@ export default function About() {
               className="track-btn track-btn--right"
               type="button"
               aria-label="Scroll tracks right"
-              onClick={() => tracksRef.current?.scrollBy({ left: Math.round(tracksRef.current.clientWidth * 0.8), behavior: 'smooth' })}
+              onClick={() => {
+                const el = tracksRef.current;
+                if (!el) return;
+                // If at the end, loop to start
+                if (el.scrollLeft + el.clientWidth >= el.scrollWidth - 10) {
+                  el.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                  el.scrollBy({ left: Math.round(el.clientWidth * 0.8), behavior: 'smooth' });
+                }
+              }}
             >
               ›
             </button>
+          </div>
+
+          {/* Dot indicators for mobile */}
+          <div className="tracks-dots">
+            {tracks.map((_, index) => (
+              <button
+                key={index}
+                className={`tracks-dot ${activeTrackIndex === index ? 'active' : ''}`}
+                onClick={() => {
+                  const el = tracksRef.current;
+                  if (!el) return;
+                  const cardWidth = el.scrollWidth / tracks.length;
+                  el.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
+                }}
+                aria-label={`Go to track ${index + 1}`}
+              />
+            ))}
           </div>
         </div>
 
