@@ -60,140 +60,140 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
 
   const cardStyle = isMobile
     ? {
-        position: "relative",
-        width: "100%",
-        flex: "1 1 auto",
-        padding: "12px 16px",
-        borderRadius: 18,
-        background:
-          "linear-gradient(160deg, rgba(10, 10, 24, 0.92), rgba(20, 0, 42, 0.82))",
-        border: "1px solid rgba(132, 0, 255, 0.38)",
-        boxShadow:
-          "0 12px 30px rgba(0, 0, 0, 0.45), 0 0 1px rgba(132, 0, 255, 0.1) inset",
-        backdropFilter: "blur(10px)",
-        WebkitBackdropFilter: "blur(10px)",
-      }
+      position: "relative",
+      width: "100%",
+      flex: "1 1 auto",
+      padding: "12px 16px",
+      borderRadius: 18,
+      background:
+        "linear-gradient(160deg, rgba(10, 10, 24, 0.92), rgba(20, 0, 42, 0.82))",
+      border: "1px solid rgba(132, 0, 255, 0.38)",
+      boxShadow:
+        "0 12px 30px rgba(0, 0, 0, 0.45), 0 0 1px rgba(132, 0, 255, 0.1) inset",
+      backdropFilter: "blur(10px)",
+      WebkitBackdropFilter: "blur(10px)",
+    }
     : {
-        position: "relative",
-        width: "100%",
-        flex: "1 1 420px",
-        padding: "22px 28px",
-        borderRadius: 24,
-        background:
-          "linear-gradient(160deg, rgba(10, 10, 24, 0.92), rgba(20, 0, 42, 0.82))",
-        border: "1px solid rgba(132, 0, 255, 0.38)",
-        boxShadow:
-          "0 24px 60px rgba(0, 0, 0, 0.55), 0 0 1px rgba(132, 0, 255, 0.1) inset",
-        backdropFilter: "blur(14px)",
-        WebkitBackdropFilter: "blur(14px)",
-      };
+      position: "relative",
+      width: "100%",
+      flex: "1 1 420px",
+      padding: "22px 28px",
+      borderRadius: 24,
+      background:
+        "linear-gradient(160deg, rgba(10, 10, 24, 0.92), rgba(20, 0, 42, 0.82))",
+      border: "1px solid rgba(132, 0, 255, 0.38)",
+      boxShadow:
+        "0 24px 60px rgba(0, 0, 0, 0.55), 0 0 1px rgba(132, 0, 255, 0.1) inset",
+      backdropFilter: "blur(14px)",
+      WebkitBackdropFilter: "blur(14px)",
+    };
 
   const rowStyle = isMobile
     ? {
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: 3,
-        width: "100%",
-        flexWrap: "wrap",
-      }
+      display: "flex",
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 3,
+      width: "100%",
+      flexWrap: "wrap",
+    }
     : {
-        display: "flex",
-        alignItems: "stretch",
-        justifyContent: "space-between",
-        gap: 12,
-        width: "100%",
-        flexWrap: "wrap",
-      };
+      display: "flex",
+      alignItems: "stretch",
+      justifyContent: "space-between",
+      gap: 12,
+      width: "100%",
+      flexWrap: "wrap",
+    };
 
   const boxStyle = isMobile
     ? {
-        flex: "0 1 auto",
-        minWidth: 40,
-        padding: "8px 6px",
-        borderRadius: 12,
-        background:
-          "linear-gradient(180deg, rgba(12, 12, 28, 0.95), rgba(28, 8, 48, 0.75))",
-        border: "1px solid rgba(132, 0, 255, 0.34)",
-        boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 18px rgba(0, 0, 0, 0.35)",
-        textAlign: "center",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      }
+      flex: "0 1 auto",
+      minWidth: 40,
+      padding: "8px 6px",
+      borderRadius: 12,
+      background:
+        "linear-gradient(180deg, rgba(12, 12, 28, 0.95), rgba(28, 8, 48, 0.75))",
+      border: "1px solid rgba(132, 0, 255, 0.34)",
+      boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 8px 18px rgba(0, 0, 0, 0.35)",
+      textAlign: "center",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    }
     : {
-        flex: "1 1 110px",
-        minWidth: 100,
-        padding: "18px 16px",
-        borderRadius: 18,
-        background:
-          "linear-gradient(180deg, rgba(12, 12, 28, 0.95), rgba(28, 8, 48, 0.75))",
-        border: "1px solid rgba(132, 0, 255, 0.34)",
-        boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 15px 32px rgba(0, 0, 0, 0.45)",
-        textAlign: "center",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-      };
+      flex: "1 1 110px",
+      minWidth: 100,
+      padding: "18px 16px",
+      borderRadius: 18,
+      background:
+        "linear-gradient(180deg, rgba(12, 12, 28, 0.95), rgba(28, 8, 48, 0.75))",
+      border: "1px solid rgba(132, 0, 255, 0.34)",
+      boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.06), 0 15px 32px rgba(0, 0, 0, 0.45)",
+      textAlign: "center",
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
+    };
 
   const numStyle = isMobile
     ? {
-        fontSize: "1.6rem",
-        fontWeight: 600,
-        letterSpacing: "0.04rem",
-        fontFamily: "Poppins",
-        background: "linear-gradient(140deg, #ffffff 0%, rgba(166, 110, 255, 0.92) 100%)",
-        WebkitBackgroundClip: "text",
-        backgroundClip: "text",
-        color: "transparent",
-        textShadow: "0 4px 10px rgba(132, 0, 255, 0.15)",
-      }
+      fontSize: "1.6rem",
+      fontWeight: 600,
+      letterSpacing: "0.04rem",
+      fontFamily: "Poppins",
+      background: "linear-gradient(140deg, #ffffff 0%, rgba(166, 110, 255, 0.92) 100%)",
+      WebkitBackgroundClip: "text",
+      backgroundClip: "text",
+      color: "transparent",
+      textShadow: "0 4px 10px rgba(132, 0, 255, 0.15)",
+    }
     : {
-        fontSize: "2.9rem",
-        fontWeight: 600,
-        letterSpacing: "0.08rem",
-        fontFamily: "Poppins",
-        background: "linear-gradient(140deg, #ffffff 0%, rgba(166, 110, 255, 0.92) 100%)",
-        WebkitBackgroundClip: "text",
-        backgroundClip: "text",
-        color: "transparent",
-        textShadow: "0 10px 24px rgba(132, 0, 255, 0.25)",
-      };
+      fontSize: "2.9rem",
+      fontWeight: 600,
+      letterSpacing: "0.08rem",
+      fontFamily: "Poppins",
+      background: "linear-gradient(140deg, #ffffff 0%, rgba(166, 110, 255, 0.92) 100%)",
+      WebkitBackgroundClip: "text",
+      backgroundClip: "text",
+      color: "transparent",
+      textShadow: "0 10px 24px rgba(132, 0, 255, 0.25)",
+    };
 
   const labelStyle = isMobile
     ? {
-        fontSize: 7,
-        color: "rgba(255, 255, 255, 0.68)",
-        marginTop: 4,
-        letterSpacing: 0.8,
-        textTransform: "uppercase",
-        fontWeight: 500,
-      }
+      fontSize: 7,
+      color: "rgba(255, 255, 255, 0.68)",
+      marginTop: 4,
+      letterSpacing: 0.8,
+      textTransform: "uppercase",
+      fontWeight: 500,
+    }
     : {
-        fontSize: 12,
-        color: "rgba(255, 255, 255, 0.68)",
-        marginTop: 10,
-        letterSpacing: 1.6,
-        textTransform: "uppercase",
-        fontWeight: 500,
-      };
+      fontSize: 12,
+      color: "rgba(255, 255, 255, 0.68)",
+      marginTop: 10,
+      letterSpacing: 1.6,
+      textTransform: "uppercase",
+      fontWeight: 500,
+    };
 
   const sepStyle = isMobile
     ? {
-        alignSelf: "center",
-        color: "rgba(132, 0, 255, 0.65)",
-        fontSize: 22,
-        fontWeight: 600,
-        padding: "0 2px",
-      }
+      alignSelf: "center",
+      color: "rgba(132, 0, 255, 0.65)",
+      fontSize: 22,
+      fontWeight: 600,
+      padding: "0 2px",
+    }
     : {
-        alignSelf: "center",
-        color: "rgba(132, 0, 255, 0.65)",
-        fontSize: 26,
-        fontWeight: 600,
-        padding: "0 6px",
-      };
+      alignSelf: "center",
+      color: "rgba(132, 0, 255, 0.65)",
+      fontSize: 26,
+      fontWeight: 600,
+      padding: "0 6px",
+    };
 
   return (
     <div className="launch-countdown-shell">
@@ -269,7 +269,7 @@ function VenueSection() {
     },
     {
       icon: Train,
-      title: "Nearest Railway Station", 
+      title: "Nearest Railway Station",
       name: "Kottayam Railway Station",
       distance: "30 km away",
       code: "KTYM",
@@ -291,6 +291,10 @@ function VenueSection() {
       <div className="section-header">
         <span className="section-tag">Location</span>
         <h2>Venue & How to Reach</h2>
+        <p>
+          Located in the heart of Kerala, IIIT Kottayam offers a perfect blend of academic excellence and
+          natural beauty. Multiple transportation options ensure easy access from anywhere in India.
+        </p>
       </div>
 
       {/* Main Venue Card */}
@@ -306,7 +310,7 @@ function VenueSection() {
             </div>
           </div>
         </div>
-        
+
         <div className="venue-map-wrapper">
           <iframe
             title="IIIT Kottayam Location Map"
@@ -371,20 +375,20 @@ export default function About() {
     for (let i = 0; i < 150; i++) {
       const star = document.createElement('div');
       star.className = 'star';
-      
+
       const size = Math.random() * 3 + 1; // 1-4px
       const x = Math.random() * 100; // 0-100%
       const y = Math.random() * 100; // 0-100%
       const duration = Math.random() * 3 + 2; // 2-5s
       const delay = Math.random() * 5; // 0-5s
-      
+
       star.style.width = `${size}px`;
       star.style.height = `${size}px`;
       star.style.left = `${x}%`;
       star.style.top = `${y}%`;
       star.style.animationDuration = `${duration}s`;
       star.style.animationDelay = `${delay}s`;
-      
+
       starsContainer.appendChild(star);
     }
 
@@ -695,8 +699,8 @@ export default function About() {
               const rankClass = tier.className;
               const iconColor = tier.iconColor;
               return (
-                <div 
-                  key={rank} 
+                <div
+                  key={rank}
                   className={`prize-card prize-card--${position} ${highlight ? 'prize-card--highlight' : ''} ${rankClass}`}
                   style={{ order: order }}
                 >

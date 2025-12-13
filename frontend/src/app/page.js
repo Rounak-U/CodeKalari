@@ -60,9 +60,9 @@ export default function Home() {
           buttonTextColor="#ffffff"
         />
       </div> */}
-       <SplineIframe /> {/*The 3D scene */}
+      <SplineIframe /> {/*The 3D scene */}
       <About /> {/* About section */}
-      {/* <Timeline /> Timeline section */}
+      <Timeline /> {/* Timeline section */}
       <Sponsors /> {/* Sponsors section */}
       <FAQ /> {/* FAQ section */}
       <Footer /> {/* Footer */}
