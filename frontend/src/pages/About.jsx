@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import {
   Brain,
   Clock3,
@@ -291,10 +291,6 @@ function VenueSection() {
       <div className="section-header">
         <span className="section-tag">Location</span>
         <h2>Venue & How to Reach</h2>
-        <p>
-          Located in the heart of Kerala, IIIT Kottayam offers a perfect blend of academic excellence and 
-          natural beauty. Multiple transportation options ensure easy access from anywhere in India.
-        </p>
       </div>
 
       {/* Main Venue Card */}
@@ -399,19 +395,19 @@ export default function About() {
 
   const heroHighlights = [
     {
-      icon: Sparkles,
-      title: "Studio-grade production",
-      description: "Immersive staging, lighting, and visuals built to keep energy high all 24 hours.",
+      icon: Trophy,
+      title: "Competitive Hackathon",
+      description: "Best talents from across India competing head-to-head to be crowned as champion.",
     },
     {
-      icon: Wifi,
-      title: "Always-on labs",
-      description: "High-bandwidth work zones, and recharge pods when you need a break.",
+      icon: Users,
+      title: "Industry Expert Judges",
+      description: "Judging panel consisting of seasoned professionals from the tech industry.",
     },
     {
       icon: MapPin,
-      title: "Kerala innovation hub",
-      description: "Explore the IIIT Kottayam campus nestled between lush hills and vibrant local culture.",
+      title: "Hilltop Campus, Kerala Vistas",
+      description: "Explore the IIIT Kottayam campus nestled among lush hills and vibrant local culture .",
     },
   ];
 
@@ -443,22 +439,48 @@ export default function About() {
   ];
 
   const tracks = [
-    {
-      icon: Cpu,
-      title: "TBD-1",
-      description: "Build AI-first products, autonomous agents, or creative coding experiences.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "TBD-2",
-      description: "Design resilient solutions for energy, agri-tech, mobility, and circular economies.",
-    },
-    {
-      icon: Zap,
-      title: "TBD-3",
-      description: "Prototype next-gen interfaces across AR/VR, gaming, and multisensory storytelling.",
-    },
-  ];
+  {
+    icon: Cpu,
+    title: "Blockchain, Web3 & Decentralized Systems",
+    description: "Create decentralized applications, smart contracts, and token-powered ecosystems that rethink trust and ownership.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Future of Education & Learning Innovation",
+    description: "Reinvent education through edtech platforms, adaptive learning models, and community-driven knowledge systems.",
+  },
+  {
+    icon: Globe2,
+    title: "Climate Action & Sustainable Futures",
+    description: "Build solutions for climate resilience, circular economies, and sustainable infrastructure at scale.",
+  },
+  {
+    icon: Trophy,
+    title: "FinTech & Financial Inclusion",
+    description: "Design payments, lending, and financial tools that expand access and empower underserved communities.",
+  },
+  {
+    icon: Users,
+    title: "HealthTech, Sports & Human Performance",
+    description: "Innovate in digital health, sports analytics, and wellness technologies that enhance human potential.",
+  },
+  {
+    icon: Rocket,
+    title: "Open Innovation & Community Labs",
+    description: "Collaborate on open-source projects, civic tech, and shared datasets to solve real societal challenges.",
+  },
+  {
+    icon: Zap,
+    title: "Robotics, IoT & Intelligent Automation",
+    description: "Develop autonomous systems, smart machines, and automation solutions for real-world impact.",
+  },
+  {
+    icon: Brain,
+    title: "Quantum Computing & Emerging Technologies",
+    description: "Explore quantum algorithms, simulators, and breakthrough computing paradigms shaping the future.",
+  },
+];
+
 
   const prizes = [
     {
@@ -523,6 +545,80 @@ export default function About() {
     },
   ];
 
+  // Tracks carousel ref for mobile scrolling
+  const tracksRef = useRef(null);
+
+  // Add horizontal scroll with mouse wheel for desktop
+  useEffect(() => {
+    const scrollContainer = tracksRef.current;
+    if (!scrollContainer) return;
+
+    const handleWheel = (e) => {
+      // Only handle if scrolling horizontally or if there's horizontal scroll available
+      if (scrollContainer.scrollWidth > scrollContainer.clientWidth) {
+        // Prevent default vertical scroll behavior when over the carousel
+        e.preventDefault();
+        // Scroll horizontally based on wheel delta
+        scrollContainer.scrollBy({
+          left: e.deltaY * 2,
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    scrollContainer.addEventListener('wheel', handleWheel, { passive: false });
+    return () => scrollContainer.removeEventListener('wheel', handleWheel);
+  }, []);
+
+  // Add click and drag to scroll functionality
+  useEffect(() => {
+    const scrollContainer = tracksRef.current;
+    if (!scrollContainer) return;
+
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    const handleMouseDown = (e) => {
+      isDown = true;
+      scrollContainer.style.cursor = 'grabbing';
+      scrollContainer.style.userSelect = 'none';
+      startX = e.pageX - scrollContainer.offsetLeft;
+      scrollLeft = scrollContainer.scrollLeft;
+    };
+
+    const handleMouseLeave = () => {
+      isDown = false;
+      scrollContainer.style.cursor = 'grab';
+    };
+
+    const handleMouseUp = () => {
+      isDown = false;
+      scrollContainer.style.cursor = 'grab';
+    };
+
+    const handleMouseMove = (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - scrollContainer.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll speed multiplier
+      scrollContainer.scrollLeft = scrollLeft - walk;
+    };
+
+    scrollContainer.style.cursor = 'grab';
+    scrollContainer.addEventListener('mousedown', handleMouseDown);
+    scrollContainer.addEventListener('mouseleave', handleMouseLeave);
+    scrollContainer.addEventListener('mouseup', handleMouseUp);
+    scrollContainer.addEventListener('mousemove', handleMouseMove);
+
+    return () => {
+      scrollContainer.removeEventListener('mousedown', handleMouseDown);
+      scrollContainer.removeEventListener('mouseleave', handleMouseLeave);
+      scrollContainer.removeEventListener('mouseup', handleMouseUp);
+      scrollContainer.removeEventListener('mousemove', handleMouseMove);
+    };
+  }, []);
+
   return (
     <section className="about-page">
       <div className="about-container">
@@ -559,7 +655,7 @@ export default function About() {
           </div>
           <div className="hero-countdown hero-countdown--full">
             <LaunchCountdown />
-            <p className="countdown-caption">We go live on campus January 17-18, 2026 · Valavoor, Kerala</p>
+            <p className="countdown-caption"> Arm yourselves with code, creativity, and caffeine.</p>
           </div>
         </div>
 
@@ -618,27 +714,44 @@ export default function About() {
           </div>
         </div>
 
-        {/* <div id="tracks" className="info-section tracks-section">
+        <div id="tracks" className="info-section tracks-section">
           <div className="section-header">
             <span className="section-tag">Tracks & Prompts</span>
             <h2>Choose a focus area that matches your curiosity.</h2>
-            <p>
-              Themes are intentionally wide, with mentors and technical resources to help you refine your MVP.
-              Surprise wildcard challenges drop on day two for teams wanting an extra twist.
-            </p>
           </div>
-          <div className="card-grid">
-            {tracks.map(({ icon: Icon, title, description }) => (
-              <div key={title} className="info-card">
-                <div className="info-icon">
-                  <Icon size={20} />
+          {/* Tracks: desktop = grid (4x2), mobile = horizontal scroll carousel with arrows */}
+          <div className="tracks-carousel">
+            <button
+              className="track-btn track-btn--left"
+              type="button"
+              aria-label="Scroll tracks left"
+              onClick={() => tracksRef.current?.scrollBy({ left: -Math.round(tracksRef.current.clientWidth * 0.8), behavior: 'smooth' })}
+            >
+              ‹
+            </button>
+
+            <div className="card-grid tracks-scroll" ref={tracksRef} tabIndex={0}>
+              {tracks.map(({ icon: Icon, title, description }) => (
+                <div key={title} className="info-card">
+                  <div className="info-icon">
+                    <Icon size={20} />
+                  </div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
                 </div>
-                <h3>{title}</h3>
-                <p>{description}</p>
-              </div>
-            ))}
+              ))}
+            </div>
+
+            <button
+              className="track-btn track-btn--right"
+              type="button"
+              aria-label="Scroll tracks right"
+              onClick={() => tracksRef.current?.scrollBy({ left: Math.round(tracksRef.current.clientWidth * 0.8), behavior: 'smooth' })}
+            >
+              ›
+            </button>
           </div>
-        </div> */}
+        </div>
 
         <VenueSection />
 
