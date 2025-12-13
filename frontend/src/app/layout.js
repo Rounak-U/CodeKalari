@@ -30,9 +30,17 @@ export const metadata = {
   title: "Code Kalari",
   description: "IIIT Kottayam Official Hackathon",
   icons: {
-    icon: '/favicon.png',
-    shortcut: '/favicon.png',
-    apple: '/favicon.png',
+    // fallback neutral favicon (used by browsers that don't support media queries)
+    icon: '/favicon-li.ico',
+    shortcut: '/favicon-li.ico',
+    apple: '/favicon-li.ico',
+    // Provide light/dark variants — browsers that support prefers-color-scheme will pick the matching one
+    other: [
+      { rel: 'icon', url: '/favicon-li.ico', media: '(prefers-color-scheme: light)' },
+      { rel: 'icon', url: '/favicon-da.ico', media: '(prefers-color-scheme: dark)' },
+      // optional apple touch icon (iOS) — keep a single friendly image
+      { rel: 'apple-touch-icon', url: '/apple-touch-icon.png' },
+    ],
   },
 };
 
