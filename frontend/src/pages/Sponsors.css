@@ -26,13 +26,13 @@
 }
 
 .sponsors-title {
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: 2.7rem;
   font-weight: 600;
   color: #fff;
   margin: 0;
   font-family: "Poppins", sans-serif;
-  letter-spacing: -0.03em;
-  line-height: 1.15;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
 }
 
 .sponsors-subtitle {
@@ -74,13 +74,11 @@
   margin-top: 2rem;
   padding-top: 2rem;
   overflow: hidden;
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 1) 80%,
-    rgba(0, 0, 0, 0)
-  );
+  mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0));
 }
 
 .wrapper-toright {
@@ -92,13 +90,11 @@
   margin-top: 5rem;
   margin-bottom: -5%;
   overflow: hidden;
-  mask-image: linear-gradient(
-    to right,
-    rgba(0, 0, 0, 0),
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 1) 80%,
-    rgba(0, 0, 0, 0)
-  );
+  mask-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(0, 0, 0, 0));
 }
 
 /* Animation for scrolling */
@@ -196,12 +192,11 @@
 .item11 {
   animation-delay: calc(50s / 11 * (11 - 11) * -1);
 }
+
 .testimonial-card {
-  background: linear-gradient(
-    135deg,
-    rgba(20, 20, 30, 0.7),
-    rgba(10, 10, 20, 0.5)
-  );
+  background: linear-gradient(135deg,
+      rgba(20, 20, 30, 0.7),
+      rgba(10, 10, 20, 0.5));
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
@@ -210,7 +205,7 @@
   max-width: 400px;
   width: 100%;
   margin: 20px auto;
-  box-shadow: 
+  box-shadow:
     0 15px 40px rgba(0, 0, 0, 0.6),
     0 0 0 1px rgba(132, 0, 255, 0.15) inset;
   font-family: "Inter", sans-serif;
@@ -260,11 +255,9 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(132, 0, 255, 0.1),
-    transparent 40%
-  );
+  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(132, 0, 255, 0.1),
+      transparent 40%);
   opacity: 0;
   transition: opacity 0.4s;
   border-color: rgba(132, 0, 255, 0.6);
@@ -274,7 +267,7 @@
 .testimonial-card:hover {
   transform: translateY(-4px);
   border-color: rgba(132, 0, 255, 0.8);
-  box-shadow: 
+  box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.7),
     0 0 0 1px rgba(132, 0, 255, 0.3) inset,
     0 0 40px rgba(132, 0, 255, 0.15);
@@ -361,24 +354,28 @@
 .sponsor-container {
   display: flex;
   align-items: center;
-  gap: 8px; /* space between icon and text */
+  gap: 8px;
+  /* space between icon and text */
   margin-bottom: 10px;
 }
 
 .sponsor-icon {
   width: 20px;
   height: 20px;
-  border-radius: 50%; /* default circle */
+  border-radius: 50%;
+  /* default circle */
 }
 
 .sponsor-icon.diamond {
   width: 24px;
   height: 24px;
-  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* diamond shape */
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+  /* diamond shape */
 }
 
 .sponsor-icon.platinum {
-  border-radius: 10%; /* slightly rounded square */
+  border-radius: 10%;
+  /* slightly rounded square */
 }
 
 .sponsor-icon.gold {
@@ -392,7 +389,8 @@
 .sponsor-label {
   font-size: 1rem;
   font-weight: 600;
-  color: #ffffff; /* visible on dark background */
+  color: #ffffff;
+  /* visible on dark background */
 }
 
 /* Mobile Responsive */

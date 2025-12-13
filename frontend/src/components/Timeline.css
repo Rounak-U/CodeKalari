@@ -63,12 +63,11 @@
   transform: translateX(-50%);
   width: 4px;
   height: 100%;
-  background: linear-gradient(180deg, 
-    transparent 0%, 
-    rgba(132, 0, 255, 0.5) 20%, 
-    rgba(132, 0, 255, 0.5) 80%, 
-    transparent 100%
-  );
+  background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(132, 0, 255, 0.5) 20%,
+      rgba(132, 0, 255, 0.5) 80%,
+      transparent 100%);
   z-index: 1;
 }
 
@@ -79,7 +78,13 @@
   margin-bottom: 80px;
   position: relative;
   opacity: 0;
+  transform: translateY(40px);
+  transition: none;
+}
+
+.timeline-item.animate {
   animation: fadeInUp 0.8s ease forwards;
+  animation-delay: var(--delay, 0s);
 }
 
 @keyframes fadeInUp {
@@ -87,6 +92,7 @@
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -107,29 +113,28 @@
 
 /* Timeline Content Card */
 .timeline-content {
-  background: linear-gradient(
-    135deg,
-    rgba(20, 20, 30, 0.85),
-    rgba(10, 10, 20, 0.7)
-  );
+  background: linear-gradient(135deg,
+      rgba(20, 20, 30, 0.85),
+      rgba(10, 10, 20, 0.7));
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
   padding: 30px;
   max-width: 450px;
   width: 100%;
-  box-shadow: 
+  box-shadow:
     0 20px 50px rgba(0, 0, 0, 0.7),
     0 0 0 1px rgba(132, 0, 255, 0.2) inset;
   border: 1px solid rgba(132, 0, 255, 0.3);
   position: relative;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 2;
+  text-align: center;
 }
 
 .timeline-content:hover {
   transform: translateY(-5px);
-  box-shadow: 
+  box-shadow:
     0 25px 60px rgba(132, 0, 255, 0.4),
     0 0 0 1px rgba(132, 0, 255, 0.4) inset;
   border-color: rgba(132, 0, 255, 0.5);
@@ -172,7 +177,7 @@
   background: linear-gradient(135deg, #a515ff, #6f00ff);
   border-radius: 50%;
   border: 4px solid rgba(0, 0, 0, 0.9);
-  box-shadow: 
+  box-shadow:
     0 0 0 4px rgba(132, 0, 255, 0.3),
     0 0 20px rgba(132, 0, 255, 0.6);
   z-index: 3;
@@ -180,13 +185,16 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
-    box-shadow: 
+
+  0%,
+  100% {
+    box-shadow:
       0 0 0 4px rgba(132, 0, 255, 0.3),
       0 0 20px rgba(132, 0, 255, 0.6);
   }
+
   50% {
-    box-shadow: 
+    box-shadow:
       0 0 0 8px rgba(132, 0, 255, 0.2),
       0 0 30px rgba(132, 0, 255, 0.8);
   }
@@ -246,7 +254,14 @@
 
   .timeline-item.left .timeline-content::after,
   .timeline-item.right .timeline-content::after {
-    display: none;
+    /* Show pointer arrow on mobile, all pointing left */
+    display: block;
+    left: -15px;
+    right: auto;
+    border-left: none;
+    border-right: 15px solid rgba(132, 0, 255, 0.3);
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
   }
 
   .timeline-content {
@@ -265,7 +280,7 @@
 
   .timeline-item {
     margin-bottom: 50px;
-    padding-left: 60px;
+    padding-left: 45px;
   }
 
   .timeline-content {
@@ -281,12 +296,12 @@
   }
 
   .timeline-line {
-    left: 20px;
+    left: 18px;
   }
 
   .timeline-dot {
-    left: 20px;
-    width: 20px;
-    height: 20px;
+    left: 18px;
+    width: 18px;
+    height: 18px;
   }
 }

@@ -7,7 +7,7 @@ const DynamicSpline = dynamic(() => import('@splinetool/react-spline').then(m =>
   loading: () => <div className="spline-loading-placeholder" aria-hidden />,
 });
 import Apply from "../assets/Apply1.png";
-import IIITK from "../assets/IIITK2.png"; 
+import IIITK from "../assets/IIITK2.png";
 import RobotImage from "../assets/Rob.png";
 import './SplineModel.css';
 export default function SplineIframe() {
@@ -45,19 +45,19 @@ export default function SplineIframe() {
     const isLowEnd = () => {
       try {
         // navigator.deviceMemory is an approximation of RAM in GB (may be undefined)
-  const mem = navigator.deviceMemory || 4;
-  const cores = navigator.hardwareConcurrency || 4;
-  const connection = navigator.connection || {};
-  const saveData = connection.saveData;
-  const effectiveType = (connection.effectiveType || '').toLowerCase();
+        const mem = navigator.deviceMemory || 4;
+        const cores = navigator.hardwareConcurrency || 4;
+        const connection = navigator.connection || {};
+        const saveData = connection.saveData;
+        const effectiveType = (connection.effectiveType || '').toLowerCase();
 
-  // Heuristic: low memory (<2GB), low cores (<=2), or saveData enabled or very slow connection -> low-end
-  // Also respect prefers-reduced-motion to avoid expensive renders
-  const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  // Add explicit mobile check as low-end: narrow widths should show the image fallback
-  const mobileMatch = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-  if (mobileMatch) return true;
-  if (mem < 2 || cores <= 2 || saveData || /2g|slow-2g/.test(effectiveType) || prefersReducedMotion) return true;
+        // Heuristic: low memory (<2GB), low cores (<=2), or saveData enabled or very slow connection -> low-end
+        // Also respect prefers-reduced-motion to avoid expensive renders
+        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // Add explicit mobile check as low-end: narrow widths should show the image fallback
+        const mobileMatch = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+        if (mobileMatch) return true;
+        if (mem < 2 || cores <= 2 || saveData || /2g|slow-2g/.test(effectiveType) || prefersReducedMotion) return true;
       } catch (err) {
         return false;
       }
@@ -121,25 +121,25 @@ export default function SplineIframe() {
   // useEffect(() => {
   //   const container = document.querySelector('.spline-model-container');
   //   if (!container) return;
-    
+
   //   let starsContainer = container.querySelector('.stars-container-spline');
   //   if (starsContainer) return; // Already created
-    
+
   //   starsContainer = document.createElement('div');
   //   starsContainer.className = 'stars-container-spline';
   //   starsContainer.style.cssText = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;';
-    
+
   //   // Generate 100 stars with random positions, sizes, and animation durations
   //   for (let i = 0; i < 100; i++) {
   //     const star = document.createElement('div');
   //     star.className = 'star-spline';
-      
+
   //     const size = Math.random() * 2.5 + 0.8; // 0.8-3.3px
   //     const x = Math.random() * 100; // 0-100%
   //     const y = Math.random() * 100; // 0-100%
   //     const duration = Math.random() * 3 + 2; // 2-5s
   //     const delay = Math.random() * 5; // 0-5s
-      
+
   //     star.style.cssText = `
   //       position: absolute;
   //       background: white;
@@ -150,10 +150,10 @@ export default function SplineIframe() {
   //       top: ${y}%;
   //       animation: twinkle-spline ${duration}s linear ${delay}s infinite;
   //     `;
-      
+
   //     starsContainer.appendChild(star);
   //   }
-    
+
   //   container.insertBefore(starsContainer, container.firstChild);
   // }, []);
 
@@ -222,19 +222,19 @@ export default function SplineIframe() {
           />
         )}
       </div>
-      
+
       {/* Overlay to hide Spline watermark at bottom-right */}
-      <div style={{ 
-        position: "absolute", 
-        bottom: 6, 
-        right: 0, 
-        width: "200px", 
-        height: "60px", 
-        backgroundColor: "#000000", 
+      <div style={{
+        position: "absolute",
+        bottom: 6,
+        right: 0,
+        width: "200px",
+        height: "60px",
+        backgroundColor: "#000000",
         zIndex: 9999,
         pointerEvents: "none"
       }} />
-      
+
       {/* IIITK Badge */}
       <a id="iiitk-badge" style={{ display: 'block', maxWidth: '160px', height: '100px', minWidth: '120px', position: 'relative', top: '0', width: '12%', zIndex: 10000 }} href="https://www.iiitkottayam.ac.in/?ref=cybrhome#!/home" target="_blank" rel="noreferrer">
         <img src={typeof IIITK === 'string' ? IIITK : IIITK.src || IIITK.default || IIITK} alt="IIIT Kottayam" style={{ width: '100%' }} />
@@ -255,9 +255,9 @@ export default function SplineIframe() {
           pointerEvents: 'none',
         }}
       >
-  <div className="spline-apply-inner" style={{ pointerEvents: 'auto', display: 'block' }}>
+        <div className="spline-apply-inner" style={{ pointerEvents: 'auto', display: 'block' }}>
           <a href="https://code-kalari.devfolio.co/overview" target="_blank" rel="noreferrer">
-          <img src={typeof Apply === 'string' ? Apply : Apply.src || Apply.default || Apply} alt="Apply" style={{borderRadius: '8px', height: '40px', maxWidth: '100%'}} />
+            <img src={typeof Apply === 'string' ? Apply : Apply.src || Apply.default || Apply} alt="Apply" style={{ borderRadius: '8px', height: '40px', maxWidth: '100%' }} />
           </a>
         </div>
       </div>

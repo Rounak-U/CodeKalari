@@ -31,17 +31,17 @@ const faqs = [
   //   q: "Are there prizes?",
   //   a: "Yes—track prizes, sponsor bounties, and special recognitions. Prize details will be revealed during the opening ceremony.",
   // },
+  // {
+  //   q: "How does judging work?",
+  //   a: "Projects are judged on originality, technical depth, impact, and polish. Live demos are required (no slide‑only submissions).",
+  // },
   {
-    q: "How does judging work?",
-    a: "Projects are judged on originality, technical depth, impact, and polish. Live demos are required (no slide‑only submissions).",
-  },
- {
     q: "Can I come alone?",
-    a: "No, you must participate as part of a team of 2–4 members. Solo registrations are not allowed.",
-},
+    a: "To encourage a collaborative environment, participation is structured for teams of 2–4 members. It’s a great opportunity to combine your strengths!",
+  },
   {
     q: "What should I bring?",
-    a: "Laptop, chargers and student ID. We’ll handle the rest.",
+    a: "Laptop, chargers, student ID and a government ID. We’ll handle the rest.",
   },
   {
     q: "Code of Conduct?",
@@ -60,9 +60,11 @@ export default function FAQ() {
     <section className="faq-section">
       <div className="faq-container">
         <div className="faq-header">
-          <div className="faq-kicker">Got questions?</div>
+          {/* <div className="faq-kicker">Got questions?</div> */}
           <h2 className="faq-title">Frequently Asked Questions</h2>
-          <p className="faq-subtitle">Quick answers about the event, eligibility, and registrations.</p>
+          <p className="faq-subtitle"></p>
+
+          {/* <p className="faq-subtitle">Quick answers about the event, eligibility, and registrations.</p> */}
         </div>
 
         <div className="faq-list">
