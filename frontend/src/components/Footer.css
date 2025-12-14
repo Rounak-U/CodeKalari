@@ -45,6 +45,24 @@
   gap: 1.5rem;
 }
 
+.white {
+  color: #ffffff;
+  font-style: italic;
+}
+
+.footer-brand-top {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.footer-logo-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+}
+
 .footer-logo {
   font-size: 2.8rem;
   font-weight: 800;
@@ -220,6 +238,11 @@
 
   .footer-logo {
     font-size: 2.2rem;
+  }
+
+  .footer-logo-img {
+    width: 40px;
+    height: 40px;
   }
 
   .footer-tagline {

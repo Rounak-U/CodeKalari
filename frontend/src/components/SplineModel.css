@@ -120,6 +120,7 @@
 .spline-scene-wrapper>div {
   width: 100% !important;
   height: 100% !important;
+
 }
 
 .spline-loading-placeholder {
@@ -230,6 +231,93 @@
   }
 }
 
+/* iPad-specific styles: treat like mobile (static Spline) but tuned for tablet dimensions */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .spline-model-container {
+    /* keep it full-bleed but slightly shorter than mobile so it fits tablets */
+    height: 100vh !important;
+    min-height: 100vh !important;
+  }
+
+  .sponsor-logos {
+    top: 10vh;
+  }
+
+  /* CODE KALARI text - split into two lines on iPad similar to mobile */
+  #spline-code-kalari-text {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    line-height: 0.95 !important;
+    gap: 10px !important;
+  }
+
+  .code-text {
+    font-size: clamp(150px, 50vw, 400px) !important;
+    letter-spacing: 2.2rem !important;
+    display: block !important;
+    text-align: center !important;
+    margin-left: 1.6rem !important;
+  }
+
+  .kalari-text {
+    font-size: clamp(100px, 4, 170px) !important;
+    letter-spacing: 2.0rem !important;
+    display: block !important;
+    text-align: center !important;
+    margin-left: 1.8rem !important;
+    margin-bottom: 12rem;
+  }
+
+  .space-separator {
+    display: none !important;
+  }
+
+  .spline-text-container {
+    top: -10% !important;
+    margin-top: 0 !important;
+  }
+
+  /* Apply button - tuned position for tablets */
+  .spline-apply-container.spline-apply-mobile {
+    top: 55% !important;
+  }
+
+  .spline-apply-container img {
+    height: 36px !important;
+  }
+
+  .spline-apply-container .spline-apply-inner {
+    margin-left: 2% !important;
+    margin-top: 3% !important;
+  }
+
+  /* IIITK badge: position similar to mobile but slightly larger */
+  #iiitk-badge {
+    width: 14% !important;
+    max-width: 140px !important;
+    position: fixed !important;
+    left: 22px !important;
+    right: auto !important;
+    top: 2% !important;
+    height: auto !important;
+    z-index: 10000;
+  }
+
+  /* Ensure fallback image covers area well on tablets */
+  .spline-mobile-image {
+    position: absolute;
+    inset: 110px 0;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 3;
+    display: block;
+  }
+}
+
 .spline-apply-container {
   position: absolute;
   /* keep base positioning but no explicit top here: desktop classes set it */
@@ -237,7 +325,7 @@
 
 /* Desktop-specific top offset so maintainers can change desktop height easily */
 .spline-apply-container.spline-apply-desktop {
-  top: 72% !important;
+  top: 80% !important;
   /* default desktop position, can be tuned */
 }
 

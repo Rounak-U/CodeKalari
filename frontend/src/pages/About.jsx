@@ -96,6 +96,7 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
       WebkitBackdropFilter: "blur(14px)",
     };
 
+
   const rowStyle = isMobile
     ? {
       display: "flex",
@@ -145,6 +146,7 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
       alignItems: "center",
     };
 
+
   const numStyle = isMobile
     ? {
       fontSize: "1.6rem",
@@ -168,6 +170,7 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
       color: "transparent",
       textShadow: "0 10px 24px rgba(132, 0, 255, 0.25)",
     };
+
 
   const labelStyle = isMobile
     ? {
@@ -278,6 +281,7 @@ function VenueSection() {
     {
       icon: Train,
       title: "Nearest Railway Station",
+      title: "Nearest Railway Station",
       name: "Kottayam Railway Station",
       distance: "30 km away",
       code: "KTYM",
@@ -299,12 +303,10 @@ function VenueSection() {
       <div className="section-header">
         <span className="section-tag">Location</span>
         <h2>Venue & How to Reach</h2>
-
         {/* <p>
           Located in the heart of Kerala, IIIT Kottayam offers a perfect blend of academic excellence and
           natural beauty. Multiple transportation options ensure easy access from anywhere in India.
         </p> */}
-
       </div>
 
       {/* Main Venue Card */}
@@ -320,6 +322,7 @@ function VenueSection() {
             </div>
           </div>
         </div>
+
 
         <div className="venue-map-wrapper">
           <iframe
@@ -386,11 +389,13 @@ export default function About() {
       const star = document.createElement('div');
       star.className = 'star';
 
+
       const size = Math.random() * 3 + 1; // 1-4px
       const x = Math.random() * 100; // 0-100%
       const y = Math.random() * 100; // 0-100%
       const duration = Math.random() * 3 + 2; // 2-5s
       const delay = Math.random() * 5; // 0-5s
+
 
       star.style.width = `${size}px`;
       star.style.height = `${size}px`;
@@ -398,6 +403,7 @@ export default function About() {
       star.style.top = `${y}%`;
       star.style.animationDuration = `${duration}s`;
       star.style.animationDelay = `${delay}s`;
+
 
       starsContainer.appendChild(star);
     }
@@ -660,9 +666,7 @@ export default function About() {
                 Where builders craft future-ready experiences from Kerala&apos;s creative campus.
               </h1>
               <p className="hero-description">
-                Code Kalari is an in-person hackathon hosted by IIIT Kottayam. Expect
-                24 hours of deliberate making, curated mentors, cultural spotlights, and a community-driven
-                showcase that celebrates experimentation.
+                Code Kalari is an <strong>in-person hackathon</strong> hosted by IIIT Kottayam, built for makers who learn by doing. Dive deep into focused building with experienced mentors, cultural spotlights, and a community-driven showcase celebrating bold ideas and fearless experimentation.
               </p>
             </div>
             <div className="hero-highlight-panel">
@@ -726,6 +730,7 @@ export default function About() {
               const rankClass = tier.className;
               const iconColor = tier.iconColor;
               return (
+
                 <div
                   key={rank}
                   className={`prize-card prize-card--${position} ${highlight ? 'prize-card--highlight' : ''} ${rankClass}`}
