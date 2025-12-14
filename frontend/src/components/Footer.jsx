@@ -13,9 +13,12 @@ export default function Footer() {
         <div className="footer-main">
           {/* Brand Section */}
           <div className="footer-brand">
-            <div className="footer-logo">Code Kalari</div>
+            <div className="footer-brand-top">
+              <img src="/CodekalariLogo.png" alt="Code Kalari logo" className="footer-logo-img" />
+              <div className="footer-logo">Code Kalari</div>
+            </div>
             <p className="footer-tagline">
-              Arm yourselves with code, creativity, and caffeine.
+              Arm yourselves with <strong className='white'>code, creativity, and caffeine</strong>.
             </p>
             <div className="footer-social">
               <a href="https://www.instagram.com/codekalari?igsh=aWU4dHJ5a254N3Zo" target="_blank" rel="noreferrer" aria-label="Instagram" className="footer-social-link">

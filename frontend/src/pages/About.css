@@ -221,9 +221,10 @@
 
 .hero-description {
   max-width: 560px;
-  font-size: 1.05rem;
+  font-size: 1.07rem;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.76);
+  text-align: justify !important;
 }
 
 .hero-highlight-panel {

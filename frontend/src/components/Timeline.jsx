@@ -13,21 +13,21 @@ const timelineEvents = [
   },
   {
     id: 2,
-    title: "Release of First Shortlisted Group",
+    title: "Release of First Shortlisted Teams",
     date: "22nd December",
     description: "First list of shortlisted teams for Code Kalari will be released. Check your email for confirmation.",
     position: "right"
   },
   {
     id: 3,
-    title: "Release of Second Shortlist",
+    title: "Release of Second Shortlisted Teams",
     date: "29th December",
     description: "Second list of shortlisted teams will be announced. ",
     position: "left"
   },
   {
     id: 4,
-    title: "Release of 3rd Shortlist",
+    title: "Release of Third Shortlisted Teams",
     date: "5th January",
     description: "Final shortlist of teams will be released.",
     position: "right"
@@ -41,9 +41,9 @@ const timelineEvents = [
   },
   {
     id: 6,
-    title: "Commencement of Offline Hackathon",
+    title: "Commencement of Hackathon",
     date: "17th January",
-    description: "The offline hackathon begins! Join us at the venue for an intense day of innovation and coding.",
+    description: "The hackathon begins! Join us at the venue for an intense day of innovation and coding.",
     position: "right"
   },
   {
@@ -84,7 +84,7 @@ export default function Timeline() {
   return (
     <section className="timeline-section">
       <div className="timeline-header">
-        <h2 className="timeline-title">Code Kalari Important Dates</h2>
+        <h2 className="timeline-title">Important Dates</h2>
       </div>
 
       <div className="timeline-container" ref={timelineRef}>
@@ -99,7 +99,7 @@ export default function Timeline() {
             <div className="timeline-content">
               <div className="timeline-date-badge">{event.date}</div>
               <h3 className="timeline-event-title">{event.title}</h3>
-              <p className="timeline-description">{event.description}</p>
+              {/* <p className="timeline-description">{event.description}</p> */}
             </div>
             <div className="timeline-dot"></div>
           </div>

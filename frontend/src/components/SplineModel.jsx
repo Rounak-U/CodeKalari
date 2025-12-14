@@ -192,7 +192,7 @@ export default function SplineIframe() {
         </h1>
       </div>
       {/* Spline 3D Model - on top of text */}
-      <div ref={containerRef} style={{ position: "absolute", inset: 0, zIndex: 3 }}>
+      <div ref={containerRef} style={{ position: "absolute", inset: 0, zIndex: 3, }}>
         {(isMobileView || lowEndFallback) ? (
           // On mobile / low-end devices show a static image that occupies the same space as the model
           <img
@@ -202,7 +202,7 @@ export default function SplineIframe() {
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
         ) : (shouldLoadSpline && isVisible) ? (
-          <div className="spline-scene-wrapper" style={{ width: '100%', height: '100%' }}>
+          <div className="spline-scene-wrapper" style={{ width: '100%', height: '100%', right: '100px' }}>
             <DynamicSpline scene="https://prod.spline.design/kjVjvsRXVMk-LaVx/scene.splinecode" />
           </div>
         ) : (

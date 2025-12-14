@@ -120,6 +120,7 @@
 .spline-scene-wrapper>div {
   width: 100% !important;
   height: 100% !important;
+  
 }
 
 .spline-loading-placeholder {
@@ -237,7 +238,7 @@
 
 /* Desktop-specific top offset so maintainers can change desktop height easily */
 .spline-apply-container.spline-apply-desktop {
-  top: 72% !important;
+  top: 80% !important;
   /* default desktop position, can be tuned */
 }
 
