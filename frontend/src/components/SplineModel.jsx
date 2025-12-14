@@ -15,6 +15,7 @@ export default function SplineIframe() {
   const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
   const [lowEndFallback, setLowEndFallback] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
+  const [isIpadView, setIsIpadView] = useState(false);
   // track whether the spline is in the viewport (visible) so we can unmount/halt when it isn't
   const [isVisible, setIsVisible] = useState(false);
   const containerRef = useRef(null);
@@ -112,7 +113,12 @@ export default function SplineIframe() {
   // track mobile viewport state for dynamic updates
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const handler = () => setIsMobileView(window.matchMedia('(max-width: 768px)').matches);
+    const handler = () => {
+      const w = window.innerWidth;
+      setIsMobileView(window.matchMedia('(max-width: 768px)').matches);
+      // iPad-ish widths: treat as iPad view (between 769 and 1024)
+      setIsIpadView(w >= 769 && w <= 1024);
+    };
     handler();
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
@@ -193,7 +199,7 @@ export default function SplineIframe() {
       </div>
       {/* Spline 3D Model - on top of text */}
       <div ref={containerRef} style={{ position: "absolute", inset: 0, zIndex: 3, }}>
-        {(isMobileView || lowEndFallback) ? (
+        {(isMobileView || isIpadView || lowEndFallback) ? (
           // On mobile / low-end devices show a static image that occupies the same space as the model
           <img
             className="spline-mobile-image"
