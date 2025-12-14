@@ -95,7 +95,7 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
       backdropFilter: "blur(14px)",
       WebkitBackdropFilter: "blur(14px)",
     };
-      
+
 
   const rowStyle = isMobile
     ? {
@@ -115,7 +115,7 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
       width: "100%",
       flexWrap: "wrap",
     };
-    
+
   const boxStyle = isMobile
     ? {
       flex: "0 1 auto",
@@ -145,7 +145,7 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
       flexDirection: "column",
       alignItems: "center",
     };
-     
+
 
   const numStyle = isMobile
     ? {
@@ -205,7 +205,7 @@ function LaunchCountdown({ targetTs = LAUNCH_TS }) {
       fontWeight: 600,
       padding: "0 6px",
     };
-  
+
   return (
     <div className="launch-countdown-shell">
       <div style={cardStyle}>
@@ -303,10 +303,10 @@ function VenueSection() {
       <div className="section-header">
         <span className="section-tag">Location</span>
         <h2>Venue & How to Reach</h2>
-        <p>
+        {/* <p>
           Located in the heart of Kerala, IIIT Kottayam offers a perfect blend of academic excellence and
           natural beauty. Multiple transportation options ensure easy access from anywhere in India.
-        </p>
+        </p> */}
       </div>
 
       {/* Main Venue Card */}
@@ -666,7 +666,7 @@ export default function About() {
                 Where builders craft future-ready experiences from Kerala&apos;s creative campus.
               </h1>
               <p className="hero-description">
-               Code Kalari is an <strong>in-person hackathon</strong> hosted by IIIT Kottayam, built for makers who learn by doing. Dive deep into focused building with experienced mentors, cultural spotlights, and a community-driven showcase celebrating bold ideas and fearless experimentation.
+                Code Kalari is an <strong>in-person hackathon</strong> hosted by IIIT Kottayam, built for makers who learn by doing. Dive deep into focused building with experienced mentors, cultural spotlights, and a community-driven showcase celebrating bold ideas and fearless experimentation.
               </p>
             </div>
             <div className="hero-highlight-panel">
@@ -730,7 +730,7 @@ export default function About() {
               const rankClass = tier.className;
               const iconColor = tier.iconColor;
               return (
-       
+
                 <div
                   key={rank}
                   className={`prize-card prize-card--${position} ${highlight ? 'prize-card--highlight' : ''} ${rankClass}`}

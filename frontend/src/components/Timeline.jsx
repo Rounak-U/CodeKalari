@@ -13,21 +13,21 @@ const timelineEvents = [
   },
   {
     id: 2,
-    title: "Release of First Shortlisted Teams",
+    title: "First Release of Shortlisted Teams",
     date: "22nd December",
     description: "First list of shortlisted teams for Code Kalari will be released. Check your email for confirmation.",
     position: "right"
   },
   {
     id: 3,
-    title: "Release of Second Shortlisted Teams",
+    title: "Second Release of Shortlisted Teams",
     date: "29th December",
     description: "Second list of shortlisted teams will be announced. ",
     position: "left"
   },
   {
     id: 4,
-    title: "Release of Third Shortlisted Teams",
+    title: "Third Release of Shortlisted Teams",
     date: "5th January",
     description: "Final shortlist of teams will be released.",
     position: "right"
