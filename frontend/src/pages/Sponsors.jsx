@@ -10,6 +10,7 @@ import SponsorIcon from "@/components/ui/SponsorIcon";
 import Devfolio from "../assets/Devfolio.png";
 import ETH from "../assets/ETH.png";
 import XYZ from "../assets/xyz.png";
+import Dodo from "../assets/dodo.png";
 
 const navItems = [
   {
@@ -46,8 +47,8 @@ export default function Sponsors() {
   return (
     <>
       <div style={{ position: "fixed", top: 0, left: 0, right: 0, zIndex: 1000 }}>
-        <CardNav 
-      
+        <CardNav
+
           logoAlt="Code Kalari"
           items={navItems}
           baseColor="transparent"
@@ -57,7 +58,7 @@ export default function Sponsors() {
         />
       </div>
       {/* Hero Section with Silk Background */}
-    
+
       {/* Sponsors Hero Section */}
       <section className="sponsors-hero">
         <div className="sponsors-hero-content">
@@ -73,115 +74,121 @@ export default function Sponsors() {
         <div className="wrapper-toright">
           <div className="item-right item1">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
-                alt="Devfolio Sponsor" 
-                className="sponsor-image" 
+              <img
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio}
+                alt="Devfolio Sponsor"
+                className="sponsor-image"
               />
             </div>
           </div>
 
           <div className="item-right item2">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
-                alt="Sponsor" 
-                className="sponsor-image" 
-              />
+              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
+                  alt="Dodo Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
             </div>
           </div>
 
           <div className="item-right item3">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ} 
-                alt="XYZ Sponsor" 
-                className="sponsor-image" 
+              <img
+                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ}
+                alt="XYZ Sponsor"
+                className="sponsor-image"
               />
             </div>
           </div>
 
           <div className="item-right item4">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
-                alt="Devfolio Sponsor" 
-                className="sponsor-image" 
+              <img
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio}
+                alt="Devfolio Sponsor"
+                className="sponsor-image"
               />
             </div>
           </div>
 
           <div className="item-right item5">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
-                alt="ETH Sponsor" 
-                className="sponsor-image" 
+              <img
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
+                alt="ETH Sponsor"
+                className="sponsor-image"
               />
             </div>
           </div>
 
           <div className="item-right item6">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ} 
-                alt="XYZ Sponsor" 
-                className="sponsor-image" 
-              />
+              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
+                  alt="Dodo Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
             </div>
           </div>
 
           <div className="item-right item7">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
-                alt="Devfolio Sponsor" 
-                className="sponsor-image" 
+              <img
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio}
+                alt="Devfolio Sponsor"
+                className="sponsor-image"
               />
             </div>
           </div>
 
           <div className="item-right item8">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
-                alt="ETH Sponsor" 
-                className="sponsor-image" 
+              <img
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
+                alt="ETH Sponsor"
+                className="sponsor-image"
               />
             </div>
           </div>
 
           <div className="item-right item9">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ} 
-                alt="XYZ Sponsor" 
-                className="sponsor-image" 
+              <img
+                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ}
+                alt="XYZ Sponsor"
+                className="sponsor-image"
               />
             </div>
           </div>
 
           <div className="item-right item10">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio} 
-                alt="Devfolio Sponsor" 
-                className="sponsor-image" 
-              />
+              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
+                  alt="Dodo Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
             </div>
           </div>
 
           <div className="item-right item11">
             <div className="testimonial-card sponsor-image-card">
-              <img 
-                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH} 
-                alt="ETH Sponsor" 
-                className="sponsor-image" 
+              <img
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
+                alt="ETH Sponsor"
+                className="sponsor-image"
               />
             </div>
           </div>
         </div>
-        
+
 
         {/* <div className="wrapper-toleft">
           <div className="item-left item1">
@@ -352,11 +359,11 @@ export default function Sponsors() {
                 <div>
                   <h4>State Bank of India</h4>
                   <p>Pune</p> */}
-                {/* </div> */}
-              {/* </div> */}
-            {/* </div> */}
-          {/* </div> */}
-        
+        {/* </div> */}
+        {/* </div> */}
+        {/* </div> */}
+        {/* </div> */}
+
       </section>
     </>
   );
