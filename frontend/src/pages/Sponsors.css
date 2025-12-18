@@ -131,7 +131,7 @@
 
 .item-left {
   width: 400px;
-  height: 295px;
+  height: 298px;
   color: #ffffff;
   background: transparent;
   border-radius: 25px;
@@ -141,56 +141,90 @@
   font-weight: bold;
   font-size: 1.2rem;
   position: absolute;
-  left: max(calc(390px * 10), 100%);
+  left: max(calc(390px * 8), 100%);
   animation-name: scrollLeft;
-  animation-duration: 50s;
+  animation-duration: 40s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
 
 
-.item1 {
+/* Animation delays for bottom carousel (11 items, 50s duration) */
+.wrapper-toright .item1 {
   animation-delay: calc(50s / 11 * (11 - 1) * -1);
 }
 
-.item2 {
+.wrapper-toright .item2 {
   animation-delay: calc(50s / 11 * (11 - 2) * -1);
 }
 
-.item3 {
+.wrapper-toright .item3 {
   animation-delay: calc(50s / 11 * (11 - 3) * -1);
 }
 
-.item4 {
+.wrapper-toright .item4 {
   animation-delay: calc(50s / 11 * (11 - 4) * -1);
 }
 
-.item5 {
+.wrapper-toright .item5 {
   animation-delay: calc(50s / 11 * (11 - 5) * -1);
 }
 
-.item6 {
+.wrapper-toright .item6 {
   animation-delay: calc(50s / 11 * (11 - 6) * -1);
 }
 
-.item7 {
+.wrapper-toright .item7 {
   animation-delay: calc(50s / 11 * (11 - 7) * -1);
 }
 
-.item8 {
+.wrapper-toright .item8 {
   animation-delay: calc(50s / 11 * (11 - 8) * -1);
 }
 
-.item9 {
+.wrapper-toright .item9 {
   animation-delay: calc(50s / 11 * (11 - 9) * -1);
 }
 
-.item10 {
+.wrapper-toright .item10 {
   animation-delay: calc(50s / 11 * (11 - 10) * -1);
 }
 
-.item11 {
+.wrapper-toright .item11 {
   animation-delay: calc(50s / 11 * (11 - 11) * -1);
+}
+
+/* Animation delays for top carousel (8 items, 40s duration) */
+.wrapper-toleft .item1 {
+  animation-delay: calc(40s / 8 * (8 - 1) * -1);
+}
+
+.wrapper-toleft .item2 {
+  animation-delay: calc(40s / 8 * (8 - 2) * -1);
+}
+
+.wrapper-toleft .item3 {
+  animation-delay: calc(40s / 8 * (8 - 3) * -1);
+}
+
+.wrapper-toleft .item4 {
+  animation-delay: calc(40s / 8 * (8 - 4) * -1);
+}
+
+.wrapper-toleft .item5 {
+  animation-delay: calc(40s / 8 * (8 - 5) * -1);
+}
+
+.wrapper-toleft .item6 {
+  animation-delay: calc(40s / 8 * (8 - 6) * -1);
+}
+
+.wrapper-toleft .item7 {
+  animation-delay: calc(40s / 8 * (8 - 7) * -1);
+}
+
+.wrapper-toleft .item8 {
+  animation-delay: calc(40s / 8 * (8 - 8) * -1);
 }
 
 .testimonial-card {

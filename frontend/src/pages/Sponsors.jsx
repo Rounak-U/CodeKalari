@@ -11,6 +11,7 @@ import Devfolio from "../assets/Devfolio.png";
 import ETH from "../assets/ETH.png";
 import XYZ from "../assets/xyz.png";
 import Dodo from "../assets/dodo.png";
+import InterviewCake from "../assets/interviewcake.png";
 
 const navItems = [
   {
@@ -71,6 +72,106 @@ export default function Sponsors() {
 
       {/* Sponsors Section */}
       <section className="testimonials-section">
+        {/* Top Tier Sponsors Carousel */}
+        <div className="wrapper-toleft">
+          <div className="item-left item1">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
+                  alt="Interview Cake Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="item-left item2">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
+                  alt="Dodo Payments Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="item-left item3">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
+                  alt="Interview Cake Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="item-left item4">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
+                  alt="Dodo Payments Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="item-left item5">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
+                  alt="Interview Cake Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="item-left item6">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
+                  alt="Dodo Payments Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="item-left item7">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
+                  alt="Interview Cake Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="item-left item8">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
+                  alt="Dodo Payments Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Sponsors Carousel */}
         <div className="wrapper-toright">
           <div className="item-right item1">
             <div className="testimonial-card sponsor-image-card">
@@ -84,13 +185,11 @@ export default function Sponsors() {
 
           <div className="item-right item2">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
-                <img
-                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
-                  alt="Dodo Sponsor"
-                  className="sponsor-image"
-                />
-              </a>
+              <img
+                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ}
+                alt="XYZ Sponsor"
+                className="sponsor-image"
+              />
             </div>
           </div>
 
@@ -126,13 +225,11 @@ export default function Sponsors() {
 
           <div className="item-right item6">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
-                <img
-                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
-                  alt="Dodo Sponsor"
-                  className="sponsor-image"
-                />
-              </a>
+              <img
+                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio}
+                alt="Devfolio Sponsor"
+                className="sponsor-image"
+              />
             </div>
           </div>
 
@@ -168,13 +265,11 @@ export default function Sponsors() {
 
           <div className="item-right item10">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
-                <img
-                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
-                  alt="Dodo Sponsor"
-                  className="sponsor-image"
-                />
-              </a>
+              <img
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
+                alt="ETH Sponsor"
+                className="sponsor-image"
+              />
             </div>
           </div>
 
