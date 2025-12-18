@@ -89,10 +89,10 @@ export default function Sponsors() {
 
           <div className="item-left item2">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
-                  alt="Interview Cake Sponsor"
+                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
+                  alt="Navan Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -101,10 +101,10 @@ export default function Sponsors() {
 
           <div className="item-left item3">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
-                  alt="Navan Sponsor"
+                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
+                  alt="Interview Cake Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -125,10 +125,10 @@ export default function Sponsors() {
 
           <div className="item-left item5">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
-                  alt="Interview Cake Sponsor"
+                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
+                  alt="Navan Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -137,10 +137,10 @@ export default function Sponsors() {
 
           <div className="item-left item6">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
-                  alt="Navan Sponsor"
+                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
+                  alt="Interview Cake Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -161,10 +161,10 @@ export default function Sponsors() {
 
           <div className="item-left item8">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
-                  alt="Interview Cake Sponsor"
+                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
+                  alt="Navan Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -173,10 +173,10 @@ export default function Sponsors() {
 
           <div className="item-left item9">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
-                  alt="Navan Sponsor"
+                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
+                  alt="Interview Cake Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -197,10 +197,10 @@ export default function Sponsors() {
 
           <div className="item-left item11">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
-                  alt="Interview Cake Sponsor"
+                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
+                  alt="Navan Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -209,10 +209,10 @@ export default function Sponsors() {
 
           <div className="item-left item12">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
-                  alt="Navan Sponsor"
+                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
+                  alt="Interview Cake Sponsor"
                   className="sponsor-image"
                 />
               </a>
