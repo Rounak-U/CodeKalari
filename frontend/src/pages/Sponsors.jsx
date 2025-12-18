@@ -186,8 +186,8 @@ export default function Sponsors() {
           <div className="item-right item2">
             <div className="testimonial-card sponsor-image-card">
               <img
-                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ}
-                alt="XYZ Sponsor"
+                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
+                alt="ETH Sponsor"
                 className="sponsor-image"
               />
             </div>
@@ -226,8 +226,8 @@ export default function Sponsors() {
           <div className="item-right item6">
             <div className="testimonial-card sponsor-image-card">
               <img
-                src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio}
-                alt="Devfolio Sponsor"
+                src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ}
+                alt="XYZ Sponsor"
                 className="sponsor-image"
               />
             </div>
@@ -258,26 +258,6 @@ export default function Sponsors() {
               <img
                 src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ}
                 alt="XYZ Sponsor"
-                className="sponsor-image"
-              />
-            </div>
-          </div>
-
-          <div className="item-right item10">
-            <div className="testimonial-card sponsor-image-card">
-              <img
-                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
-                alt="ETH Sponsor"
-                className="sponsor-image"
-              />
-            </div>
-          </div>
-
-          <div className="item-right item11">
-            <div className="testimonial-card sponsor-image-card">
-              <img
-                src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
-                alt="ETH Sponsor"
                 className="sponsor-image"
               />
             </div>
