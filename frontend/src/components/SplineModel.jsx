@@ -242,7 +242,7 @@ export default function SplineIframe() {
       }} />
 
       {/* IIITK Badge */}
-      <a id="iiitk-badge" style={{ display: 'block', maxWidth: '160px', height: '100px', minWidth: '120px', position: 'relative', top: '0', width: '12%', zIndex: 10000 }} href="https://www.iiitkottayam.ac.in/?ref=cybrhome#!/home" target="_blank" rel="noreferrer">
+      <a id="iiitk-badge" style={{ display: 'block', maxWidth: '160px', height: '100px', minWidth: '120px', position: 'relative', top: '0', width: '12%', zIndex: 10000 }} href="https://iiitkottayam.ac.in" target="_blank" rel="noreferrer">
         <img src={typeof IIITK === 'string' ? IIITK : IIITK.src || IIITK.default || IIITK} alt="IIIT Kottayam" style={{ width: '100%' }} />
       </a>
       {/* <a id="mlh-trust-badge" style={{ display: 'block', maxWidth: '100px', minWidth: '60px', position: 'fixed', right: '50px', top: '0', width: '10%', zIndex: 10000 }} href="https://mlh.io/apac?utm_source=apac-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white" target="_blank" rel="noreferrer">

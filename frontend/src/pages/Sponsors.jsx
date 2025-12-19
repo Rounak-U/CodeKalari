@@ -90,7 +90,7 @@ export default function Sponsors() {
 
           <div className="item-left item2">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://navan.ai" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
                   alt="Navan Sponsor"
@@ -138,7 +138,7 @@ export default function Sponsors() {
 
           <div className="item-left item6">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://navan.ai" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
                   alt="Navan Sponsor"
@@ -186,7 +186,7 @@ export default function Sponsors() {
 
           <div className="item-left item10">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://navan.ai" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
                   alt="Navan Sponsor"
