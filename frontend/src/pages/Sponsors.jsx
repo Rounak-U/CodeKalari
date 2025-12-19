@@ -13,6 +13,7 @@ import XYZ from "../assets/xyz.png";
 import Dodo from "../assets/dodo.png";
 import InterviewCake from "../assets/interviewcake.png";
 import Navan from "../assets/navan.png";
+import Mastra from "../assets/mastra.png";
 
 const navItems = [
   {
@@ -101,10 +102,10 @@ export default function Sponsors() {
 
           <div className="item-left item3">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://mastra.ai" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
-                  alt="Interview Cake Sponsor"
+                  src={typeof Mastra === 'string' ? Mastra : Mastra.src || Mastra.default || Mastra}
+                  alt="Mastra Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -113,10 +114,10 @@ export default function Sponsors() {
 
           <div className="item-left item4">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
-                  alt="Dodo Payments Sponsor"
+                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
+                  alt="Interview Cake Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -125,10 +126,10 @@ export default function Sponsors() {
 
           <div className="item-left item5">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
-                  alt="Navan Sponsor"
+                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
+                  alt="Dodo Payments Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -137,10 +138,10 @@ export default function Sponsors() {
 
           <div className="item-left item6">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
-                  alt="Interview Cake Sponsor"
+                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
+                  alt="Navan Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -149,10 +150,10 @@ export default function Sponsors() {
 
           <div className="item-left item7">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://mastra.ai" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
-                  alt="Dodo Payments Sponsor"
+                  src={typeof Mastra === 'string' ? Mastra : Mastra.src || Mastra.default || Mastra}
+                  alt="Mastra Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -160,18 +161,6 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item8">
-            <div className="testimonial-card sponsor-image-card">
-              <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
-                <img
-                  src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
-                  alt="Navan Sponsor"
-                  className="sponsor-image"
-                />
-              </a>
-            </div>
-          </div>
-
-          <div className="item-left item9">
             <div className="testimonial-card sponsor-image-card">
               <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
@@ -183,7 +172,7 @@ export default function Sponsors() {
             </div>
           </div>
 
-          <div className="item-left item10">
+          <div className="item-left item9">
             <div className="testimonial-card sponsor-image-card">
               <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
                 <img
@@ -195,12 +184,24 @@ export default function Sponsors() {
             </div>
           </div>
 
-          <div className="item-left item11">
+          <div className="item-left item10">
             <div className="testimonial-card sponsor-image-card">
               <a href="https://navan.com" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
                   alt="Navan Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="item-left item11">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://mastra.ai" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof Mastra === 'string' ? Mastra : Mastra.src || Mastra.default || Mastra}
+                  alt="Mastra Sponsor"
                   className="sponsor-image"
                 />
               </a>
