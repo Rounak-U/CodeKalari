@@ -146,6 +146,19 @@
   display: block;
 }
 
+/* Desktop robot image - positioned lower on screen */
+.spline-desktop-image {
+  position: absolute;
+  inset: 0;
+  top: 20%;
+  width: 100% !important;
+  height: 88% !important;
+  object-fit: contain;
+  object-position: center bottom;
+  z-index: 3;
+  display: block;
+}
+
 /* Fixed sponsor logos (top-right) */
 .sponsor-logos {
   position: relative;
