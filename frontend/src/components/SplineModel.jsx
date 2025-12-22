@@ -9,6 +9,7 @@ const DynamicSpline = dynamic(() => import('@splinetool/react-spline').then(m =>
 import Apply from "../assets/Apply1.png";
 import IIITK from "../assets/IIITK2.png";
 import RobotImage from "../assets/Rob.png";
+import RobotImageDesktop from "../assets/Rob2.png"; // Desktop robot image
 import './SplineModel.css';
 export default function SplineIframe() {
   const [showDevfolioFallback, setShowDevfolioFallback] = useState(false);
@@ -207,7 +208,17 @@ export default function SplineIframe() {
             alt="Code Kalari robot"
             style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
           />
-        ) : (shouldLoadSpline && isVisible) ? (
+        ) : (
+          // Desktop view - show Rob2.png instead of Spline model
+          <img
+            className="spline-desktop-image"
+            src={typeof RobotImageDesktop === 'string' ? RobotImageDesktop : RobotImageDesktop.src || RobotImageDesktop.default || RobotImageDesktop}
+            alt="Code Kalari robot"
+            style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+          />
+        )}
+        {/* COMMENTED OUT: Original Spline 3D Model for Desktop
+        {(shouldLoadSpline && isVisible) ? (
           <div className="spline-scene-wrapper" style={{ width: '100%', height: '100%', right: '100px' }}>
             <DynamicSpline scene="https://prod.spline.design/kjVjvsRXVMk-LaVx/scene.splinecode" />
           </div>
@@ -227,6 +238,7 @@ export default function SplineIframe() {
             }}
           />
         )}
+        */}
       </div>
 
       {/* Overlay to hide Spline watermark at bottom-right */}
