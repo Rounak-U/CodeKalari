@@ -1,11 +1,11 @@
 "use client"; // ensures this runs only on the client side
-import { useEffect, useRef, useState } from 'react';
-import dynamic from 'next/dynamic';
+import { useEffect, useState } from 'react';
+// import dynamic from 'next/dynamic';
 // Dynamically import Spline so we don't include it in the initial bundle and can control when it loads
-const DynamicSpline = dynamic(() => import('@splinetool/react-spline').then(m => m.default), {
-  ssr: false,
-  loading: () => <div className="spline-loading-placeholder" aria-hidden />,
-});
+// const DynamicSpline = dynamic(() => import('@splinetool/react-spline').then(m => m.default), {
+//   ssr: false,
+//   loading: () => <div className="spline-loading-placeholder" aria-hidden />,
+// });
 import Apply from "../assets/Apply1.png";
 import IIITK from "../assets/IIITK2.png";
 import RobotImage from "../assets/Rob.png";
@@ -13,14 +13,14 @@ import RobotImageDesktop from "../assets/Rob2.png"; // Desktop robot image
 import './SplineModel.css';
 export default function SplineIframe() {
   const [showDevfolioFallback, setShowDevfolioFallback] = useState(false);
-  const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
-  const [lowEndFallback, setLowEndFallback] = useState(false);
+  // const [shouldLoadSpline, setShouldLoadSpline] = useState(false);
+  // const [lowEndFallback, setLowEndFallback] = useState(false);
   const [isMobileView, setIsMobileView] = useState(false);
   const [isIpadView, setIsIpadView] = useState(false);
   // track whether the spline is in the viewport (visible) so we can unmount/halt when it isn't
-  const [isVisible, setIsVisible] = useState(false);
-  const containerRef = useRef(null);
-  const hideTimer = useRef(null);
+  // const [isVisible, setIsVisible] = useState(false);
+  // const containerRef = useRef(null);
+  // const hideTimer = useRef(null);
   useEffect(() => {
     const existing = document.getElementById('devfolio-sdk');
     if (!existing) {
@@ -40,76 +40,76 @@ export default function SplineIframe() {
     return () => clearTimeout(timer);
   }, []);
 
-  // decide whether to load Spline based on device capability & viewport exposure
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
+  // COMMENTED OUT: decide whether to load Spline based on device capability & viewport exposure
+  // useEffect(() => {
+  //   if (typeof window === 'undefined') return;
 
-    const isLowEnd = () => {
-      try {
-        // navigator.deviceMemory is an approximation of RAM in GB (may be undefined)
-        const mem = navigator.deviceMemory || 4;
-        const cores = navigator.hardwareConcurrency || 4;
-        const connection = navigator.connection || {};
-        const saveData = connection.saveData;
-        const effectiveType = (connection.effectiveType || '').toLowerCase();
+  //   const isLowEnd = () => {
+  //     try {
+  //       // navigator.deviceMemory is an approximation of RAM in GB (may be undefined)
+  //       const mem = navigator.deviceMemory || 4;
+  //       const cores = navigator.hardwareConcurrency || 4;
+  //       const connection = navigator.connection || {};
+  //       const saveData = connection.saveData;
+  //       const effectiveType = (connection.effectiveType || '').toLowerCase();
 
-        // Heuristic: low memory (<2GB), low cores (<=2), or saveData enabled or very slow connection -> low-end
-        // Also respect prefers-reduced-motion to avoid expensive renders
-        const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        // Add explicit mobile check as low-end: narrow widths should show the image fallback
-        const mobileMatch = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
-        if (mobileMatch) return true;
-        if (mem < 2 || cores <= 2 || saveData || /2g|slow-2g/.test(effectiveType) || prefersReducedMotion) return true;
-      } catch (err) {
-        return false;
-      }
-      return false;
-    };
+  //       // Heuristic: low memory (<2GB), low cores (<=2), or saveData enabled or very slow connection -> low-end
+  //       // Also respect prefers-reduced-motion to avoid expensive renders
+  //       const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  //       // Add explicit mobile check as low-end: narrow widths should show the image fallback
+  //       const mobileMatch = window.matchMedia && window.matchMedia('(max-width: 768px)').matches;
+  //       if (mobileMatch) return true;
+  //       if (mem < 2 || cores <= 2 || saveData || /2g|slow-2g/.test(effectiveType) || prefersReducedMotion) return true;
+  //     } catch (err) {
+  //       return false;
+  //     }
+  //     return false;
+  //   };
 
-    // IntersectionObserver to only load Spline when in viewport
-    const observer = new IntersectionObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.isIntersecting) {
-          // visible: clear any pending hide timer
-          if (hideTimer.current) {
-            clearTimeout(hideTimer.current);
-            hideTimer.current = null;
-          }
-          setIsVisible(true);
-          // if it's a low-end device, render fallback placeholder
-          if (isLowEnd()) {
-            setLowEndFallback(true);
-            setShouldLoadSpline(false);
-          } else {
-            // Defer loading to idle moment - only need to set once
-            if (!shouldLoadSpline) {
-              if (window.requestIdleCallback) {
-                window.requestIdleCallback(() => setShouldLoadSpline(true));
-              } else {
-                setTimeout(() => setShouldLoadSpline(true), 300);
-              }
-            }
-          }
-        } else {
-          // Not visible: schedule a small delay before hiding to avoid rapid mount/unmounts
-          if (hideTimer.current) clearTimeout(hideTimer.current);
-          hideTimer.current = setTimeout(() => {
-            setIsVisible(false);
-          }, 500);
-        }
-      }
-    }, { rootMargin: '200px' });
+  //   // IntersectionObserver to only load Spline when in viewport
+  //   const observer = new IntersectionObserver((entries) => {
+  //     for (const entry of entries) {
+  //       if (entry.isIntersecting) {
+  //         // visible: clear any pending hide timer
+  //         if (hideTimer.current) {
+  //           clearTimeout(hideTimer.current);
+  //           hideTimer.current = null;
+  //         }
+  //         setIsVisible(true);
+  //         // if it's a low-end device, render fallback placeholder
+  //         if (isLowEnd()) {
+  //           setLowEndFallback(true);
+  //           setShouldLoadSpline(false);
+  //         } else {
+  //           // Defer loading to idle moment - only need to set once
+  //           if (!shouldLoadSpline) {
+  //             if (window.requestIdleCallback) {
+  //               window.requestIdleCallback(() => setShouldLoadSpline(true));
+  //             } else {
+  //               setTimeout(() => setShouldLoadSpline(true), 300);
+  //             }
+  //           }
+  //         }
+  //       } else {
+  //         // Not visible: schedule a small delay before hiding to avoid rapid mount/unmounts
+  //         if (hideTimer.current) clearTimeout(hideTimer.current);
+  //         hideTimer.current = setTimeout(() => {
+  //           setIsVisible(false);
+  //         }, 500);
+  //       }
+  //     }
+  //   }, { rootMargin: '200px' });
 
-    if (containerRef.current) observer.observe(containerRef.current);
+  //   if (containerRef.current) observer.observe(containerRef.current);
 
-    return () => {
-      observer.disconnect();
-      if (hideTimer.current) {
-        clearTimeout(hideTimer.current);
-        hideTimer.current = null;
-      }
-    };
-  }, []);
+  //   return () => {
+  //     observer.disconnect();
+  //     if (hideTimer.current) {
+  //       clearTimeout(hideTimer.current);
+  //       hideTimer.current = null;
+  //     }
+  //   };
+  // }, []);
 
   // track mobile viewport state for dynamic updates
   useEffect(() => {
@@ -199,8 +199,8 @@ export default function SplineIframe() {
         </h1>
       </div>
       {/* Spline 3D Model - on top of text */}
-      <div ref={containerRef} style={{ position: "absolute", inset: 0, zIndex: 3, }}>
-        {(isMobileView || isIpadView || lowEndFallback) ? (
+      <div style={{ position: "absolute", inset: 0, zIndex: 3, }}>
+        {(isMobileView || isIpadView) ? (
           // On mobile / low-end devices show a static image that occupies the same space as the model
           <img
             className="spline-mobile-image"
@@ -241,7 +241,7 @@ export default function SplineIframe() {
         */}
       </div>
 
-      {/* Overlay to hide Spline watermark at bottom-right */}
+      {/* COMMENTED OUT: Overlay to hide Spline watermark at bottom-right */}
       <div style={{
         position: "absolute",
         bottom: 6,
