@@ -27,31 +27,38 @@ const timelineEvents = [
   },
   {
     id: 4,
-    title: "Third Release of Shortlisted Teams",
-    date: "5th January",
-    description: "Final shortlist of teams will be released.",
+    title: "Last Date for Registration",
+    date: "31st December",
+    description: "Final deadline to register for Code Kalari. Ensure your team submission is complete by this date.",
     position: "right"
   },
   {
     id: 5,
-    title: "Last Date to RSVP",
-    date: "9th January",
-    description: "Deadline to confirm your participation. Selected teams must RSVP by this date to secure their spot.",
+    title: "Third Release of Shortlisted Teams",
+    date: "5th January",
+    description: "Final shortlist of teams will be released.",
     position: "left"
   },
   {
     id: 6,
-    title: "Commencement of Hackathon",
-    date: "17th January",
-    description: "The hackathon begins! Join us at the venue for an intense day of innovation and coding.",
+    title: "Last Date to RSVP",
+    date: "9th January",
+    description: "Deadline to confirm your participation. Selected teams must RSVP by this date to secure their spot.",
     position: "right"
   },
   {
     id: 7,
+    title: "Commencement of Hackathon",
+    date: "17th January",
+    description: "The hackathon begins! Join us at the venue for an intense day of innovation and coding.",
+    position: "left"
+  },
+  {
+    id: 8,
     title: "Finale of Hackathon",
     date: "18th January",
     description: "Grand finale and prize distribution. Present your projects and compete for exciting prizes!",
-    position: "left"
+    position: "right"
   }
 ];
 
