@@ -251,6 +251,17 @@
     top: 0% !important;
     height: auto !important;
   }
+  /* Akumen badge mobile - positioned to right */
+  /* keep Akumen badge anchored to the spline container bottom-right on mobile too */
+  #akumen-badge {
+    width: 20% !important;
+    max-width: 160px !important;
+    position: absolute !important;
+    right: 14px !important;
+    bottom: 14px !important;
+    left: auto !important;
+    height: auto !important;
+  }
 }
 
 /* iPad-specific styles: treat like mobile (static Spline) but tuned for tablet dimensions */
@@ -325,6 +336,15 @@
     top: 2% !important;
     height: auto !important;
     z-index: 10000;
+  }
+  /* keep Akumen badge anchored to bottom-right of the spline container on tablets */
+  #akumen-badge {
+    position: absolute !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    width: 14% !important;
+    max-width: 180px !important;
+    z-index: 10000 !important;
   }
 
   /* Ensure fallback image covers area well on tablets */
@@ -416,4 +436,28 @@
 /* Ensure container hides overflow so the mobile image and button stay visually contained */
 .spline-model-container {
   overflow: hidden;
+}
+
+/* Akumen badge styling: anchored to the spline container bottom-right and large */
+#akumen-badge {
+  display: block;
+  max-width: 320px;
+  width: 220px;
+  min-width: 140px;
+  position: absolute; /* absolute relative to .spline-model-container */
+  right: 32px;
+  bottom: 32px;
+  z-index: 10000;
+  pointer-events: auto;
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* tablet: place akumen near the top-right */
+  #akumen-badge {
+    position: fixed !important;
+    right: 20px !important;
+    top: 2% !important;
+    width: 14% !important;
+    max-width: 140px !important;
+  }
 }
