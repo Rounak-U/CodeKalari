@@ -15,6 +15,30 @@
   gap: 1rem;
 }
 
+/* Layout for hero title + logo */
+.sponsors-hero-inner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.sponsors-hero-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sponsors-hero-logo {
+  width: 140px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
 .sponsors-eyebrow {
   display: inline-block;
   font-size: 0.75rem;
@@ -263,6 +287,62 @@
   background: transparent;
 }
 
+/* Solo sponsor (Akumen) styling */
+.solo-sponsor {
+  /* Center the solo sponsor card between the hero and carousels */
+  position: static;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 18px 0 6px;
+  max-width: 1100px;
+  width: 100%;
+  margin: 0 auto 1rem;
+}
+
+.solo-sponsor-card {
+  padding: 14px;
+  max-width: 520px; /* slightly larger than before */
+  width: 100%;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(132,0,255,0.06) inset;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.04);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+}
+
+.solo-sponsor-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Keep centered/stacked layout on medium and small screens */
+@media (max-width: 1024px) {
+  .solo-sponsor {
+    /* already centered by default; keep sizes conservative on medium screens */
+    padding: 12px 0 6px;
+    max-width: 900px;
+    justify-content: center;
+  }
+
+  .solo-sponsor-card {
+    max-width: 420px;
+    width: 80%;
+    padding: 12px;
+  }
+
+  /* Stack hero title and logo on narrower screens */
+  .sponsors-hero-inner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .sponsors-hero-logo {
+    width: 120px;
+  }
+}
+
 .sponsor-image {
   width: 100%;
   height: 100%;
@@ -463,6 +543,17 @@
     margin-top: 1rem !important;
   }
 
+  .solo-sponsor-card {
+    max-width: 320px;
+    width: 92%;
+    padding: 10px;
+  }
+
+  /* Slightly reduce hero logo on small phones */
+  .sponsors-hero-logo {
+    width: 100px;
+  }
+
   .wrapper-toright {
     width: 100%;
     padding: 0 8px;
@@ -553,6 +644,16 @@
   .wrapper-toleft {
     height: 280px !important;
     margin-top: 0.5rem !important;
+  }
+
+  .solo-sponsor-card {
+    max-width: 280px;
+    width: 96%;
+    padding: 8px;
+  }
+
+  .sponsors-hero-logo {
+    width: 88px;
   }
 
   .wrapper-toright {

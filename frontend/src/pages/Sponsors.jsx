@@ -74,6 +74,12 @@ export default function Sponsors() {
 
       {/* Sponsors Section */}
       <section className="testimonials-section">
+        {/* Solo sponsor (Akumen) - placed above the carousels */}
+        <div className="solo-sponsor">
+          <div className="testimonial-card sponsor-image-card solo-sponsor-card">
+            <img src="/akumen.jpeg" alt="Akumen Sponsor" className="solo-sponsor-image" />
+          </div>
+        </div>
         {/* Top Tier Sponsors Carousel */}
         <div className="wrapper-toleft">
           <div className="item-left item1">
