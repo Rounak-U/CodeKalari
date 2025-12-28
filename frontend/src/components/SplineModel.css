@@ -431,6 +431,18 @@
     margin-left: 0% !important;
     margin-top: 0% !important;
   }
+
+  /* Place Akumen badge at top-right on narrow phones */
+  #akumen-badge {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    bottom: auto !important;
+    width: 28% !important;
+    max-width: 140px !important;
+    min-width: 80px !important;
+    z-index: 10001 !important;
+  }
 }
 
 /* Ensure container hides overflow so the mobile image and button stay visually contained */
