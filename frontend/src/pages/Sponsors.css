@@ -508,6 +508,34 @@
   /* visible on dark background */
 }
 
+/* Desktop: Adjust sponsor sizes */
+@media (min-width: 1025px) {
+
+  /* Solo sponsors: slightly increase size */
+  .solo-sponsor .testimonial-card {
+    max-width: 415px;
+    height: 305px;
+  }
+
+  /* Carousel sponsors: slightly reduce size */
+  .carousel-sponsor-card {
+    max-width: 380px;
+    height: 283px;
+  }
+
+  .wrapper-toleft .item-left {
+    width: 380px;
+    height: 283px;
+    left: max(calc(370px * 7.7), 100%);
+  }
+
+  .wrapper-toright .item-right {
+    width: 380px;
+    height: 283px;
+    right: max(calc(370px * 11), 100%);
+  }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .testimonials-section {

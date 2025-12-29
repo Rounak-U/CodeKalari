@@ -91,7 +91,7 @@ export default function Sponsors() {
         {/* Top Tier Sponsors Carousel */}
         <div className="wrapper-toleft">
           <div className="item-left item1">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
@@ -103,7 +103,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item2">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://navan.ai" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
@@ -115,7 +115,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item3">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://mastra.ai" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Mastra === 'string' ? Mastra : Mastra.src || Mastra.default || Mastra}
@@ -127,7 +127,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item4">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
@@ -139,7 +139,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item5">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
@@ -151,7 +151,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item6">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://navan.ai" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
@@ -163,7 +163,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item7">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://mastra.ai" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Mastra === 'string' ? Mastra : Mastra.src || Mastra.default || Mastra}
@@ -175,7 +175,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item8">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
@@ -187,7 +187,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item9">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
@@ -199,7 +199,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item10">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://navan.ai" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
@@ -211,7 +211,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item11">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://mastra.ai" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Mastra === 'string' ? Mastra : Mastra.src || Mastra.default || Mastra}
@@ -223,7 +223,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-left item12">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof InterviewCake === 'string' ? InterviewCake : InterviewCake.src || InterviewCake.default || InterviewCake}
@@ -238,7 +238,7 @@ export default function Sponsors() {
         {/* Main Sponsors Carousel */}
         <div className="wrapper-toright">
           <div className="item-right item1">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio}
                 alt="Devfolio Sponsor"
@@ -248,7 +248,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item2">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
                 alt="ETH Sponsor"
@@ -258,7 +258,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item3">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ}
                 alt="XYZ Sponsor"
@@ -268,7 +268,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item4">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio}
                 alt="Devfolio Sponsor"
@@ -278,7 +278,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item5">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
                 alt="ETH Sponsor"
@@ -288,7 +288,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item6">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ}
                 alt="XYZ Sponsor"
@@ -298,7 +298,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item7">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio}
                 alt="Devfolio Sponsor"
@@ -308,7 +308,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item8">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
                 alt="ETH Sponsor"
@@ -318,7 +318,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item9">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ}
                 alt="XYZ Sponsor"
@@ -328,7 +328,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item10">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof Devfolio === 'string' ? Devfolio : Devfolio.src || Devfolio.default || Devfolio}
                 alt="Devfolio Sponsor"
@@ -338,7 +338,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item11">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof ETH === 'string' ? ETH : ETH.src || ETH.default || ETH}
                 alt="ETH Sponsor"
@@ -348,7 +348,7 @@ export default function Sponsors() {
           </div>
 
           <div className="item-right item12">
-            <div className="testimonial-card sponsor-image-card">
+            <div className="testimonial-card carousel-sponsor-card sponsor-image-card">
               <img
                 src={typeof XYZ === 'string' ? XYZ : XYZ.src || XYZ.default || XYZ}
                 alt="XYZ Sponsor"
