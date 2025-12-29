@@ -258,8 +258,8 @@ export default function SplineIframe() {
         <img src={typeof IIITK === 'string' ? IIITK : IIITK.src || IIITK.default || IIITK} alt="IIIT Kottayam" style={{ width: '100%' }} />
       </a>
       {/* Akumen Badge (solo sponsor) - placed on the spline scene as well (bottom-right on desktop) */}
-      <a id="akumen-badge" href="/akumen.jpeg" target="_blank" rel="noreferrer" aria-label="Akumen Sponsor">
-        <img src="/akumen.jpeg" alt="Akumen Sponsor" style={{ width: '100%', display: 'block' }} />
+      <a id="akumen-badge" href="/akumen.png" target="_blank" rel="noreferrer" aria-label="Akumen Sponsor">
+        <img src="/akumen.png" alt="Akumen Sponsor" style={{ width: '100%', display: 'block' }} />
       </a>
       
       {/* <a id="mlh-trust-badge" style={{ display: 'block', maxWidth: '100px', minWidth: '60px', position: 'fixed', right: '50px', top: '0', width: '10%', zIndex: 10000 }} href="https://mlh.io/apac?utm_source=apac-hackathon&utm_medium=TrustBadge&utm_campaign=2026-season&utm_content=white" target="_blank" rel="noreferrer">

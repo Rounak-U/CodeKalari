@@ -450,15 +450,15 @@
   overflow: hidden;
 }
 
-/* Akumen badge styling: anchored to the spline container bottom-right and large */
+/* Akumen badge styling: positioned under "ri" of KALARI on desktop */
 #akumen-badge {
   display: block;
-  max-width: 320px;
-  width: 220px;
-  min-width: 140px;
+  width: 24vw; /* viewport width units for consistent sizing like text and robot */
+  max-width: none;
+  min-width: none;
   position: absolute; /* absolute relative to .spline-model-container */
-  right: 32px;
-  bottom: 32px;
+  right: 8%;
+  top: 50%;
   z-index: 10000;
   pointer-events: auto;
 }
