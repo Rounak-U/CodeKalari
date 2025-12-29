@@ -254,8 +254,8 @@
   /* Akumen badge mobile - positioned to right */
   /* keep Akumen badge anchored to the spline container bottom-right on mobile too */
   #akumen-badge {
-    width: 28% !important;
-    max-width: 220px !important;
+    width: 40% !important;
+    max-width: 300px !important;
     position: absolute !important;
     right: 14px !important;
     bottom: 14px !important;
@@ -342,8 +342,8 @@
     position: absolute !important;
     right: 20px !important;
     bottom: 20px !important;
-    width: 14% !important;
-    max-width: 180px !important;
+    width: 26% !important;
+    max-width: 260px !important;
     z-index: 10000 !important;
   }
 
@@ -438,9 +438,9 @@
     top: 12px !important;
     right: 12px !important;
     bottom: auto !important;
-    width: 28% !important;
-    max-width: 140px !important;
-    min-width: 80px !important;
+    width: 35% !important;
+    max-width: 180px !important;
+    min-width: 100px !important;
     z-index: 10001 !important;
   }
 }
