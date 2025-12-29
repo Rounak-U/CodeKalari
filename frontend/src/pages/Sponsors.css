@@ -35,8 +35,8 @@
   height: auto;
   object-fit: contain;
   border-radius: 10px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .sponsors-eyebrow {
@@ -302,12 +302,13 @@
 
 .solo-sponsor-card {
   padding: 14px;
-  max-width: 520px; /* slightly larger than before */
+  max-width: 520px;
+  /* slightly larger than before */
   width: 100%;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(132,0,255,0.06) inset;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(132, 0, 255, 0.06) inset;
   border-radius: 14px;
-  border: 1px solid rgba(255,255,255,0.04);
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
 }
 
 .solo-sponsor-image {

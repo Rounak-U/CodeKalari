@@ -14,6 +14,7 @@ import Dodo from "../assets/dodo.png";
 import InterviewCake from "../assets/interviewcake.png";
 import Navan from "../assets/navan.png";
 import Mastra from "../assets/mastra.png";
+import Modisconto from "../assets/modisconto.png";
 
 const navItems = [
   {
@@ -78,6 +79,13 @@ export default function Sponsors() {
         <div className="solo-sponsor">
           <div className="testimonial-card sponsor-image-card">
             <img src="/akumen.png" alt="Akumen Sponsor" className="sponsor-image" />
+          </div>
+        </div>
+
+        {/* Modisconto Sponsor */}
+        <div className="solo-sponsor">
+          <div className="testimonial-card sponsor-image-card">
+            <img src={Modisconto.src} alt="Modisconto Sponsor" className="sponsor-image" />
           </div>
         </div>
         {/* Top Tier Sponsors Carousel */}

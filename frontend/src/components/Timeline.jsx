@@ -28,7 +28,7 @@ const timelineEvents = [
   {
     id: 4,
     title: "Last Date for Registration",
-    date: "31st December",
+    date: "2nd January",
     description: "Final deadline to register for Code Kalari. Ensure your team submission is complete by this date.",
     position: "right"
   },
