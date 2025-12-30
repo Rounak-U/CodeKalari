@@ -35,8 +35,8 @@
   height: auto;
   object-fit: contain;
   border-radius: 10px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
 .sponsors-eyebrow {
@@ -94,9 +94,10 @@
   max-width: 100%;
   margin-inline: auto;
   position: relative;
-  height: 400px;
-  margin-top: 2rem;
-  padding-top: 2rem;
+  height: 320px;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  margin-bottom: -1rem;
   overflow: hidden;
   mask-image: linear-gradient(to right,
       rgba(0, 0, 0, 0),
@@ -110,8 +111,8 @@
   max-width: 100%;
   margin-inline: auto;
   position: relative;
-  height: 400px;
-  margin-top: 2rem;
+  height: 320px;
+  margin-top: 0;
   margin-bottom: -5%;
   overflow: hidden;
   mask-image: linear-gradient(to right,
@@ -124,20 +125,20 @@
 /* Animation for scrolling */
 @keyframes scrollLeft {
   to {
-    left: -400px;
+    left: -320px;
   }
 }
 
 @keyframes scrollRight {
   to {
-    right: -400px;
+    right: -320px;
   }
 }
 
 .testimonials-section .item-right {
-  width: 400px;
-  height: 298px;
-  border-radius: 25px;
+  width: 320px;
+  height: 240px;
+  border-radius: 20px;
   background: transparent;
   display: flex;
   justify-content: center;
@@ -146,7 +147,7 @@
   font-size: 1.2rem;
   color: white;
   position: absolute;
-  right: max(calc(390px * 11), 100%);
+  right: max(calc(310px * 11), 100%);
   animation-name: scrollRight;
   animation-duration: 50s;
   animation-timing-function: linear;
@@ -154,18 +155,18 @@
 }
 
 .item-left {
-  width: 400px;
-  height: 298px;
+  width: 320px;
+  height: 240px;
   color: #ffffff;
   background: transparent;
-  border-radius: 25px;
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   font-size: 1.2rem;
   position: absolute;
-  left: max(calc(390px * 7.7), 100%);
+  left: max(calc(310px * 7.7), 100%);
   animation-name: scrollLeft;
   animation-duration: 40s;
   animation-timing-function: linear;
@@ -259,10 +260,10 @@
   -webkit-backdrop-filter: blur(20px);
   border-radius: 20px;
   padding: 24px;
-  height: 290px;
-  max-width: 400px;
+  height: 230px;
+  max-width: 320px;
   width: 100%;
-  margin: 20px auto;
+  margin: 10px auto;
   box-shadow:
     0 15px 40px rgba(0, 0, 0, 0.6),
     0 0 0 1px rgba(132, 0, 255, 0.15) inset;
@@ -287,7 +288,7 @@
   background: transparent;
 }
 
-/* Solo sponsor (Akumen) styling */
+/* Solo sponsor (Akumen) styling - Title Sponsor gets larger size */
 .solo-sponsor {
   /* Center the solo sponsor card between the hero and carousels */
   position: static;
@@ -297,18 +298,36 @@
   padding: 0;
   max-width: 1100px;
   width: 100%;
-  margin: 0 auto 2rem;
+  margin: 0 auto 1rem;
+}
+
+/* Desktop and tablet view - add more bottom margin */
+@media (min-width: 769px) {
+  .solo-sponsor {
+    margin-bottom: 50px;
+  }
+}
+
+/* Title sponsor (first solo-sponsor / Akumen) stays large */
+.solo-sponsor:first-of-type .testimonial-card {
+  height: 290px;
+  max-width: 400px;
+}
+
+/* Secondary solo sponsors (like Modisconto) are smaller */
+.solo-sponsor:not(:first-of-type) .testimonial-card {
+  height: 230px;
+  max-width: 320px;
 }
 
 .solo-sponsor-card {
   padding: 14px;
-  max-width: 520px;
-  /* slightly larger than before */
+  max-width: 520px; /* slightly larger than before */
   width: 100%;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(132, 0, 255, 0.06) inset;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.55), 0 0 0 1px rgba(132,0,255,0.06) inset;
   border-radius: 14px;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255,255,255,0.04);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
 }
 
 .solo-sponsor-image {
@@ -506,34 +525,6 @@
   font-weight: 600;
   color: #ffffff;
   /* visible on dark background */
-}
-
-/* Desktop: Adjust sponsor sizes */
-@media (min-width: 1025px) {
-
-  /* Solo sponsors: slightly increase size */
-  .solo-sponsor .testimonial-card {
-    max-width: 415px;
-    height: 305px;
-  }
-
-  /* Carousel sponsors: slightly reduce size */
-  .carousel-sponsor-card {
-    max-width: 380px;
-    height: 283px;
-  }
-
-  .wrapper-toleft .item-left {
-    width: 380px;
-    height: 283px;
-    left: max(calc(370px * 7.7), 100%);
-  }
-
-  .wrapper-toright .item-right {
-    width: 380px;
-    height: 283px;
-    right: max(calc(370px * 11), 100%);
-  }
 }
 
 /* Mobile Responsive */
