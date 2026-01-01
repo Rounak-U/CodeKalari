@@ -284,8 +284,8 @@ export default function SplineIframe() {
           </a>
         </div>
       </div>
-      <div className="spline-action-button">
-      </div>
+      {/* <div className="spline-action-button">
+      </div> */}
     </div>
   );
 }
