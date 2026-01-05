@@ -78,7 +78,9 @@ export default function Sponsors() {
         {/* Solo sponsor (Akumen) - placed above the carousels */}
         <div className="solo-sponsor">
           <div className="testimonial-card sponsor-image-card">
+            <a href="https://www.akumenbyq.com/" target="_blank" rel="noopener noreferrer">
             <img src="/akumen.png" alt="Akumen Sponsor" className="sponsor-image" />
+            </a>
           </div>
         </div>
         {/* Top Tier Sponsors Carousel */}
