@@ -255,6 +255,7 @@ export default function Sponsors() {
           </div>
 
           
+        </div>
 
         {/* Solo sponsor (Modisconto) - placed between the carousels */}
         <div className="solo-sponsor">
