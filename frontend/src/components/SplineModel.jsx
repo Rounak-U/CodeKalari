@@ -258,7 +258,7 @@ export default function SplineIframe() {
         <img src={typeof IIITK === 'string' ? IIITK : IIITK.src || IIITK.default || IIITK} alt="IIIT Kottayam" style={{ width: '100%' }} />
       </a>
       {/* Akumen Badge (solo sponsor) - placed on the spline scene as well (bottom-right on desktop) */}
-      <a id="akumen-badge" href="/akumen.png" target="_blank" rel="noreferrer" aria-label="Akumen Sponsor">
+      <a id="akumen-badge" href="https://www.akumenbyq.com/" target="_blank" rel="noreferrer" aria-label="Akumen Sponsor">
         <img src="/akumen.png" alt="Akumen Sponsor" style={{ width: '100%', display: 'block' }} />
       </a>
       
