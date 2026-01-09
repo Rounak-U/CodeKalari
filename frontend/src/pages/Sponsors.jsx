@@ -15,6 +15,7 @@ import InterviewCake from "../assets/interviewcake.png";
 import Navan from "../assets/navan.png";
 import Mastra from "../assets/mastra.png";
 import Modisconto from "../assets/modisconto.png";
+import IntBuddy from "../assets/intbuddy.png";
 
 const navItems = [
   {
@@ -133,10 +134,10 @@ export default function Sponsors() {
 
           <div className="item-left item5">
             <div className="testimonial-card sponsor-image-card">
-              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://interviewbuddy.net" target="_blank" rel="noopener noreferrer">
                 <img
-                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
-                  alt="Dodo Payments Sponsor"
+                  src={typeof IntBuddy === 'string' ? IntBuddy : IntBuddy.src || IntBuddy.default || IntBuddy}
+                  alt="IntBuddy Sponsor"
                   className="sponsor-image"
                 />
               </a>
@@ -145,6 +146,18 @@ export default function Sponsors() {
 
           <div className="item-left item6">
             <div className="testimonial-card sponsor-image-card">
+              <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof Dodo === 'string' ? Dodo : Dodo.src || Dodo.default || Dodo}
+                  alt="Dodo Payments Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="item-left item7">
+            <div className="testimonial-card sponsor-image-card">
               <a href="https://navan.ai" target="_blank" rel="noopener noreferrer">
                 <img
                   src={typeof Navan === 'string' ? Navan : Navan.src || Navan.default || Navan}
@@ -155,7 +168,7 @@ export default function Sponsors() {
             </div>
           </div>
 
-          <div className="item-left item7">
+          <div className="item-left item8">
             <div className="testimonial-card sponsor-image-card">
               <a href="https://mastra.ai" target="_blank" rel="noopener noreferrer">
                 <img
@@ -167,7 +180,7 @@ export default function Sponsors() {
             </div>
           </div>
 
-          <div className="item-left item8">
+          <div className="item-left item9">
             <div className="testimonial-card sponsor-image-card">
               <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
@@ -179,7 +192,19 @@ export default function Sponsors() {
             </div>
           </div>
 
-          <div className="item-left item9">
+          <div className="item-left item10">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://interviewbuddy.net" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof IntBuddy === 'string' ? IntBuddy : IntBuddy.src || IntBuddy.default || IntBuddy}
+                  alt="IntBuddy Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div className="item-left item11">
             <div className="testimonial-card sponsor-image-card">
               <a href="https://dodopayments.com" target="_blank" rel="noopener noreferrer">
                 <img
@@ -191,7 +216,7 @@ export default function Sponsors() {
             </div>
           </div>
 
-          <div className="item-left item10">
+          <div className="item-left item12">
             <div className="testimonial-card sponsor-image-card">
               <a href="https://navan.ai" target="_blank" rel="noopener noreferrer">
                 <img
@@ -203,7 +228,7 @@ export default function Sponsors() {
             </div>
           </div>
 
-          <div className="item-left item11">
+          <div className="item-left item13">
             <div className="testimonial-card sponsor-image-card">
               <a href="https://mastra.ai" target="_blank" rel="noopener noreferrer">
                 <img
@@ -215,7 +240,7 @@ export default function Sponsors() {
             </div>
           </div>
 
-          <div className="item-left item12">
+          <div className="item-left item14">
             <div className="testimonial-card sponsor-image-card">
               <a href="https://www.interviewcake.com" target="_blank" rel="noopener noreferrer">
                 <img
@@ -226,7 +251,8 @@ export default function Sponsors() {
               </a>
             </div>
           </div>
-        </div>
+
+          
 
         {/* Solo sponsor (Modisconto) - placed between the carousels */}
         <div className="solo-sponsor">
