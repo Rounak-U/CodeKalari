@@ -254,7 +254,17 @@ export default function Sponsors() {
             </div>
           </div>
 
-          
+          <div className="item-left item15">
+            <div className="testimonial-card sponsor-image-card">
+              <a href="https://interviewbuddy.net" target="_blank" rel="noopener noreferrer">
+                <img
+                  src={typeof IntBuddy === 'string' ? IntBuddy : IntBuddy.src || IntBuddy.default || IntBuddy}
+                  alt="IntBuddy Sponsor"
+                  className="sponsor-image"
+                />
+              </a>
+            </div>
+          </div>
         </div>
 
         {/* Solo sponsor (Modisconto) - placed between the carousels */}
