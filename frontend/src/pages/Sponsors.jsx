@@ -84,6 +84,14 @@ export default function Sponsors() {
             </a>
           </div>
         </div>
+        {/* Solo sponsor (Sassvaap) */}
+        <div className="solo-sponsor">
+          <div className="testimonial-card sponsor-image-card">
+            <a href="#" target="_blank" rel="noopener noreferrer">
+            <img src="/sassvaap.png" alt="Saasvaap Sponsor" className="sponsor-image" />
+            </a>
+          </div>
+        </div>
         {/* Top Tier Sponsors Carousel */}
         <div className="wrapper-toleft">
           <div className="item-left item1">

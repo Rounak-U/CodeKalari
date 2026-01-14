@@ -312,10 +312,20 @@
 .solo-sponsor:first-of-type .testimonial-card {
   height: 290px;
   max-width: 400px;
+  border: 2px solid gold;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
 }
 
-/* Secondary solo sponsors (like Modisconto) are smaller */
-.solo-sponsor:not(:first-of-type) .testimonial-card {
+/* Secondary solo sponsors (like Sassvaap) - same size as Akumen */
+.solo-sponsor:nth-of-type(2) .testimonial-card {
+  height: 290px;
+  max-width: 400px;
+  border: 2px solid silver;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(192, 192, 192, 0.4);
+}
+
+/* Third and beyond solo sponsors are smaller */
+.solo-sponsor:nth-of-type(n+3) .testimonial-card {
   height: 230px;
   max-width: 320px;
 }

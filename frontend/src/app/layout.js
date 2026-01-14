@@ -27,8 +27,46 @@ const exo2 = Exo_2({
 
 
 export const metadata = {
-  title: "Code Kalari",
-  description: "IIIT Kottayam Official Hackathon",
+  title: "Code Kalari - IIIT Kottayam Official Hackathon",
+  description: "Join Code Kalari, the official hackathon by IIIT Kottayam. Connect with innovators, build groundbreaking projects, and compete with the best minds in technology.",
+  keywords: ["Code Kalari", "IIIT Kottayam", "Hackathon", "Coding Competition", "Innovation", "Technology"],
+  authors: [{ name: "IIIT Kottayam" }],
+  creator: "IIIT Kottayam",
+  publisher: "IIIT Kottayam",
+  metadataBase: new URL('https://codekalari.iiittkottayam.ac.in'),
+  openGraph: {
+    title: "Code Kalari - IIIT Kottayam Official Hackathon",
+    description: "Join Code Kalari, the official hackathon by IIIT Kottayam. Connect with innovators, build groundbreaking projects, and compete with the best minds in technology.",
+    url: 'https://codekalari.iiittkottayam.ac.in',
+    siteName: 'Code Kalari',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Code Kalari - IIIT Kottayam Official Hackathon',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "Code Kalari - IIIT Kottayam Official Hackathon",
+    description: "Join Code Kalari, the official hackathon by IIIT Kottayam. Connect with innovators, build groundbreaking projects, and compete with the best minds in technology.",
+    images: ['/og-image.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     // fallback neutral favicon (used by browsers that don't support media queries)
     icon: '/favicon-li.ico',
